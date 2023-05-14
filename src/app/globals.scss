@@ -42,9 +42,9 @@ body {
     overflow-y: overlay;
     scroll-behavior: smooth;
 
-    /* ! Use local font instead of next/font/google (temp) */
+    /* ! Use Google font inside <head> instead of next/font/google (temp) */
     /* font-family: var(--font-space-grotesk), var(--font-noto-sans-tc); */
-    font-family: "Space Grotesk", "Noto Sans TC";
+    font-family: "Space Grotesk", "Noto Sans TC", sans-serif;
 	color: var(--text-primary);
 	background: var(--bg-primary);
 }
