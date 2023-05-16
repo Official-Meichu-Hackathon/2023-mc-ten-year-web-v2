@@ -2,7 +2,7 @@ export default function Qna() {
     return (
         <div>
             <header>
-                <h2>Q & A</h2>
+                <h1>Q & A</h1>
             </header>
             <main>
                 

@@ -12,17 +12,20 @@
 
 
 /* --------------------------- COLOR THEME --------------------------- */
-:root {
-    --text-primary: #464A53;
-    --bg-primary: #EBECF2;
-    --gradient-primary-c1: hsla(185, 100%, 80%, 1);
-    --gradient-primary-c2: hsla(225, 100%, 80%, 1);
-    --gradient-primary-c3: hsla(265, 100%, 80%, 1);
-    --gradient-primary: linear-gradient(60deg, var(--gradient-primary-c1) 0%, var(--gradient-primary-c2) 50%, var(--gradient-primary-c3) 100%);
+$text-primary: #464A53;
+$bg-primary: #EBECF2;
+$bg-secondary: #D9D9D9;
+$gradient-primary-c1: hsla(185, 100%, 75%, 1);
+$gradient-primary-c2: hsla(225, 100%, 75%, 1);
+$gradient-primary-c3: hsla(265, 100%, 75%, 1);
+$gradient-primary: linear-gradient(60deg, $gradient-primary-c1 0%, $gradient-primary-c2 50%, $gradient-primary-c3 100%);
 
-    --neu-shadow-c1: #FFFFFF;
-    --neu-shadow-c2: #BCBDC2;
-}
+$neu-fill-c1: #D4D4DA;
+$neu-fill-c2: #FBFDFF;
+$neu-shadow-c1: #FFFFFF;
+$neu-shadow-c2: #BCBDC2;
+
+$ease-in-quint: cubic-bezier(0.755, 0.050, 0.855, 0.060);
     
 [data-theme='dark'] {
     --text-primary: #FFFFFF;
@@ -36,22 +39,46 @@ body {
     min-height: 100vh;
     min-height: 100dvh;
     display: grid;
-    /* ? Navbar is fixed, therefore it does not count as a row inside this grid */
-    grid-template-rows: 1fr auto;
+    // # Update: Sticky navbar, therefore adding an auto
+    grid-template-rows: auto 1fr auto;
     overflow-x: hidden;
     overflow-y: overlay;
     scroll-behavior: smooth;
 
-    /* ! Use Google font inside <head> instead of next/font/google (temp) */
-    /* font-family: var(--font-space-grotesk), var(--font-noto-sans-tc); */
+    // ! Use Google font inside <head> instead of next/font/google (temp)
+    // font-family: var(--font-space-grotesk), var(--font-noto-sans-tc);
     font-family: "Space Grotesk", "Noto Sans TC", sans-serif;
-	color: var(--text-primary);
-	background: var(--bg-primary);
+	color: $text-primary;
+	background: $bg-primary;
 }
 
 .navbar-nav {
     column-gap: 4.5em;
     font-size: 0.875em;
+}
+
+.nav-link {
+    --spacing: 0.2em;
+    position: relative;
+    
+    letter-spacing: var(--spacing);
+    text-transform: uppercase;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: calc(100% - var(--spacing));
+    height: 0.125em;
+    left: 0;
+    bottom: -0.1em;
+
+    background: $text-primary;
+    border-radius: 100vw;
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+}
+.nav-link:hover::after {
+    opacity: 100;
 }
 
 
@@ -61,19 +88,19 @@ body {
     height: 100lvh;
 }
 
-.frosted {
-    --base: 0.5rem;
-
-    box-shadow: var(--base) var(--base) calc(2 * var(--base)) hsla(230, 5%, 75%, 0.65);
-    backdrop-filter: blur(var(--base));
-    -ms-backdrop-filter: blur(var(--base));
-    -moz-backdrop-filter: blur(var(--base));
-    -webkit-backdrop-filter: blur(var(--base));
-    background: hsla(0, 0%, 100%, 0.4);
+.banner-filter {
+    background: rgba($bg-primary, 0.4);
+    box-shadow: 0.5rem 0 1rem 0.1rem rgba($neu-shadow-c2, 0.5);
 }
 
-.banner-img {
-    transform: scale(1.5) translateX(17.5%) translateY(12.5%);
+// TEMP
+main {
+    article {
+        section {
+            min-height: 100vh;
+            min-height: 100dvh;
+        }
+    }
 }
 
 
@@ -81,20 +108,33 @@ body {
 /* ---------------------------- FOOTER --------------------------- */
 footer {
     height: 6rem;
-    background: var(--text-primary);
+    background: $text-primary;
 }
 
 
 
 /* ---------------------------- TEXTS ---------------------------- */
 .text-primary-gradient {
-    background: var(--gradient-primary);
+    background: $gradient-primary;
     background-clip: text;
     -moz-background-clip: text;
     -webkit-background-clip: text;
     text-fill-color: transparent;
     -moz-text-fill-color: transparent;
     -webkit-text-fill-color: transparent;
+}
+
+h1 {
+    font-size: 4em;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    line-height: 1.5;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.2;
 }
 
 p {
@@ -105,39 +145,86 @@ p {
 
 
 
-/* -------------------------- SCROLLBAR -------------------------- */
-::-webkit-scrollbar {
-    width: 12px;
-    background: transparent;
-    overflow-y: hidden;
+/* ---------------------------- STYLE ---------------------------- */
+.frost-25 {
+    --base: 0.25rem;
+    backdrop-filter: blur(var(--base));
+    -ms-backdrop-filter: blur(var(--base));
+    -moz-backdrop-filter: blur(var(--base));
+    -webkit-backdrop-filter: blur(var(--base));
+}
+.frost-50 {
+    --base: 0.5rem;
+    backdrop-filter: blur(var(--base));
+    -ms-backdrop-filter: blur(var(--base));
+    -moz-backdrop-filter: blur(var(--base));
+    -webkit-backdrop-filter: blur(var(--base));
 }
 
-::-webkit-scrollbar-thumb {
-    border: 4px solid transparent;
-    background: var(--text-primary);
-    border-radius: 12px;
-    background-clip: content-box;
+.nue-concave {
+    background: linear-gradient(135deg, rgba($neu-fill-c1, 0.85), rgba($neu-fill-c2, 0.85));
+    box-shadow: -12px -12px 24px $neu-shadow-c1,
+                12px 12px 24px $neu-shadow-c2;
+}
+.nue-pressed {
+    background: rgba($bg-primary, 0.85);
+    box-shadow: inset -12px -12px 24px $neu-shadow-c1,
+                inset 12px 12px 24px $neu-shadow-c2;
+    
 }
 
-::-webkit-scrollbar-thumb:hover {
-    border: 4px solid transparent;
-    background: var(--gradient-primary);
-    border-radius: 12px;
-    background-clip: content-box;
+.card {
+    border-radius: 4rem;
+    
+    div {
+        img {
+            aspect-ratio: 4 / 5;
+            border-radius: 2rem;
+            object-fit: cover;
+        }
+        span {
+            color: $gradient-primary-c2;
+        }
+    }
 }
 
-::-webkit-scrollbar-corner {
-    border-radius: 12px;
+.pill {
+    border-radius: 100vw;
 }
 
 
 
 /* -------------------------- SELECTION -------------------------- */
 ::selection {
-    color: var(--bg-primary);
-    background: var(--text-primary);
+    color: $bg-primary;
+    background: $text-primary;
 }
-::-moz-selection {
-    color: var(--bg-primary);
-    background: var(--text-primary);
+::-webkit-selection {
+    color: $bg-primary;
+    background: $text-primary;
+}
+
+
+
+/* -------------------------- SCROLLBAR -------------------------- */
+$scrollbar-width: 24px;
+::-webkit-scrollbar {
+    width: calc(0.6 * $scrollbar-width);
+    background: transparent;
+    overflow-y: hidden;
+}
+::-webkit-scrollbar-thumb {
+    border: calc(0.2 * $scrollbar-width) solid transparent;
+    background: $text-primary;
+    border-radius: calc(0.6 * $scrollbar-width);
+    background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+    border: calc(0.2 * $scrollbar-width) solid transparent;
+    background: $gradient-primary;
+    border-radius: calc(0.6 * $scrollbar-width);
+    background-clip: content-box;
+}
+::-webkit-scrollbar-corner {
+    border-radius: calc(0.6 * $scrollbar-width);
 }

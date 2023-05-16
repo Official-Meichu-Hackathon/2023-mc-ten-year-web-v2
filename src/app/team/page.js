@@ -2,7 +2,7 @@ export default function Team() {
     return (
         <div>
             <header>
-                <h2>Teams</h2>
+                <h1>Teams</h1>
             </header>
             <main>
             
