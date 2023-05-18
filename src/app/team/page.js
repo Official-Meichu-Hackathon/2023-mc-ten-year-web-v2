@@ -2,7 +2,7 @@ export default function Team() {
     return (
         <div>
             <header>
-                <h1>Teams</h1>
+                <h1 className="bracket">Teams</h1>
             </header>
             <main>
             

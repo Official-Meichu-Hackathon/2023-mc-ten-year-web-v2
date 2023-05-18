@@ -4,7 +4,7 @@ import refImg from "../../../public/img/Ref.png";
 export default function MemorySec() {
     return (
         <section className="p-16">
-            <h2 className="mb-10">Memory Section</h2>
+            <h2 className="bracket mb-10">Memory Section</h2>
             <div className="card nue-concave frost-25 grid md:flex p-8 gap-6 place-content-center max-w-screen-lg content-stretch">
                 <div className="max-h-full">
                     <Image

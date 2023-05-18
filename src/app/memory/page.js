@@ -2,7 +2,7 @@ export default function Memory() {
     return (
         <div>
             <header>
-                <h1>Memories</h1>
+                <h1 className="bracket">Memories</h1>
             </header>
             <main>
             

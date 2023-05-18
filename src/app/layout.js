@@ -3,6 +3,7 @@ import "./globals.scss";
 import Navbar from "./navbar";
 import Footer from "./components/footer";
 // import { Theme } from "./theme";
+// import { ThemeProvider } from "next-themes";
 import { Space_Grotesk, Noto_Sans_TC } from "next/font/google";
 
 const spaceGrotesk = Space_Grotesk({
@@ -33,11 +34,13 @@ export default function RootLayout({ children }) {
 		<html lang="en">
             <head>
             </head>
-			<body className={`${spaceGrotesk.variable} ${notoSansTC.variable} text-sm sm:text-base xl:text-lg`}>
-				<Navbar />
-				{children}
-				<Footer />
-			</body>
+			{/* <ThemeProvider> */}
+                <body className={`${spaceGrotesk.variable} ${notoSansTC.variable} text-sm sm:text-base xl:text-lg`}>
+                    <Navbar />
+                    {children}
+                    <Footer />
+                </body>
+            {/* </ThemeProvider> */}
 		</html>
 	);
 }

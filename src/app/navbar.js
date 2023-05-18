@@ -1,14 +1,42 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import { useRouter } from "next/navigation";
 // import ThemeSwitch from "./components/themeSwitch";
 import useScrollPos from "./components/useScrollPos";
 
+function useNavbarEffect() {
+    const breakpoint = 768;
+    const storedExpanded = localStorage.getItem("expanded");
+    const initialExpanded = (storedExpanded !== null ? Boolean(storedExpanded) : window.innerWidth >= breakpoint);
+    const [expanded, setExpanded] = useState(initialExpanded);
+
+    useLayoutEffect(() => {
+        const handleResize = () => {
+            const state = (window.innerWidth >= breakpoint);
+            setExpanded(window.innerWidth >= breakpoint);
+        };
+
+        // Run once to determine then add to listener
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        }
+    }, []);
+
+    // ? Saves {expanded} on change
+    useLayoutEffect(() => {
+        localStorage.setItem("expanded", expanded.toString());
+    }, [expanded]);
+
+    return {expanded, setExpanded};
+}
+
 export default function Navbar() {
     const active = (useScrollPos() >= 100);
-    const [expanded, setExpanded] = useState(
-        Boolean(localStorage.getItem("expanded"))
-    );
+    const {expanded, setExpanded} = useNavbarEffect();
     const links = [
         ["首頁", "/"],
         ["紀念與感謝", "/memory"],
@@ -17,27 +45,8 @@ export default function Navbar() {
     ];
 
     const toggleNav = () => {
-        const newExpanded = !expanded;
-        setExpanded(newExpanded);
-        localStorage.setItem(expanded, newExpanded);
+        setExpanded(!expanded);
     };
-    
-    // ? Saves {expanded} on change
-    useEffect(() => {
-        localStorage.setItem("expanded", expanded);
-    }, [expanded]);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setExpanded(window.innerWidth >= 768);
-        };
-
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        }
-    });
 
     return (
         <>
@@ -55,16 +64,18 @@ export default function Navbar() {
                                 md:flex-row md:justify-self-start
                                 md:ml-20 lg:ml-32 xl:ml-40"
                                 >
-                    <NavLinks links={links} />
+                    <NavLinks links={links} handleEffect={useNavbarEffect} />
                 </ul>
+                {/* <ThemeSwitch /> */}
             </nav>
         </>
     );
 }
 
-function NavLinks({links}) {
+function NavLinks({links, handleEffect}) {
     const router = useRouter();
     const currentPath = router.asPath;
+    // const {expanded, setExpanded} = handleEffect();
     const handleClick = (e, path) => {
         e.preventDefault();
         router.push(path);

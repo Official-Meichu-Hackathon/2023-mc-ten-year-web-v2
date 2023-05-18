@@ -5,7 +5,6 @@ import TeamSec from "./components/teamSec";
 import QnaSec from "./components/qnaSec";
 import homepageImg from "../../public/img/HomepageImg.svg";
 import useScrollPos from "./components/useScrollPos";
-import { useRef, useState, useEffect } from "react";
 
 export default function Home() {
     // const memoryRef = useRef();
@@ -19,7 +18,7 @@ export default function Home() {
                                 justify-self-center md:justify-self-start
                                 -translate-y-12 sm:-translate-y-28
                                 md:ml-20 lg:ml-32 xl:ml-40">
-                    <h1 className="w-max">
+                    <h1 className="bracket bracket-2 w-max">
                         梅竹黑客松<br />
                         <span className="text-primary-gradient">十週年</span>紀念
                     </h1>
@@ -67,7 +66,7 @@ function BannerImg() {
     }
 
     return (
-        <div className="grid fixed inset-0 place-content-center -z-2 transition-all"
+        <div className="grid fixed inset-0 place-content-center -z-2 transition-all ease-out-quint duration-1000 motion-reduce:duration-300"
              style={{transform: `translate(${x}%, ${y}%)`}}>
             <Image
                 src={homepageImg}

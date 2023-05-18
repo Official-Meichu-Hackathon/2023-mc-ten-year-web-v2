@@ -5,6 +5,7 @@ module.exports = {
 		"./src/components/**/*.{js,ts,jsx,tsx,mdx}",
 		"./src/app/**/*.{js,ts,jsx,tsx,mdx}",
 	],
+    darkMode: "class",
 	theme: {
 		screens: {
 			sm: "576px",
@@ -35,6 +36,10 @@ module.exports = {
 				1: "1",
 				2: "2",
 			},
+            transitionTimingFunction: {
+                "in-quint": "cubic-bezier(0.755, 0.050, 0.855, 0.060)",
+                "out-quint": "cubic-bezier(0.230, 1.000, 0.320, 1.000)",
+            },
 		},
 	},
 	plugins: [],

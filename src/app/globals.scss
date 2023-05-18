@@ -12,8 +12,13 @@
 
 
 /* --------------------------- COLOR THEME --------------------------- */
-$text-primary: #464A53;
-$bg-primary: #EBECF2;
+$text-primary-light: #464A53;
+$text-primary-dark: #FFFFFF;
+$bg-primary-light: #EBECF2;
+$bg-primary-dark: #26282C;
+
+$text-primary: $text-primary-light;
+$bg-primary: $bg-primary-light;
 $bg-secondary: #D9D9D9;
 $gradient-primary-c1: hsla(185, 100%, 75%, 1);
 $gradient-primary-c2: hsla(225, 100%, 75%, 1);
@@ -24,13 +29,6 @@ $neu-fill-c1: #D4D4DA;
 $neu-fill-c2: #FBFDFF;
 $neu-shadow-c1: #FFFFFF;
 $neu-shadow-c2: #BCBDC2;
-
-$ease-in-quint: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-    
-[data-theme='dark'] {
-    --text-primary: #FFFFFF;
-    --bg-primary: #26282C;
-}
 
 
 
@@ -85,7 +83,7 @@ body {
     box-shadow: 0.5rem 0 1rem 0.1rem rgba($neu-shadow-c2, 0.5);
 }
 
-// TEMP
+// ! TEMP
 main {
     article {
         section {
@@ -94,7 +92,9 @@ main {
         }
     }
 }
-
+header > h1 {
+    margin-left: 6rem;
+}
 
 
 /* ---------------------------- FOOTER --------------------------- */
@@ -106,14 +106,8 @@ footer {
 
 
 /* ---------------------------- TEXTS ---------------------------- */
-.text-primary-gradient {
-    background: $gradient-primary;
-    background-clip: text;
-    -moz-background-clip: text;
-    -webkit-background-clip: text;
-    text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    -webkit-text-fill-color: transparent;
+h1, h2 {
+    max-width: fit-content;
 }
 
 h1 {
@@ -133,6 +127,55 @@ p {
     font-size: 1em;
     line-height: 2;
     text-align: justify;
+}
+
+.text-primary-gradient {
+    background: $gradient-primary;
+    background-clip: text;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.bracket {
+    $offset: -0.8ch;
+    position: relative;
+
+    &:before, &:after {
+        display: flex;
+        position: absolute;
+        align-items: center;
+        border-radius: 2rem;
+        top: 0;
+        bottom: 0;
+        font-size: 175%;
+        font-weight: normal;
+        transform: translateY(-0.1em);
+    }
+    &:before {
+        content: "[";
+        left: $offset;
+    }
+    &:after {
+        content: "]";
+        right: $offset;
+    }
+}
+
+.bracket.bracket-2 {
+    $offset: -0.7ch;
+    &:before, &:after {
+        font-size: 250%;
+        font-weight: 300;
+    }
+    &:before {
+        left: $offset;
+    }
+    &:after {
+        right: $offset;
+    }
 }
 
 
@@ -187,12 +230,11 @@ p {
 
 
 /* -------------------------- SELECTION -------------------------- */
-::selection {
+::selection, ::-webkit-selection {
     color: $bg-primary;
-    background: $text-primary;
-}
-::-webkit-selection {
-    color: $bg-primary;
+    text-fill-color: $bg-primary;
+    -moz-text-fill-color: $bg-primary;
+    -webkit-text-fill-color: $bg-primary;
     background: $text-primary;
 }
 
