@@ -8,16 +8,17 @@ import useScrollPos from "./components/useScrollPos";
 import { useRef, useState, useEffect } from "react";
 
 export default function Home() {
-    const memoryRef = useRef();
-    const teamRef = useRef();
-    const qnaRef = useRef();
+    // const memoryRef = useRef();
+    // const teamRef = useRef();
+    // const qnaRef = useRef();
     
 	return (
         <div>
             <header className="banner grid overflow-hidden">
-                <div className="grid max-w-min h-fit self-center justify-self-center md:justify-self-start
-                                justify-items-center gap-y-[1em] -translate-y-12 sm:-translate-y-28
-                                md:ml-20 lg:ml-32 xl:ml-40 px-10">
+                <div className="grid max-w-min h-fit self-center justify-items-center gap-y-[1em] px-6
+                                justify-self-center md:justify-self-start
+                                -translate-y-12 sm:-translate-y-28
+                                md:ml-20 lg:ml-32 xl:ml-40">
                     <h1 className="w-max">
                         梅竹黑客松<br />
                         <span className="text-primary-gradient">十週年</span>紀念
@@ -33,9 +34,12 @@ export default function Home() {
 
             <main>
                 <article>
-                    <MemorySec ref={memoryRef} />
+                    {/* <MemorySec ref={memoryRef} />
                     <TeamSec ref={teamRef} />
-                    <QnaSec ref={qnaRef} />
+                    <QnaSec ref={qnaRef} /> */}
+                    <MemorySec />
+                    <TeamSec />
+                    <QnaSec />
                 </article>
             </main>
 
@@ -48,7 +52,7 @@ function BannerImg() {
     const scrollPos = useScrollPos();
     let x = 17.5, y = 12.5;
 
-    console.log(scrollPos);
+    // console.log(scrollPos);
     if(scrollPos > 2625) {
         x = 70;
         y = -10;

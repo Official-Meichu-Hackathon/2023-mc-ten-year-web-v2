@@ -52,11 +52,6 @@ body {
 	background: $bg-primary;
 }
 
-.navbar-nav {
-    column-gap: 4.5em;
-    font-size: 0.875em;
-}
-
 .nav-link {
     --spacing: 0.2em;
     position: relative;
@@ -68,17 +63,14 @@ body {
     content: '';
     position: absolute;
     width: calc(100% - var(--spacing));
-    height: 0.125em;
+    height: 0.1rem;
     left: 0;
-    bottom: -0.1em;
+    bottom: -0.15em;
 
     background: $text-primary;
     border-radius: 100vw;
     opacity: 0;
     transition: opacity 0.15s ease-in-out;
-}
-.nav-link:hover::after {
-    opacity: 100;
 }
 
 

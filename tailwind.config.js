@@ -18,6 +18,9 @@ module.exports = {
 				tall: { raw: "(min-height: 800px)" },
 				// => @media (min-height: 800px) { ... }
 			},
+            spacing: {
+                '18': '4.5rem',
+            },
 			scale: {
 				125: "1.25",
 				175: "1.75",
