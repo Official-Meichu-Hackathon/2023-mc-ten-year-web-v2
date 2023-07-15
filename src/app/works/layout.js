@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function WorksLayout({ children }) {
     return (
-        <div className="wrapper">
+        <div className="wrapper my-16">
             {children}
         </div>
     );

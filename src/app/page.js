@@ -3,6 +3,7 @@ import Image from "next/image";
 import useSWR from "swr";
 import homepageImg from "../../public/img/decoration/bg-home.svg";
 import useScrollPos from "./components/useScrollPos";
+import { useInView } from "framer-motion";
 import { CardH, CardV, viewMore } from "./components/card"
 import { Load, LoadFailed } from "./components/gadgets"
 import refImg from "../../public/img/Ref.png";
@@ -10,7 +11,7 @@ import refImg from "../../public/img/Ref.png";
 export default function Home() {
 	return (
         <div>
-            <header className="grid overflow-hidden h-[100vh] h-[100dvh]">
+            <header className="grid overflow-hidden h-[100vh] h-[100lvh]">
                 <div className="grid max-w-min h-fit self-center justify-items-center gap-y-[1em] px-6
                                 justify-self-center md:justify-self-start
                                 -translate-y-16 sm:translate-y-0 md:-translate-y-32
@@ -31,7 +32,7 @@ export default function Home() {
             </header>
 
             <main>
-                <article className="wrapper">
+                <article className="grid">
                     <AboutUsSec />
                     <WorkSec />
                     <QnaSec />
@@ -43,6 +44,7 @@ export default function Home() {
 	);
 }
 
+// TODO: Modify using useInView
 function BannerImg() {
     const scrollPos = useScrollPos();
     let x = 17.5, y = 12.5;
@@ -81,7 +83,7 @@ function AboutUsSec() {
     const contents = ["透過回顧與紀念歷史，我們才能帶著更多經驗與力量走向未來。在這個頁面中，我們會介紹梅竹黑客松的競賽精神與意義，簡單總結過去各年度的活動內容、賽制與工作人員，並以時間軸的方式呈現每年的特點或制度創新。藉由紀錄歷屆活動的內容，檢視相異年度的變革，我們能夠吸取並傳承過去的精髓，同時思索與探尋未來的無限可能。"];
 
     return (
-        <section className="grid min-h-screen items-center">
+        <section className="wrapper min-h-screen items-center">
             <CardH img={refImg} title={title} contents={contents} moreInfo={viewMore} link="/about" />
         </section>
     );
@@ -95,9 +97,12 @@ function WorkSec() {
     if(error) return <LoadFailed />;
 	if(!data) return <Load />;
     
+    // TODO: Fix layout; Center in-view
     return (
-        <section className="min-h-screen">
-            <div className="swiper snap-x snap-mandatory">
+        <section className="grid min-h-screen items-center">
+            <div className="swiper snap-x snap-mandatory
+                            w-screen place-self-center
+                            lg:w-[60vw] lg:place-self-end">
                 {data.map((year) => (
                     <CardV key={year.year} img={refImg} title={year.year} contents={year.description} moreInfo={viewMore} link={`/about/${year.year}`} />
                 ))}
@@ -114,7 +119,7 @@ function QnaSec() {
     const contents = ["在這個頁面之中，我們會將大家的問題一併答覆，你可以根據熱門標籤或是直接搜尋問題關鍵字，解決自己的疑惑。"];
 
     return (
-        <section className="grid min-h-screen items-center">
+        <section className="wrapper min-h-screen items-center">
             <CardH img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" />
         </section>
     );

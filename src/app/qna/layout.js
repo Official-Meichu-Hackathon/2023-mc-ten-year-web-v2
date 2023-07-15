@@ -5,7 +5,7 @@ export const metadata = {
 
 export default function QnaLayout({ children }) {
     return (
-        <div className="wrapper">
+        <div className="wrapper my-16">
             {children}
         </div>
     );

@@ -5,16 +5,13 @@
 
 
 /* --------------------------- BREAKOPINTS ---------------------------
- *  sm     md     lg     xl     xxl
+ *  sm     md     lg     xl     2xl
  * 576px  768px  992px  1200px 1400px
  */
 
 
 
 /* --------------------------- COLOR THEME --------------------------- */
-$font-space-grotesk: var(--font-space-grotesk);
-$font-noto-sans-tc: var(--font-noto-sans-tc);
-
 $clr-text-primary: #464A53;
 $clr-text-secondary: #B0B1B5;
 $clr-bg-primary: #EBECF2;
@@ -39,9 +36,9 @@ body {
     overflow-y: overlay !important;
     scrollbar-gutter: stable both-edges;
 
-    // ! Use Google font inside <head> instead of next/font/google (temp)
+    // TODO: Resolve CJK fonts not being loaded
+    font-family: var(--font-space-grotesk), "Noto Sans TC", sans-serif;
     // font-family: var(--font-space-grotesk), var(--font-noto-sans-tc);
-    font-family: "Space Grotesk", "Noto Sans TC", sans-serif;
 }
 
 .nav-link {
@@ -50,47 +47,43 @@ body {
     
     letter-spacing: var(--spacing);
     text-transform: uppercase;
-}
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: calc(100% - var(--spacing));
-    height: 0.1rem;
-    left: 0;
-    bottom: -0.15em;
 
-    background: $clr-text-primary;
-    border-radius: 100vw;
-    opacity: 0;
-    transition: opacity 0.15s ease-in-out;
-}
+    &::after {
+        content: '';
+        position: absolute;
+        width: calc(100% - var(--spacing));
+        height: 0.1rem;
+        left: 0;
+        bottom: -0.15em;
 
-
-
-/* -------------------------- HOME PAGE -------------------------- */
-.banner {
-    height: 100lvh;
+        background: $clr-text-primary;
+        border-radius: 100vw;
+        opacity: 0;
+        transition: opacity 0.15s ease-in-out;
+    }
 }
 
-.banner-filter {
-    background: rgba($clr-bg-primary, 0.4);
-    box-shadow: 0.5rem 0 1rem 0.1rem rgba($clr-neu-shadow-2, 0.5);
-}
 
+
+/* --------------------------- LAYOUTS --------------------------- */
 .wrapper {
+    --margin: 4rem;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    width: min(100% - 6rem, 1400px);
+    width: min(100% - var(--margin), 1400px);
     margin-inline: auto;
-    margin-block: 3.5rem;
+
+    @media screen and (min-width: 576px) {
+        --margin: 6rem;
+    }
 }
+
 .swiper {
     display: grid;
     max-width: 100%;
     padding: 4rem;
     gap: 6rem;
     grid-auto-flow: column;
-    // TODO: Optimize size
     grid-auto-columns: max(40%, 300px);
 
     overflow-x: auto;
@@ -212,6 +205,11 @@ p {
 }
 .frost-50 {
     @include frost(0.5em);
+}
+
+.banner-filter {
+    background: rgba($clr-bg-primary, 0.4);
+    box-shadow: 0.5rem 0 1rem 0.1rem rgba($clr-neu-shadow-2, 0.5);
 }
 
 .nue-concave {
