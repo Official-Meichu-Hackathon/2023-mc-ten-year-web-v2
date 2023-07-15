@@ -9,7 +9,7 @@ import useScrollPos from "./components/useScrollPos";
 function useNavbarEffect() {
     const breakpoint = 768;
     const pathname = usePathname();
-    const [windowWidth, setWindowWidth] = useState(window !== undefined ? window.innerWidth : 0);
+    const [windowWidth, setWindowWidth] = useState(0);
     const [expanded, setExpanded] = useState(windowWidth >= breakpoint);
 
     // Determine screenMd and expanded on resize
