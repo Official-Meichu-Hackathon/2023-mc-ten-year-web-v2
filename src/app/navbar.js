@@ -8,7 +8,7 @@ import useScrollPos from "./components/useScrollPos";
 
 // useSyncExternalStore to prevent error during hydration
 function useWindowWidth() {
-    const windowWidth = useSyncExternalStore(onResize, getWindowWidthSnapshot);
+    const windowWidth = useSyncExternalStore(onResize, getWindowWidthSnapshot, getServerSnapshot);
     return {
         width: windowWidth
     };
@@ -19,6 +19,9 @@ function onResize(onChange) {
 }
 function getWindowWidthSnapshot() {
     return window.innerWidth;
+}
+function getServerSnapshot() {
+    return 0;
 }
 
 function useNavbarEffect() {
