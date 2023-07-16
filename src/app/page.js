@@ -16,7 +16,7 @@ export default function Home() {
                                 justify-self-center md:justify-self-start
                                 -translate-y-16 sm:translate-y-0 md:-translate-y-32
                                 md:ml-20 lg:ml-32 xl:ml-40">
-                    <h1 className="bracket-lg w-max">
+                    <h1 className="bracket-lg w-max whitespace-nowrap">
                         <span className="">
                             梅竹黑客松<br />
                             <span className="text-primary-gradient">成果存放</span>
