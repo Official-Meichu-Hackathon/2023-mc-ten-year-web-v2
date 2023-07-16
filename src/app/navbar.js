@@ -1,45 +1,53 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect, useLayoutEffect, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"
 import useScrollPos from "./components/useScrollPos";
 
+// useSyncExternalStore to prevent error during hydration
+function useWindowWidth() {
+    const windowWidth = useSyncExternalStore(onResize, getWindowWidthSnapshot);
+    return {
+        width: windowWidth
+    };
+}
+function onResize(onChange) {
+    window.addEventListener("resize", onChange);
+    return () => window.removeEventListener("resize", onChange);
+}
+function getWindowWidthSnapshot() {
+    return window.innerWidth;
+}
+
 function useNavbarEffect() {
     const breakpoint = 768;
     const pathname = usePathname();
-    // TODO: Handle resize once on start
-    const [windowWidth, setWindowWidth] = useState(0);
-    const [expanded, setExpanded] = useState(windowWidth >= breakpoint);
+    const { width } = useWindowWidth();
+    const [expanded, setExpanded] = useState(width >= breakpoint);
 
     // Determine screenMd and expanded on resize
     useEffect(() => {
-        const handleResize = () => {
-            setWindowWidth(window.innerWidth);
-        };
-
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        }
-    }, []);
+        setExpanded(width >= breakpoint);
+    }, [width]);
 
     // Expand/collapse navbar when screen size LTBP/STBP
     useLayoutEffect(() => {
-        const isScreenMd = windowWidth >= breakpoint;
+        const isScreenMd = width >= breakpoint;
         setExpanded(isScreenMd);
-    }, [windowWidth]);
+    }, [width]);
+
+
 
     // Collapse navbar on pathname change && screen size smaller than breakpoint
     useEffect(() => {
-        if (windowWidth < breakpoint) {
+        if (width < breakpoint) {
             setExpanded(false);
         }
-    }, [pathname, windowWidth]);
+    }, [pathname, width]);
 
-    return { expanded, setExpanded, screenMd: windowWidth >= breakpoint };
+    return { expanded, setExpanded, screenMd: width >= breakpoint };
 }
 
 export default function Navbar() {

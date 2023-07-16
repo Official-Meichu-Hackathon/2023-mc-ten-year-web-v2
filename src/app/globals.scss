@@ -92,6 +92,56 @@ body {
 }
 
 
+
+/* ---------------------------- STYLE ---------------------------- */
+@mixin frost($amount) {
+    backdrop-filter: blur($amount);
+    -ms-backdrop-filter: blur($amount);
+    -moz-backdrop-filter: blur($amount);
+    -webkit-backdrop-filter: blur($amount);
+}
+.frost-25 {
+    @include frost(0.25em);
+}
+.frost-50 {
+    @include frost(0.5em);
+}
+
+.banner-filter {
+    background: rgba($clr-bg-primary, 0.4);
+    box-shadow: 0.5rem 0 1rem 0.1rem rgba($clr-neu-shadow-2, 0.5);
+}
+
+.nue-concave {
+    background: linear-gradient(135deg, rgba($clr-neu-fill-1, 0.85), rgba($clr-neu-fill-2, 0.85));
+    box-shadow: -0.75em -0.75em 1.5em $clr-neu-shadow-1,
+                0.75em 0.75em 1.5em $clr-neu-shadow-2;
+}
+.nue-pressed {
+    background: rgba($clr-bg-primary, 0.85);
+    box-shadow: inset -0.75em -0.75em 1.5em $clr-neu-shadow-1,
+                inset 0.75em 0.75em 1.5em $clr-neu-shadow-2;
+    
+}
+
+iframe {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: 100%;
+}
+
+a, button {
+    border-radius: 3px;
+
+    &:focus-visible {
+        color: $clr-accent;
+        outline: 3px solid $clr-accent;
+        outline-offset: 3px;
+    }
+}
+
+
+
 /* ---------------------------- COLORS --------------------------- */
 .bg-primary {
     background-color: $clr-bg-primary;
@@ -155,7 +205,7 @@ p {
     font-size: 0.875em;
     font-weight: 300;
     line-height: 2;
-    text-align: justify;
+    text-align: center;
 }
 
 .text-primary-gradient {
@@ -193,55 +243,6 @@ p {
 
 .bracket-lg {
     @include bracket(250%, 300);
-}
-
-
-
-/* ---------------------------- STYLE ---------------------------- */
-@mixin frost($amount) {
-    backdrop-filter: blur($amount);
-    -ms-backdrop-filter: blur($amount);
-    -moz-backdrop-filter: blur($amount);
-    -webkit-backdrop-filter: blur($amount);
-}
-.frost-25 {
-    @include frost(0.25em);
-}
-.frost-50 {
-    @include frost(0.5em);
-}
-
-.banner-filter {
-    background: rgba($clr-bg-primary, 0.4);
-    box-shadow: 0.5rem 0 1rem 0.1rem rgba($clr-neu-shadow-2, 0.5);
-}
-
-.nue-concave {
-    background: linear-gradient(135deg, rgba($clr-neu-fill-1, 0.85), rgba($clr-neu-fill-2, 0.85));
-    box-shadow: -0.75em -0.75em 1.5em $clr-neu-shadow-1,
-                0.75em 0.75em 1.5em $clr-neu-shadow-2;
-}
-.nue-pressed {
-    background: rgba($clr-bg-primary, 0.85);
-    box-shadow: inset -0.75em -0.75em 1.5em $clr-neu-shadow-1,
-                inset 0.75em 0.75em 1.5em $clr-neu-shadow-2;
-    
-}
-
-iframe {
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    height: 100%;
-}
-
-a, button {
-    border-radius: 3px;
-
-    &:focus-visible {
-        color: $clr-accent;
-        outline: 3px solid $clr-accent;
-        outline-offset: 3px;
-    }
 }
 
 

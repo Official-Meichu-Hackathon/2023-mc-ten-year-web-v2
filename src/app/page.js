@@ -2,13 +2,17 @@
 import Image from "next/image";
 import useSWR from "swr";
 import homepageImg from "../../public/img/decoration/bg-home.svg";
-import useScrollPos from "./components/useScrollPos";
+import { useRef, useEffect, useState } from "react";
 import { useInView } from "framer-motion";
 import { CardH, CardV, viewMore } from "./components/card"
 import { Load, LoadFailed } from "./components/gadgets"
 import refImg from "../../public/img/Ref.png";
 
 export default function Home() {
+    const [aboutUsInView, setAboutUsInView] = useState(false);
+    const [workInView, setWorkInView] = useState(false);
+    const [qnaInView, setQnaInView] = useState(false);
+
 	return (
         <div>
             <header className="grid overflow-hidden h-[100vh] h-[100lvh]">
@@ -33,38 +37,35 @@ export default function Home() {
 
             <main>
                 <article className="grid">
-                    <AboutUsSec />
-                    <WorkSec />
-                    <QnaSec />
+                    <AboutUsSec setInView={setAboutUsInView} />
+                    <WorkSec setInView={setWorkInView} />
+                    <QnaSec setInView={setQnaInView} />
                 </article>
             </main>
 
-            <BannerImg />
+            <BannerImg aboutUsInView={aboutUsInView} workInView={workInView} qnaInView={qnaInView} />
         </div>
 	);
 }
 
-// TODO: Modify using useInView
-function BannerImg() {
-    const scrollPos = useScrollPos();
+function BannerImg({ aboutUsInView, workInView, qnaInView }) {
     let x = 17.5, y = 12.5;
-
-    // console.log(scrollPos);
-    if(scrollPos > 2625) {
+    if(qnaInView) {
         x = 70;
         y = -10;
     }
-    else if(scrollPos > 1575) {
+    else if(workInView) {
         x = -60;
         y = -60;
     }
-    else if(scrollPos > 525) {
+    else if(aboutUsInView) {
         x = 60;
         y = 30;
     }
 
     return (
-        <div className="grid fixed inset-0 place-content-center -z-2 transition-all ease-out-quint duration-1000 motion-reduce:duration-300"
+        <div className="grid fixed inset-0 place-content-center -z-2
+                        transition-all ease-out-quint duration-1000 motion-reduce:duration-300"
              style={{transform: `translate(${x}%, ${y}%)`}}>
             <Image
                 src={homepageImg}
@@ -78,12 +79,20 @@ function BannerImg() {
 
 
 
-function AboutUsSec() {
+function AboutUsSec({ setInView }) {
+    const ref = useRef(null);
+    const isInView = useInView(ref, {
+        amount: 0.5
+    });
+    useEffect(() => {
+        setInView(isInView);
+    }, [isInView, setInView]);
+
     const title = "關於我們";
     const contents = ["透過回顧與紀念歷史，我們才能帶著更多經驗與力量走向未來。在這個頁面中，我們會介紹梅竹黑客松的競賽精神與意義，簡單總結過去各年度的活動內容、賽制與工作人員，並以時間軸的方式呈現每年的特點或制度創新。藉由紀錄歷屆活動的內容，檢視相異年度的變革，我們能夠吸取並傳承過去的精髓，同時思索與探尋未來的無限可能。"];
 
     return (
-        <section className="wrapper min-h-screen items-center">
+        <section ref={ref} className="wrapper min-h-screen items-center">
             <CardH img={refImg} title={title} contents={contents} moreInfo={viewMore} link="/about" />
         </section>
     );
@@ -92,14 +101,22 @@ function AboutUsSec() {
 
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
-function WorkSec() {
+function WorkSec({ setInView }) {
+    const ref = useRef(null);
+    const isInView = useInView(ref, {
+        amount: 0.5
+    });
+    useEffect(() => {
+        setInView(isInView);
+    }, [isInView, setInView]);
+
     const { data, error } = useSWR("/api/about", fetcher);
     if(error) return <LoadFailed />;
-	if(!data) return <Load />;
+    if(!data) return <Load />;
     
     // TODO: Fix layout; Center in-view
     return (
-        <section className="grid min-h-screen items-center">
+        <section ref={ref} className="grid min-h-screen items-center">
             <div className="swiper snap-x snap-mandatory
                             w-screen place-self-center
                             lg:w-[60vw] lg:place-self-end">
@@ -113,13 +130,21 @@ function WorkSec() {
 
 
 
-function QnaSec() {
+function QnaSec({ setInView }) {
+    const ref = useRef(null);
+    const isInView = useInView(ref, {
+        amount: 0.5
+    });
+    useEffect(() => {
+        setInView(isInView);
+    }, [isInView, setInView]);
+
     const img = refImg;
     const title = "Q & A";
     const contents = ["在這個頁面之中，我們會將大家的問題一併答覆，你可以根據熱門標籤或是直接搜尋問題關鍵字，解決自己的疑惑。"];
 
     return (
-        <section className="wrapper min-h-screen items-center">
+        <section ref={ref} className="wrapper min-h-screen items-center">
             <CardH img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" />
         </section>
     );
