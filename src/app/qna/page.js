@@ -8,8 +8,6 @@ export default function Qna() {
     if(error) return <LoadFailed />;
 	if(!data) return <Load />;
 
-    const question = 0, tags = 1, answers = 2;
-
     return (
         <div>
             <header>
@@ -19,16 +17,16 @@ export default function Qna() {
                 <ul className="grid gap-20">
                     {data.map((q, index) => (
                         <li key={index} className="grid gap-y-8 nue-concave frost-25 p-12 rounded-[4rem]">
-                            <h2 className="text-primary-gradient">Q: {q[question]}</h2>
+                            <h2 className="text-primary-gradient">Q: {q.question}</h2>
                             <div className="grid gap-y-4">
                                 <ul className="flex list-none">
-                                    {q[tags].map((tag, index) => (
-                                        <li key={index} className={`${(index !== q[tags].length - 1) ? "mr-3" : ""} p-1 rounded-[0.375em] capitalize bg-secondary`}>
+                                    {q.tags.map((tag, index) => (
+                                        <li key={index} className={`${(index !== q.tags.length - 1) ? "mr-3" : ""} p-1 rounded-[0.375em] capitalize bg-secondary`}>
                                             {tag}
                                         </li>
                                     ))}
                                 </ul>
-                                {q[answers].map((answer, index) => (
+                                {q.answers.map((answer, index) => (
                                     <p key={index}>
                                         {answer}
                                     </p>

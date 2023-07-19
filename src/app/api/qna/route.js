@@ -11,7 +11,9 @@ export async function fetchJSON() {
 
 async function fetchQuestionList() {
     const data = await fetchJSON();
-    const questions = data.questions.map(q => [q.question, q.tags, q.answers]);
+    const questions = data.questions.map(q => ({question: q.question,
+                                                tags: q.tags,
+                                                answers: q.answers}));
     return JSON.stringify(questions);
 }
 

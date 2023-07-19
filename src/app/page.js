@@ -117,7 +117,7 @@ function WorkSec({ setInView }) {
     // TODO: Fix layout; Center in-view
     return (
         <section ref={ref} className="grid min-h-screen items-center">
-            <div className="swiper snap-x snap-mandatory
+            <div className="swiper snap-inline
                             w-screen place-self-center
                             lg:w-[60vw] lg:place-self-end">
                 {data.map((year) => (

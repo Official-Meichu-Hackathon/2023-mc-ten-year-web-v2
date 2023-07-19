@@ -24,7 +24,7 @@ const notoSansTC = Noto_Sans_TC({
 	variable: "--font-noto-sans-tc",
 });
 
-// Dynamic metadata
+// Metadata
 export const metadata = {
     title: {
         default: "梅竹黑客松成果存放平台",
@@ -32,6 +32,7 @@ export const metadata = {
     },
 	description: "在梅竹黑客松邁向十週年之際，我們決定以一個嶄新的方式，紀念過去十年走過的足跡。透過存放往年的優秀作品，我們能夠回顧並學習，同時讓未來的參與者能夠在此找尋與迸發創意。",
 	image: "",
+    themeColor: "black",
 };
 
 export default function RootLayout({ children }) {
