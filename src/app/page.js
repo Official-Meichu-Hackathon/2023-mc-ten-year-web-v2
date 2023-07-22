@@ -4,8 +4,9 @@ import useSWR from "swr";
 import homepageImg from "../../public/img/decoration/bg-home.svg";
 import { useRef, useEffect, useState } from "react";
 import { useInView } from "framer-motion";
-import { CardH, CardV, viewMore } from "./components/card"
-import { Load, LoadFailed } from "./components/gadgets"
+import { CardH, CardV, viewMore } from "./utils/card"
+import { fetcher } from "./utils/fetcher";
+import { Load, LoadFailed } from "./utils/gadgets"
 import refImg from "../../public/img/Ref.png";
 
 export default function Home() {
@@ -100,7 +101,6 @@ function AboutUsSec({ setInView }) {
 
 
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
 function WorkSec({ setInView }) {
     const ref = useRef(null);
     const isInView = useInView(ref, {
@@ -110,9 +110,9 @@ function WorkSec({ setInView }) {
         setInView(isInView);
     }, [isInView, setInView]);
 
-    const { data, error } = useSWR("/api/about", fetcher);
+    const { data, error, isLoading } = useSWR("/api/about", fetcher);
     if(error) return <LoadFailed />;
-    if(!data) return <Load />;
+    if(isLoading) return <Load />;
     
     // TODO: Fix layout; Center in-view
     return (

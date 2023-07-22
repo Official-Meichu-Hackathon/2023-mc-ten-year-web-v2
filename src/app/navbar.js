@@ -4,7 +4,7 @@ import { useState, useEffect, useLayoutEffect, useSyncExternalStore } from "reac
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"
-import useScrollPos from "./components/useScrollPos";
+import useScrollPos from "./utils/useScrollPos";
 
 // useSyncExternalStore to prevent error during hydration
 function useWindowWidth() {

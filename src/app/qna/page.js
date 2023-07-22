@@ -1,12 +1,12 @@
 "use client";
 import useSWR from "swr";
-import { Load, LoadFailed } from "../components/gadgets"
+import { fetcher } from "../utils/fetcher";
+import { Load, LoadFailed } from "../utils/gadgets"
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
 export default function Qna() {
-    const { data, error } = useSWR("/api/qna", fetcher);
+    const { data, error, isLoading } = useSWR("/api/qna", fetcher);
     if(error) return <LoadFailed />;
-	if(!data) return <Load />;
+	if(isLoading) return <Load />;
 
     return (
         <div>

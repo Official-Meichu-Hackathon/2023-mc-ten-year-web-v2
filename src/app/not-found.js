@@ -1,4 +1,4 @@
-import { LoadCustom } from "./components/gadgets";
+import { LoadCustom } from "./utils/gadgets";
 
 export default function NotFound() {
     return (
