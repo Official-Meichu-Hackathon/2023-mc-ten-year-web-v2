@@ -10,14 +10,14 @@ config.autoAddCss = false
 
 // Next/Font/Google
 const spaceGrotesk = Space_Grotesk({
-	weight: ["300", "400", "700"],
+	weight: ["300", "400", "500", "700"],
 	subsets: ["latin"],
     style: "normal",
 	display: "swap",
 	variable: "--font-space-grotesk",
 });
 const notoSansTC = Noto_Sans_TC({
-	weight: ["300", "400", "700"],
+	weight: ["300", "400", "500", "700"],
 	subsets: ["latin"],
     style: "normal",
 	display: "swap",

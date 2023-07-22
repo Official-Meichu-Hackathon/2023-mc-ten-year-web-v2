@@ -19,12 +19,12 @@ export async function fetchJSON() {
 
 export async function fetchYearData(year) {
     if(!isValidYear(year)) {
-        return null;
+        throw new Error("Invalid year");
     }
 
     const data = await fetchJSON();
     const yearData = data.years.find(y => y.year == year);
-    return yearData ? JSON.stringify(yearData) : null;
+    return yearData ? JSON.stringify(yearData) : JSON.stringify({ notFound: true });
 }
 
 async function fetchYearList() {
