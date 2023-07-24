@@ -36,7 +36,7 @@ body {
     overflow-y: overlay !important;
     scrollbar-gutter: stable both-edges;
 
-    // TODO: Resolve CJK fonts not being loaded
+    // TODO: Test after pull #51890 merge into stable
     font-family: var(--font-space-grotesk), "Noto Sans TC", sans-serif;
     // font-family: var(--font-space-grotesk), var(--font-noto-sans-tc);
 }
