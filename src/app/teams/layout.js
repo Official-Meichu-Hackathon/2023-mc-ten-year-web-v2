@@ -4,7 +4,7 @@ export const metadata = {
     description: "歷年作品",
 }
 
-export default function WorksLayout({ children }) {
+export default function TeamsLayout({ children }) {
     return (
         <div className="wrapper my-16">
             {children}

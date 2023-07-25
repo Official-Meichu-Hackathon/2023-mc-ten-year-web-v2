@@ -4,9 +4,10 @@ import { NextResponse } from "next/server";
 
 const jsonURL = path.join(process.cwd(), "src/app/json/year.json");
 
-function isValidYear(year) {
-    if(Number.isInteger(parseInt(year, 10))) {
-        return true;
+export function validateAndParseID(year) {
+    const parsedYear = parseInt(year, 10);
+    if (Number.isInteger(parsedYear)) {
+        return parsedYear;
     }
 
     return false;
@@ -18,23 +19,24 @@ export async function fetchJSON() {
 }
 
 export async function fetchYearData(year) {
-    if(!isValidYear(year)) {
+    const parsedYear = validateAndParseID(year);
+    if (parsedYear === false) {
         throw new Error("Invalid year");
     }
 
     const data = await fetchJSON();
     const yearData = data.years.find(y => y.year == year);
-    return yearData ? JSON.stringify(yearData) : JSON.stringify({ notFound: true });
+    return yearData ? yearData : { notFound: true };
 }
 
 async function fetchYearList() {
     const data = await fetchJSON();
     const years = data.years.map(item => ({year: item.year, description: item.description}));
     const yearList = years.sort((a, b) => b.year - a.year);
-    return JSON.stringify(yearList);
+    return yearList;
 }
 
 export async function GET(request) {
     const data = await fetchYearList();
-    return NextResponse.json(JSON.parse(data));
+    return NextResponse.json(data);
 }

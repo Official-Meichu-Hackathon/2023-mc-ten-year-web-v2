@@ -59,7 +59,7 @@ export default function Navbar() {
     const links = [
         ["首頁", "/"],
         ["關於我們", "/about"],
-        ["歷年作品", "/works"],
+        ["歷年作品", "/teams"],
         ["Q & A", "/qna"],
     ];
 

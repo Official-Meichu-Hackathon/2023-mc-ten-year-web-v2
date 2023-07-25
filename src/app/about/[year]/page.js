@@ -1,7 +1,7 @@
 "use client";
 import useSWR from "swr";
 import { fetcher } from "../../utils/fetcher";
-import { Load, LoadFailed, LoadCustom } from "../../utils/gadgets"
+import { Load, LoadFailed, LoadCustom } from "../../components/gadgets"
 
 // TODO: Stuck in "Loading" instaed of "Failed" when data doesn't exist
 export default function YearPage({ params }) {
