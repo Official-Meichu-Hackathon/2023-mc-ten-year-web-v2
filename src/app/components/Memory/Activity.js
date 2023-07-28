@@ -62,10 +62,9 @@ function useIsMd() {
 
     return isMd;
 }
-export default function Activity() {
-    const content1 = "2022梅竹黑客松好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒。";
-    const content2 = "2023梅竹黑客松好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒。"
-    
+
+// posts: an arry which element contains content and image [{"content": "123", "img": photo}, {"content": "456", "img": photo}, ...]
+export default function Activity({posts}) {
     const settings = {
         dots: true,
         infinite: true,
@@ -78,16 +77,20 @@ export default function Activity() {
     const isMd = useIsMd();
 
     return (
-        <div className="activity">
-            <section className="bg-[#464A53] text-[#FFFFFF] mx-[-34px] sm:mx-[-48px] h-auto md:h-[27vw] xl:h-[25vw]">
-                <Slider ref={slider} settings={settings}>
-                    {isMd && (<ActivitySecH content={content1} img={GroupPhoto_2022} slider={slider}/>)}
-                    {isMd && (<ActivitySecH content={content2} img={GroupPhoto_2022} slider={slider}/>)}
-                    {!isMd && (<ActivitySecV content={content1} img={GroupPhoto_2022} slider={slider}/>)}
-                    {!isMd && (<ActivitySecV content={content2} img={GroupPhoto_2022} slider={slider}/>)}
-                </Slider>
-            </section>
-        </div>
+        <section className="bg-[#464A53] text-[#FFFFFF] mx-[-34px] sm:mx-[-48px] h-auto md:h-[27vw] xl:h-[25vw]">
+            <Slider ref={slider} settings={settings}>
+                {posts.map(post => (
+                    <div key={post.id}>
+                        {isMd && <ActivitySecH content={post.content} img={post.img} slider={slider}/>}
+                        {!isMd && <ActivitySecV content={post.content} img={post.img} slider={slider}/>}
+                    </div>
+                ))}
+            </Slider>
+        </section>
     )
     
 }
+
+/*
+
+*/
