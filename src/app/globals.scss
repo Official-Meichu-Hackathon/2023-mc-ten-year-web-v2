@@ -286,3 +286,5 @@ $scrollbar-width: 24px;
 ::-webkit-scrollbar-corner {
     border-radius: calc(0.6 * $scrollbar-width);
 }
+
+.slick-initialized { overflow: hidden; }
