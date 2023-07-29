@@ -126,6 +126,11 @@ body {
                 inset 0.75em 0.75em 1.5em $clr-neu-shadow-2;
     
 }
+.nue-black {
+    box-shadow: 0.125em 0.125em 1.5em $clr-neu-shadow-2,
+                -0.125em -0.125em 1.5em $clr-neu-shadow-2
+}
+
 
 iframe {
     aspect-ratio: 16 / 9;
