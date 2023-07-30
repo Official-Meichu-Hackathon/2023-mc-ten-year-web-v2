@@ -11,11 +11,11 @@ export default function Qna() {
 
     return (
         <div>
-            <header className="flex justify-center">
+            <header className="flex justify-center mb-5">
                 <h1 className="bracket-md text-center">常見問題<br/>Q & A</h1>
             </header>
             <main>
-              <Questions data={data} />;
+              <Questions data={data} />
             </main>
         </div>
     );
