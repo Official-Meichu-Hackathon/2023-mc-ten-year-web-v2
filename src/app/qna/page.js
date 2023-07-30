@@ -10,8 +10,8 @@ export default function Qna() {
 
     return (
         <div>
-            <header>
-                <h1 className="bracket-md">Q & A</h1>
+            <header className="flex justify-center">
+                <h1 className="bracket-md text-center">常見問題<br/>Q & A</h1>
             </header>
             <main>
                 <ul className="grid gap-20">
