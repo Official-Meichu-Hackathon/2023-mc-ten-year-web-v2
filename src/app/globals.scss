@@ -261,7 +261,22 @@ p {
     font-weight: 400;
     font-size: 16px;
     line-height: 32px;
-    color: #464A53;
+    color: $clr-text-primary;
+}
+
+.text-sec-title {
+    font-weight: 700;
+    font-size: 22px;
+    color: $clr-text-primary;
+}
+
+.text-discrip {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: justify;
+    color: $clr-text-primary;
 }
 
 
