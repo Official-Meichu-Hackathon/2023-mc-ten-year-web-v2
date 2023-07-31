@@ -25,7 +25,7 @@ export default function Pagination({ totalPages, currentPage, onPageChange }) {
         </span>
         ))}
         <button
-            className="p-2 cursor-pointer"
+            className="p-2 cursor-pointer text-[#464A53]"
             disabled={currentPage === totalPages}
             onClick={() => onPageChange(currentPage + 1)}
         >
