@@ -19,6 +19,8 @@ $clr-bg-primary: #EBECF2;
 $clr-bg-secondary: #D9D9D9; // E3E3E3
 $clr-bg-tag-1: #637B9A;
 $clr-bg-tag-2: #D2D6A9;
+$clr-bg-card-1: #ECECEC;
+$clr-bg-card-2: #C4C4C44D;
 $clr-accent: hsla(225, 100%, 75%, 1);
 
 $clr-gradient-primary-1: hsla(185, 100%, 75%, 1);
@@ -164,6 +166,12 @@ a, button {
 .bg-accent {
     background-color: $clr-accent;
 }
+.bg-card-1 {
+    background-color: $clr-bg-card-1;
+}
+.bg-card-2 {
+    background-color: $clr-bg-card-2;
+}
 
 .text-primary {
     color: $clr-text-primary;
@@ -241,6 +249,21 @@ p {
     -moz-text-fill-color: transparent;
     -webkit-text-fill-color: transparent;
 }
+
+.text-title {
+    font-size: 1.875em;
+    font-weight: 400;
+    line-height: 64px;
+}
+
+.text-tag{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    color: #464A53;
+}
+
 
 @mixin bracket($fontSize: 175%, $fontWeight: normal) {
     display: flex;
