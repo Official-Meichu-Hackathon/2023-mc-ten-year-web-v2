@@ -61,6 +61,7 @@ export default function Navbar() {
         ["關於我們", "/about"],
         ["歷年作品", "/works"],
         ["Q & A", "/qna"],
+        ["Test", "/test"]
     ];
 
     function toggleNav() {
