@@ -26,7 +26,7 @@ export function CardV({ img, title, contents, moreInfo, link, group, award }) {
                     ))}
                 </div>
                 {(moreInfo !== "") && (
-                    <Link href={link} className="place-self-end text-accent">
+                    <Link href={link} className="place-self-end text-accent min-w-[20ch]">
                         {moreInfo}
                     </Link>
                 )}
