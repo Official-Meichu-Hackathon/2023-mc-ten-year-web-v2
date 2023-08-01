@@ -7,6 +7,7 @@ import { CardH, CardV, viewMore } from "../components/Team/Card"
 import { Card_title } from "../components/Team/Card_title";
 import { Project_Intro } from "../components/Team/Project_Intro";
 import { Board } from "../components/Team/Comments";
+import { Search_bar } from "../components/Team/Gadgets";
 import refImg from "../../../public/img/Ref.png";
 
 export default function Home() {
@@ -89,6 +90,9 @@ function CardSec({ setInView }){
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
+            </div>
+            <div className="pu-4">
+                <Search_bar/>
             </div>
             <div className="pu-4">
                 <Card_title title={title} group={group} name={name} mail={mail} github={github} tags={tags} view={view} msg={msg}/>

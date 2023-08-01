@@ -254,28 +254,28 @@ p {
 .text-title {
     font-size: 1.875em;
     font-weight: 400;
-    line-height: 64px;
+    line-height: 4em;
 }
 
 .text-tag{
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 32px;
+    font-size: 1em;
+    line-height: 2em;
     color: $clr-text-primary;
 }
 
 .text-sec-title {
     font-weight: 700;
-    font-size: 22px;
+    font-size: 1.375em;
     color: $clr-text-primary;
 }
 
 .text-discrip {
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 32px;
+    font-size: 1em;
+    line-height: 2em;
     text-align: justify;
     color: $clr-text-primary;
 }
@@ -283,16 +283,16 @@ p {
 .text-board {
     font-style: normal;
     font-weight: 700;
-    font-size: 20px;
-    line-height: 32px;
+    font-size: 1.25em;
+    line-height: 2em;
     text-align: justify;
     color: $clr-text-board;
 }
 
 .text-comment {
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: 500;
-    line-height: 60px;
+    line-height: 3.75em;
     letter-spacing: 0.05em;
     text-align: justified;
 }
