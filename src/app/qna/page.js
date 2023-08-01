@@ -34,6 +34,7 @@ export default function Qna() {
           <h1 className="bracket-md text-center">常見問題<br/>Q & A</h1>
         </header>
         <main>
+          <Filter />
           <Questions data={currentData} />
           <Pagination
               totalPages={totalPages}
