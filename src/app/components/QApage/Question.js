@@ -25,7 +25,7 @@ export default function Questions({ data }) {
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           {answer.length > 80 && selectedQuestion !== q
                               ? answer.slice(0, 80) + '...'
-                              : + answer}
+                              : answer}
                         </p>
                     ))}
                     {q.answers.length > 0 && (
