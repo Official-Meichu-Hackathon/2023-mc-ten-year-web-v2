@@ -11,7 +11,7 @@ export default function Dialog({ selectedQuestion, closePopup }) {
           </button>
           <div className="flex flex-col justify-center items-center">
             <h2 className="text-primary-gradient mb-5">Q: {selectedQuestion.question}</h2>
-            <div className="overflow-auto h-64"> {/* Set a fixed height for the scrollable content */}
+            <div className="overflow-auto h-64">
               {selectedQuestion.answers.map((answer, index) => (
                   <p key={index}>{answer}</p>
               ))}
