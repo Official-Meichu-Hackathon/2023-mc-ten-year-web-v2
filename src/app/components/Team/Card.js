@@ -4,7 +4,7 @@ import Link from "next/link";
 export function CardV({ img, title, contents, moreInfo, link, group, award }) {
     return(
         <div className="card team-card-shadow frost-25 grid gap-6 place-content-center max-w-screen-lg content-stretch rounded-[2rem] snap-center">
-            <div className="max-h-full aspect-4/3 relative">
+            <div className="max-h-280px aspect-4/3 relative">
                 <Image
                     src={img}
                     alt="Ref image"

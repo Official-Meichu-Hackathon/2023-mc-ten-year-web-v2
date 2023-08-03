@@ -137,6 +137,9 @@ body {
     background: rgba($clr-bg-primary, 0.4);
     box-shadow: 0.3rem 0.3rem 0.25rem $clr-card-shadow;
 }
+.comments-shadow {
+    box-shadow: 0 0 4px $clr-card-shadow;
+}
 
 iframe {
     aspect-ratio: 16 / 9;

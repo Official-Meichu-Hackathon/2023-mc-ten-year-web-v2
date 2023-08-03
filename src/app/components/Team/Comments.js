@@ -24,7 +24,7 @@ export function CommentItem({ name, date, content, head }) {
 export function Board({ comments }) {
     return(
         <div className="pu-8 pl-8 pr-8">
-            <div className="banner-filter content-stretch bg-card-1 p-8 flex flex-col card-rounded min-h-screen">
+            <div className="comments-shadow content-stretch bg-card-1 p-8 flex flex-col card-rounded min-h-screen">
                 <div className="select-none">　</div>
                 <div className="flex space-x-32">
                     <div className="text-sec-title whitespace-nowrap mr-8">　留言板</div>

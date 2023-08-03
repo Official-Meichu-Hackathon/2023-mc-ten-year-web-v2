@@ -83,6 +83,7 @@ function CardSec({ setInView }){
 
     return (
         <section ref={ref}>
+            <p>這裡我還不太知道卡片的比例怎麼調</p>
             <div className="grid grid-cols-3 gap-14 py-16">
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award} />
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
