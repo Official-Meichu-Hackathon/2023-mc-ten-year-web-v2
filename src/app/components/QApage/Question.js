@@ -30,7 +30,7 @@ export default function Questions({ data }) {
                     ))}
                     {q.answers.length > 0 && (
                         <button
-                            className="text-primary-gradient mt-2 text-[#809FFF]"
+                            className="mt-2 text-[#B580FF]"
                             onClick={() => openPopup(q)}
                         >
                           {selectedQuestion === q ? '收起回答/Collapse' : '查看更多/View more...'}
