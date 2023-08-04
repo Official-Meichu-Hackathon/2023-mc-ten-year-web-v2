@@ -18,7 +18,7 @@ export function Search_bar(){
 
 export function Post() {
     return(
-        <div className="rounded-[4rem] nue-pressed p-6 w-full">
+        <div className="max-h-5rem rounded-[4rem] nue-concave px-8 py-4 w-full">
             <h2 className="items-center text-accent">
                 投稿
             </h2>
