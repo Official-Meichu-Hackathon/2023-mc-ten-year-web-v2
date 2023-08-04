@@ -27,7 +27,7 @@ export function Board({ comments }) {
             <div className="comments-shadow content-stretch bg-card-1 p-8 flex flex-col card-rounded min-h-screen">
                 <div className="select-none">　</div>
                 <div className="flex space-x-32">
-                    <div className="text-sec-title whitespace-nowrap mr-8">　留言板</div>
+                    <div className="text-sec-title whitespace-nowrap mr-4">　留言板</div>
                     <div className="ml-16 space-y-8">
                         <div className="flex-grow text-board">立即留言...</div>
                         <div className="space-y-8">
