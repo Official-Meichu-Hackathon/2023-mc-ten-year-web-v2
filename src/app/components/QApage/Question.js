@@ -16,10 +16,11 @@ export default function Questions({ data }) {
       <div>
         <ul className="grid gap-20 md:grid-cols-2">
           {data.map((q, index) => (
-              <li key={index} className="grid gap-y-8 nue-concave frost-25 p-12 rounded-[4rem] ">
+              <li key={index} className="grid gap-y-8 nue-concave frost-25 p-12 rounded-[4rem]">
                 <div className="flex flex-col justify-center items-center">
-                  <h2 className="text-primary-gradient text-center mb-5">Q: {q.question}</h2>
-                  <div className="grid gap-y-4">
+
+                  <div className="text-primary-gradient text-center mb-5 absolute top-8 text-4xl font-bold">Q: {q.question}</div>
+                  <div className="grid gap-y-4 mt-10">
                     {q.answers.map((answer, index) => (
                         <p key={index}>
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
