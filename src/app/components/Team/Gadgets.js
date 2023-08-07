@@ -3,7 +3,7 @@ import Search from "../../../../public/img/Search.svg"
 
 export function Search_bar(){
     return(
-        <div className="max-h-5rem rounded-[4rem] nue-pressed p-6">
+        <div className="max-h-[5rem] max-w-[25rem] rounded-[4rem] nue-pressed p-6">
             <div className="flex flex-row">
                 <Image
                     src={Search}
@@ -18,10 +18,8 @@ export function Search_bar(){
 
 export function Post() {
     return(
-        <div className="max-h-5rem rounded-[4rem] nue-concave px-8 py-4 w-full">
-            <h2 className="items-center text-accent">
-                投稿
-            </h2>
+        <div className="max-h-[5rem] max-w-[9rem] rounded-[4rem] nue-concave py-4 w-full">
+            <h2 className="mx-auto my-auto text-accent">投稿</h2>
         </div>
     );
 }

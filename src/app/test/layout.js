@@ -5,7 +5,7 @@ export const metadata = {
 
 export default function TestLayout({ children }) {
     return (
-        <div className="wrapper mu-16">
+        <div className="wrapper mt-16">
             {children}
         </div>
     );

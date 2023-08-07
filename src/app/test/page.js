@@ -83,7 +83,7 @@ function CardSec({ setInView }){
 
     return (
         <section ref={ref}>
-            <div className="grid grid-cols-3 gap-14 py-16">
+            <div className="grid grid-cols-3 gap-14 py-16 px-8">
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award} />
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
@@ -91,7 +91,7 @@ function CardSec({ setInView }){
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
             </div>
-            <div className="p-4 grid grid-cols-3 gap-4">
+            <div className="p-4 grid grid-cols-3 gap-4 h-[1rem]">
                 <div className="">
                     <Search_bar/>
                 </div>
@@ -99,7 +99,7 @@ function CardSec({ setInView }){
                     <Post />
                 </div>
             </div>
-            <div className="pu-4">
+            <div className="p-32">
                 <Card_title title={title} group={group} name={name} mail={mail} github={github} tags={tags} view={view} msg={msg}/>
                 <Project_Intro discrip={discrip}/>
             </div>

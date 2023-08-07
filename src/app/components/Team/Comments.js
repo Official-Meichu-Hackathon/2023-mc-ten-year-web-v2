@@ -23,7 +23,7 @@ export function CommentItem({ name, date, content, head }) {
 
 export function Board({ comments }) {
     return(
-        <div className="pu-8 pl-8 pr-8">
+        <div className="pt-8 pl-8 pr-8">
             <div className="comments-shadow content-stretch bg-card-1 p-8 flex flex-col card-rounded min-h-screen">
                 <div className="select-none">　</div>
                 <div className="flex space-x-32">
