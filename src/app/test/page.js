@@ -3,14 +3,15 @@ import Image from "next/image";
 import useSWR from "swr";
 import { useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { CardH, CardV, viewMore } from "../components/Team/Card"
+//import { CardH, CardV, viewMore } from "../components/Team/Card" //
 import { Card_title } from "../components/Team/Card_title";
 import { Project_Intro } from "../components/Team/Project_Intro";
 import { Board } from "../components/Team/Comments";
 import { Search_bar, Post } from "../components/Team/Gadgets";
 import refImg from "../../../public/img/Ref.png";
-import { Filter}  from "../components/Team/Filter";
+import Filter  from "../components/Team/Filter";
 
+/*
 export default function Home() {
     const [cardInView, setCardInView] = useState(false);
 
@@ -27,10 +28,11 @@ export default function Home() {
         </div>
     )
 }
+*/
 
 
 
-
+/*
 
 function CardSec({ setInView }){
     const ref = useRef(null);
@@ -118,3 +120,4 @@ function CardSec({ setInView }){
         </section>
     );
 }
+*/
