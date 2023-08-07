@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-export function CardV({img, title, contents, moreInfo, link, group, award}) {
+export function CardV({img, title, contents, moreInfo, link}) {
   return (
       <div className="card max-h-[32rem] aspect-3/4 team-card-shadow max-w-screen-lg rounded-[2rem] snap-center">
         <Image
@@ -11,11 +11,11 @@ export function CardV({img, title, contents, moreInfo, link, group, award}) {
             className="max-h-[20rem] aspect-3/2 max-h-full card-rounded object-cover"
             priority
         />
-        <div className="px-6 py-8 h-[15rem] overflow-hidden">
+        <div className="px-6 py-8 h-[15rem] overflow-hidden text-ellipsis">
           <div className="overflow-hidden">
-            <h2 className="w-fit pb-4 whitespace-nowrap overflow-hidden">{title}</h2>
+            <div className="w-fit team-title pb-4 whitespace-nowrap text-ellipsis">{title}</div>
           </div>
-          <div className="h-full max-h-[12rem] overflow-y-auto">
+          <div className="h-full max-h-[5rem] text-ellipsis">
             {contents.map((content, index) => (
                 <p key={index} className="">
                   {content}

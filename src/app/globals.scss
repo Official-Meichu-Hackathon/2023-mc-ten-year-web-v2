@@ -134,8 +134,8 @@ body {
     
 }
 .team-card-shadow {
-    background: rgba($clr-bg-primary, 0.4);
-    box-shadow: 0.3rem 0.3rem 0.25rem $clr-card-shadow;
+    box-shadow: 0.3rem 0.3rem 0.25rem 0rem $clr-card-shadow,
+                0rem 0.25rem 0.25rem 0rem $clr-card-shadow;
 }
 .comments-shadow {
     box-shadow: 0 0 4px $clr-card-shadow;
@@ -287,6 +287,12 @@ p {
     line-height: 3.75rem;
     letter-spacing: 0.05rem;
     text-align: justified;
+}
+
+.team-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    line-height: 1.2;
 }
 
 
