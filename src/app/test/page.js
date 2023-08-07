@@ -7,7 +7,7 @@ import { CardH, CardV, viewMore } from "../components/Team/Card"
 import { Card_title } from "../components/Team/Card_title";
 import { Project_Intro } from "../components/Team/Project_Intro";
 import { Board } from "../components/Team/Comments";
-import { Search_bar } from "../components/Team/Gadgets";
+import { Search_bar, Post } from "../components/Team/Gadgets";
 import refImg from "../../../public/img/Ref.png";
 import { Filter}  from "../components/Team/Filter";
 
@@ -42,8 +42,8 @@ function CardSec({ setInView }){
     }, [isInView, setInView]);
 
     const img = refImg;
-    const title = "隊伍名稱的地方";
-    const contents = ["這邊是隊伍的敘述，不知道要打甚麼。"];
+    const title = "隊伍名稱的地方，可能名字超級長就會變到第二行或直接不見之類的";
+    const contents = ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒。"];
     const group = "2022 創客組";
     const award = " 冠軍 ";
 
@@ -88,8 +88,7 @@ function CardSec({ setInView }){
 
     return (
         <section ref={ref}>
-            <p>這裡我還不太知道卡片的比例怎麼調</p>
-            <div className="grid grid-cols-3 gap-14 py-16">
+            <div className="grid grid-cols-3 gap-14 py-16 px-8">
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award} />
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
@@ -97,14 +96,19 @@ function CardSec({ setInView }){
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
             </div>
-            <div className="pu-4">
-                <Search_bar/>
+            <div className="p-4 grid grid-cols-3 gap-4 h-[1rem]">
+                <div className="">
+                    <Search_bar/>
+                </div>
+                <div className="">
+                    <Post />
+                </div>
             </div>
-            <div className="pu-4">
+            <div className="pt-32">
                 <Card_title title={title} group={group} name={name} mail={mail} github={github} tags={tags} view={view} msg={msg}/>
                 <Project_Intro discrip={discrip}/>
             </div>
-            <div className="pu-4">
+            <div className="pt-4">
                 <Board comments={comments}/>
             </div>
 
