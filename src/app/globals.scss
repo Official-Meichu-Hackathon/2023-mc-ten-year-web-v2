@@ -293,6 +293,13 @@ p {
     font-size: 1.8em;
     font-weight: bold;
     line-height: 1.2;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* 設置行數 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // margin-bottom: -0.7rem;
 }
 
 
