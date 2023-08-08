@@ -13,10 +13,10 @@ export function CardV({img, title, contents, moreInfo, link}) {
         />
         <div className="px-6 py-8 h-[15rem] overflow-hidden">
           <div className="overflow-hidden">
-            <div className="w-fit team-title pb-4 h-[2.2rem]">{title}</div>
+            <div className="w-fit team-title pb-4 h-[2.01rem]">{title}</div>
           </div>
           <div className="h-full max-h-[8.5rem] pt-4">
-            <div className="line-clamp-4">
+            <div className="md:line-clamp-4 line-clamp-5">
               {contents.map((content, index) => (
                   <p key={index} className="">
                     {content}
