@@ -8,20 +8,23 @@ export function CardV({img, title, contents, moreInfo, link}) {
         <Image
             src={img}
             alt="Ref image"
-            className="max-h-[20rem] aspect-3/2 max-h-full card-rounded object-cover"
+            className="aspect-3/2 max-h-[20rem] card-rounded object-cover h-[16rem]" /*具體的高度你再看要多少 rem*/
             priority
         />
         <div className="px-6 py-8 h-[15rem] overflow-hidden text-ellipsis">
           <div className="overflow-hidden">
             <div className="w-fit team-title pb-4 whitespace-nowrap text-ellipsis">{title}</div>
           </div>
-          <div className="h-full max-h-[5rem] text-ellipsis">
-            {contents.map((content, index) => (
-                <p key={index} className="">
-                  {content}
-                </p>
-            ))}
+          <div className="overflow-hidden">
+            <div className="h-full max-h-[8.5rem] text-ellipsis py-0">
+              {contents.map((content, index) => (
+                  <p key={index} className="">
+                    {content}
+                  </p>
+              ))}
+            </div>
           </div>
+
           {(moreInfo !== "") && (
               <Link href={link} className="place-self-end text-accent min-w-[20ch]">
                 {moreInfo}
