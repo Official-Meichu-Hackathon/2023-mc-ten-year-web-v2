@@ -11,9 +11,9 @@ export function Card_title({title, group, name, mail, github, tags, view, msg}){
     return(
         <div className="">
             <div className="bg-card-1 px-16 py-12 pb-6">
-                <div className="flex justify-between">
+                <div className="flex justify-between items-start">
                     <h1>{ title }</h1>
-                    <Image src={ close } alt="close" width={30} height={30} />
+                    <Image src={ close } alt="close" width={30} height={30} className="pt-4"/>
                 </div>
                 <p className="text-title">{ group } ｜ { name }</p>
                 <div className="space-y-1">
