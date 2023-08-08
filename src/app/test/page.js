@@ -10,6 +10,8 @@ import { Board } from "../components/Team/Comments";
 import { Search_bar, Post } from "../components/Team/Gadgets";
 import refImg from "../../../public/img/Ref.png";
 import Filter  from "../components/Team/Filter";
+import  ImageSlider  from "../components/Team/Slides";
+
 
 
 export default function Home() {
@@ -90,6 +92,15 @@ function CardSec({ setInView }){
 
     return (
         <section ref={ref}>
+            {/* 這是slider */}
+            
+                <h1>hello new slider</h1>
+            <div>
+                <ImageSlider></ImageSlider>
+            </div>
+   
+
+
             <div className="grid grid-cols-3 gap-14 py-16 px-8">
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award} />
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
@@ -117,6 +128,21 @@ function CardSec({ setInView }){
             <div>
                 <Filter />
             </div>
+
+            <div>
+            
+            </div>
         </section>
     );
 }
+
+
+const slides = [
+
+    { url: "http://localhost:3000/image-1.jpg", title: "Beach" },
+    {url: "http://localhost:3000/image-2.jpg", title: "Boat" },
+    { url: "http://Localhost :3000/image-3. jpg" , title: "Forest"},
+    { url: "http://localhost: 3000/image-4. jpg", title: "City" },
+    {url: "http://Localhost:3000/image-5. jpg", title: "Italy" },
+
+]
