@@ -8,7 +8,7 @@ export function CardV({img, title, contents, moreInfo, link}) {
         <Image
             src={img}
             alt="Ref image"
-            className="aspect-3/2 max-h-[20rem] card-rounded object-cover h-[16rem]" /*具體的高度你再看要多少 rem*/
+            className="aspect-3/2 max-h-[20rem] picture-rounded object-cover h-[16rem]" /*具體的高度你再看要多少 rem*/
             priority
         />
         <div className="px-6 py-8 h-[15rem] overflow-hidden">

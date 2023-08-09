@@ -109,7 +109,7 @@ function CardSec({ setInView }){
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
             </div>
-            <div className="p-4 grid grid-cols-3 gap-4 h-[1rem]">
+            <div className="p-4 grid md:grid-cols-3 gap-4 h-[1rem]">
                 <div className="">
                     <Search_bar/>
                 </div>
