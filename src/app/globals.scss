@@ -141,6 +141,13 @@ body {
     box-shadow: 0 0 4px $clr-card-shadow;
 }
 
+.search-shadow {
+    background: $clr-bg-primary;
+    box-shadow: inset 0.4rem 0.4rem 0.8rem 0rem $clr-neu-shadow-2,
+                inset -0.4rem -0.4rem 0.8rem 0rem $clr-neu-shadow-1;
+}
+
+
 iframe {
     aspect-ratio: 16 / 9;
     width: 100%;
@@ -157,8 +164,10 @@ a, button {
     }
 }
 
-.card-rounded{
-    border-radius: 2rem 2rem 0 0;
+@media (min-width: 768px) {
+    .md\:card-rounded {
+        border-radius: 2rem 2rem 0 0;
+    }
 }
 
 
