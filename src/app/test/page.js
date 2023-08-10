@@ -10,7 +10,7 @@ import { Board } from "../components/Team/Comments";
 import { Search_bar, Post } from "../components/Team/Gadgets";
 import refImg from "../../../public/img/Ref.png";
 import Filter  from "../components/Team/Filter";
-import  ImageSlider  from "../components/Team/Slides";
+import { ImageSlider } from "../components/Team/Slides";
 
 
 
