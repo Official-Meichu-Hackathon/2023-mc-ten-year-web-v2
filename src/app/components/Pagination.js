@@ -1,5 +1,7 @@
 import React from 'react';
-
+import Image from "next/image";
+import leftArrow from "../../../public/img/QApage/left-arrow.svg";
+import rightArrow from "../../../public/img/QApage/right-arrow.svg";
 export default function Pagination({ totalPages, currentPage, onPageChange }) {
   const handlePageChange = (pageNumber) => {
     if (pageNumber >= 1 && pageNumber <= totalPages) {
@@ -14,9 +16,7 @@ export default function Pagination({ totalPages, currentPage, onPageChange }) {
             disabled={currentPage === 1}
             onClick={() => handlePageChange(currentPage - 1)}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14 7L9 12L14 17V7Z" fill="black"/>
-          </svg>
+          <Image src={leftArrow} alt="left-arrow" width={24} height={24}/>
         </button>
 
         {[currentPage - 1, currentPage, currentPage + 1].map((pageNumber) => (
@@ -36,9 +36,7 @@ export default function Pagination({ totalPages, currentPage, onPageChange }) {
             disabled={currentPage === totalPages}
             onClick={() => handlePageChange(currentPage + 1)}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 17L15 12L10 7V17Z" fill="black"/>
-          </svg>
+          <Image src={rightArrow} alt="right-arrow" width={24} height={24}/>
         </button>
       </div>
   );
