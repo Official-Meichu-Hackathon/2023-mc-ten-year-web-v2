@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import useSWR from 'swr';
 import { Load, LoadFailed } from '../components/gadgets';
 import Questions from '@/app/components/QApage/Question';
@@ -11,6 +11,18 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 export default function Qna() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
+  const [isMobile, setIsMobile] = useState(true); // Default to mobile
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const { data, error } = useSWR('/api/qna', fetcher);
   if (error) return <LoadFailed />;
@@ -35,12 +47,13 @@ export default function Qna() {
         </header>
         <main>
           <Filter />
-          <Questions data={currentData} />
-          <Pagination
+          <div className="mt-5"></div>
+          <Questions data={isMobile ? data : currentData} />
+          {!isMobile && (<Pagination
               totalPages={totalPages}
               currentPage={currentPage}
               onPageChange={changePage}
-          />
+          />)}
         </main>
       </div>
   );
