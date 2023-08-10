@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Search from "../../../../public/img/Search.svg"
+import Search from "../../../../public/img/Team/Search.svg"
 import React from 'react';
 
 export function Search_bar() {

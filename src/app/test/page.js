@@ -20,7 +20,7 @@ export default function Home() {
     return(
         <div>
             <header>
-                <h1 className="md:bracket-md">測試功能</h1>
+                <h1 className="bracket-md">測試功能</h1>
             </header>
             <main>
                 <article className="grid">
@@ -84,7 +84,7 @@ function CardSec({ setInView }){
                 </div>
             </div>
 
-            <div>
+            <div className="pt-16">
                 <Filter checkBoxNames = {checkBoxNames}/>
             </div>
 

@@ -1,11 +1,10 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import mailIcon from "../../../../public/img/email-outline.svg";
-import githubIcon from "../../../../public/img/github.svg";
-import close from "../../../../public/img/close.svg";
-import eyeIcon from "../../../../public/img/eye-outline.svg";
-import msgIcon from "../../../../public/img/message-outline.svg";
+import mailIcon from "../../../../public/img/Team/email-outline.svg";
+import githubIcon from "../../../../public/img/Team/github.svg";
+import eyeIcon from "../../../../public/img/Team/eye-outline.svg";
+import msgIcon from "../../../../public/img/Team/message-outline.svg";
 
 export function Card_title({title, group, name, mail, github, tags, view, msg}){
     return(
