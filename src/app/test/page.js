@@ -20,7 +20,7 @@ export default function Home() {
     return(
         <div>
             <header>
-                <h1 className="bracket-md">測試功能</h1>
+                <h1 className="md:bracket-md">測試功能</h1>
             </header>
             <main>
                 <article className="grid">
@@ -96,12 +96,12 @@ function CardSec({ setInView }){
             
                 <h1>hello new slider</h1>
             <div>
-                <ImageSlider></ImageSlider>
+                {/* <ImageSlider></ImageSlider> */}
             </div>
    
 
 
-            <div className="grid grid-cols-3 gap-14 py-16 px-8">
+            <div className="grid gap-14 py-16 md:px-8 mx-10 md:grid-cols-3 sm:grid-cols-1">
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award} />
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
@@ -109,7 +109,7 @@ function CardSec({ setInView }){
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
             </div>
-            <div className="p-4 grid grid-cols-3 gap-4 h-[1rem]">
+            <div className="p-4 grid md:grid-cols-3 gap-4 h-[1rem]">
                 <div className="">
                     <Search_bar/>
                 </div>

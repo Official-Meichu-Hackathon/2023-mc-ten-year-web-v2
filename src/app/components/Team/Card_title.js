@@ -10,10 +10,10 @@ import msgIcon from "../../../../public/img/message-outline.svg";
 export function Card_title({title, group, name, mail, github, tags, view, msg}){
     return(
         <div className="">
-            <div className="bg-card-1 px-16 py-12 pb-6">
-                <div className="flex justify-between">
+            <div className="bg-card-1 md:px-16 px-8 py-12 pb-6">
+                <div className="flex justify-between items-start">
                     <h1>{ title }</h1>
-                    <Image src={ close } alt="close" width={30} height={30} />
+                    <Image src={ close } alt="close" width={30} height={30} className="pt-4"/>
                 </div>
                 <p className="text-title">{ group } ｜ { name }</p>
                 <div className="space-y-1">
@@ -27,7 +27,7 @@ export function Card_title({title, group, name, mail, github, tags, view, msg}){
                     </div>
                 </div>
             </div>
-            <div className="bg-card-2 px-16 py-4 flex justify-between items-center">
+            <div className="bg-card-2 md:px-16 px-8 py-4 flex justify-between items-center">
                 <div className="flex space-x-4">
                     {tags.map((tag, index) => (
                         <span key={index} className="text-primary">
@@ -35,16 +35,19 @@ export function Card_title({title, group, name, mail, github, tags, view, msg}){
                         </span>
                     ))}
                 </div>
-                <div className="flex space-x-4">
-                    <div className="flex">
-                        <Image src={ eyeIcon } alt="eye Icon" width={20.83} height={16.67} />
-                        <p className="pl-2 text-tag">{ view }</p>
-                    </div>
-                    <div className="flex">
-                        <Image src={ msgIcon } alt="Message Icon" width={20.83} height={16.67} />
-                        <p className="pl-2 text-tag">{ msg }</p>
+                <div className="hidden md:block">
+                    <div className="flex space-x-4">
+                        <div className="flex">
+                            <Image src={ eyeIcon } alt="eye Icon" width={20.83} height={16.67} />
+                            <p className="pl-2 text-tag">{ view }</p>
+                        </div>
+                        <div className="flex">
+                            <Image src={ msgIcon } alt="Message Icon" width={20.83} height={16.67} />
+                            <p className="pl-2 text-tag">{ msg }</p>
+                        </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     );

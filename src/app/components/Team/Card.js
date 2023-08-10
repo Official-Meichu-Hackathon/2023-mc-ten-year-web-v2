@@ -8,15 +8,15 @@ export function CardV({img, title, contents, moreInfo, link}) {
         <Image
             src={img}
             alt="Ref image"
-            className="aspect-3/2 max-h-[20rem] card-rounded object-cover h-[16rem]" /*具體的高度你再看要多少 rem*/
+            className="aspect-3/2 max-h-[20rem] picture-rounded object-cover h-[16rem]" /*具體的高度你再看要多少 rem*/
             priority
         />
-        <div className="px-6 py-8 h-[15rem] overflow-hidden text-ellipsis">
+        <div className="px-6 py-8 h-[15rem] overflow-hidden">
           <div className="overflow-hidden">
-            <div className="w-fit team-title pb-4 whitespace-nowrap text-ellipsis">{title}</div>
+            <div className="w-fit team-title pb-4 h-[2.01rem]">{title}</div>
           </div>
-          <div className="overflow-hidden">
-            <div className="h-full max-h-[8.5rem] text-ellipsis py-0">
+          <div className="h-full max-h-[8.5rem] pt-4">
+            <div className="md:line-clamp-4 line-clamp-5">
               {contents.map((content, index) => (
                   <p key={index} className="">
                     {content}

@@ -23,13 +23,17 @@ export function CommentItem({ name, date, content, head }) {
 
 export function Board({ comments }) {
     return(
-        <div className="pu-8 pl-8 pr-8">
-            <div className="comments-shadow content-stretch bg-card-1 p-8 flex flex-col card-rounded min-h-screen">
+        <div className="pu-8 md:px-8">
+            <div className="comments-shadow content-stretch bg-card-1 p-8 flex flex-col md:card-rounded min-h-screen">
                 <div className="select-none">　</div>
-                <div className="flex space-x-32">
-                    <div className="text-sec-title whitespace-nowrap mr-8">　留言板</div>
-                    <div className="ml-16 space-y-8">
-                        <div className="flex-grow text-board">立即留言...</div>
+                <div className="md:flex md:space-x-32">
+                    <div className="hidden md:block flex text-sec-title whitespace-nowrap mr-8">　留言板</div>
+                    <div className="md:hidden flex justify-between">
+                        <div className="text-sec-title">留言板</div>
+                        <div className="text-board">立即留言...</div>
+                    </div>
+                    <div className="md:ml-16 space-y-8">
+                        <div className="hidden md:block text-board">立即留言...</div>
                         <div className="space-y-8">
                         {comments.map((comment) => (
                             <CommentItem
