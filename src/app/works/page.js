@@ -2,6 +2,22 @@
 import { ImageSlider } from "../components/Team/Slides";
 import Filter from "../components/Team/Filter";
 //works.js
+
+const checkBoxNames = [
+    { name:"2022" ,
+      id: 1
+    },
+    { name:"創客組" ,
+    id: 1
+    },
+    { name:"報名相關" ,
+    id: 1
+    },
+    { name:"其他" ,
+    id: 1
+    }
+  ]
+
 export default function Team() {
     return (
         <div>
@@ -12,7 +28,9 @@ export default function Team() {
             </header>
 
             <div>
-                <Filter></Filter> 
+                <Filter
+                checkBoxNames={checkBoxNames}
+                ></Filter> 
             </div>
             <main>
 

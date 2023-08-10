@@ -97,6 +97,10 @@ function CardSec({ setInView }){
                 <h1>hello new slider</h1>
             <div>
                 {/* <ImageSlider></ImageSlider> */}
+                <ImageSlider
+                />
+
+                
             </div>
    
 
@@ -126,7 +130,7 @@ function CardSec({ setInView }){
             </div>
 
             <div>
-                <Filter />
+                <Filter checkBoxNames = {checkBoxNames}/>
             </div>
 
             <div>
@@ -146,3 +150,11 @@ const slides = [
     {url: "http://Localhost:3000/image-5. jpg", title: "Italy" },
 
 ]
+
+const checkBoxNames = [
+    {id : 0, name: "2021"},
+    {id : 1, name: "2022"},
+    {id : 2, name: "2023"},
+    {id : 3, name: "2024"}
+
+  ]
