@@ -58,7 +58,7 @@ export function CardV({ img, title, contents, moreInfo, link }) {
   };
 
   return (
-    <div className="card max-h-[32rem] aspect-3/4 team-card-shadow max-w-screen-lg rounded-[2rem] snap-center" onClick={() => openPopup()}>
+    <div className="card max-w-[24rem] aspect-3/4 team-card-shadow max-w-screen-lg rounded-[2rem] snap-center" onClick={() => openPopup()}>
       <Image
         src={img}
         alt="Ref image"

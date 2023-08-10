@@ -67,7 +67,7 @@ function CardSec({ setInView }){
    
 
 
-            <div className="grid gap-14 py-16 md:px-8 mx-10 md:grid-cols-3 sm:grid-cols-1">
+            <div className="grid gap-14 py-16 md:px-8 lg:mx-10 grid-cols-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award} />
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
