@@ -21,11 +21,11 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
             <div className="fixed top-0 left-0 md:w-4/5 w-full h-full bg-black bg-opacity-50 flex items-center justify-start" style={{ top: popupTop }}>
                 {/* 彈出視窗內容 */}
                 <div className="w-full bg-primary overflow-y-auto">
-                    {/* <button onClick={() => {
+                    { <button onClick={() => {
                         onClose();
                     }} className="absolute top-4 right-4 bg-red-500 text-white p-2 rounded-full">
                         關閉
-                    </button> */}
+                    </button> }
                     <div className="pt-32">
                         <Card_title title={title} group={group} name={name} mail={mail} github={github} tags={tags} view={view} msg={msg} />
                         <Project_Intro discrip={discrip} />

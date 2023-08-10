@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from 'react';
 import Team_Intro from "./Team_Intro";
+import { Comment_Card } from "./Comment_card";
 
 export function CardV({ img, title, contents, moreInfo, link }) {
 
@@ -46,6 +47,7 @@ export function CardV({ img, title, contents, moreInfo, link }) {
       ];
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isPopupOpenCommentCard, setisPopupOpenCommentCard] = useState(false);
 
   const openPopup = () => {
     setIsPopupOpen(true);
@@ -53,9 +55,25 @@ export function CardV({ img, title, contents, moreInfo, link }) {
   };
 
   const closePopup = () => {
-    setIsPopupOpen(false);
+    console.log("Closing popup...");
+    setIsPopupOpen(!isPopupOpen);
+    console.log({isPopupOpen});
     document.body.style.overflow = 'auto';
   };
+  const openPopupComment = () => {
+    setisPopupOpenCommentCard(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closePopupCommentCard = () => {
+    console.log("Closing popup...");
+    setIsPopupOpen(!isPopupOpen);
+    console.log({isPopupOpenCommentCard});
+    document.body.style.overflow = 'auto';
+  };
+
+
+
 
   return (
     <div className="card max-h-[32rem] aspect-3/4 team-card-shadow max-w-screen-lg rounded-[2rem] snap-center" onClick={openPopup}>
@@ -89,6 +107,9 @@ export function CardV({ img, title, contents, moreInfo, link }) {
       {isPopupOpen && (
           <Team_Intro onClose={closePopup} title={title} msg={msg} group={group} name={name} mail={mail} github={github} tags={tags} view={view} discrip={discrip} comments={comments}/>
       )}
+
+
     </div>
+
   );
 }

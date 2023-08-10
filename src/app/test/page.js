@@ -11,7 +11,7 @@ import { Search_bar, Post } from "../components/Team/Gadgets";
 import refImg from "../../../public/img/Ref.png";
 import Filter  from "../components/Team/Filter";
 import { ImageSlider } from "../components/Team/Slides";
-
+import { Comment_Card } from "../components/Team/Comment_card";
 
 
 export default function Home() {
@@ -50,7 +50,19 @@ function CardSec({ setInView }){
     const contents = ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒。"];
     const group = "2022 創客組";
     const award = " 冠軍 ";
-      
+    const [isPopupOpenCommentCard, setisPopupOpenCommentCard] = useState(false);
+    const openPopupComment = () => {
+        setisPopupOpenCommentCard(true);
+        console.log("Closing popup...");
+        document.body.style.overflow = 'hidden';
+      };
+    
+      const closePopupCommentCard = () => {
+        console.log("Closing popup...");
+        setisPopupOpenCommentCard(!isPopupOpen);
+        console.log({isPopupOpenCommentCard});
+        document.body.style.overflow = 'auto';
+      };
 
     return (
         <section ref={ref}>
@@ -63,6 +75,20 @@ function CardSec({ setInView }){
                 />
 
                 
+            </div>
+
+            <div>
+
+            <button onClick={openPopupComment}>nice</button>
+            {
+                isPopupOpenCommentCard && (
+                <Comment_Card
+                isPopupOpenCommentCard={isPopupOpenCommentCard}
+                onClose={closePopupCommentCard}
+                ></Comment_Card>
+
+            )
+            }
             </div>
    
 
