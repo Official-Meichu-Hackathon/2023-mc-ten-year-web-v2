@@ -61,16 +61,16 @@ export function CardV({ img, title, contents, moreInfo, link }) {
 
 
   return (
-    <div className="card max-w-[24rem] aspect-3/4 team-card-shadow max-w-screen-lg rounded-[2rem] snap-center" onClick={() => openPopup()}>
+    <div className="card max-h-[35rem] aspect-3/4 team-card-shadow max-w-screen-lg rounded-[2rem] snap-center" onClick={() => openPopup()}>
       <Image
         src={img}
         alt="Ref image"
         className="aspect-3/2 max-h-[20rem] picture-rounded object-cover h-[16rem]" /*具體的高度你再看要多少 rem*/
         priority
       />
-      <div className="px-6 py-8 h-[15rem] overflow-hidden">
+      <div className="px-6 pb-8 pt-6 h-[15rem] overflow-hidden">
         <div className="overflow-hidden">
-          <div className="w-fit team-title pb-4 h-[2.01rem]">{title}</div>
+          <div className="w-fit team-title pb-4 h-[2.35rem]">{title}</div>
         </div>
         <div className="h-full max-h-[8.5rem] pt-4">
           <div className="md:line-clamp-4 line-clamp-5">

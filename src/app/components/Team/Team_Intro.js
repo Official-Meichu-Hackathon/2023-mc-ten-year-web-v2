@@ -20,7 +20,7 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
                     </button>
                     <div className="">
                         <Card_title title={title} group={group} name={name} mail={mail} github={github} tags={tags} view={view} msg={msg} />
-                        <Project_Intro discrip={discrip} />
+                        {/* <Project_Intro discrip={discrip} /> */}
                     </div>
                     <div className="pt-4">
                         <Board comments={comments} />

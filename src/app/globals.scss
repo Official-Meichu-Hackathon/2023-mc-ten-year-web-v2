@@ -4,7 +4,7 @@
 
 
 
-/* --------------------------- BREAKOPINTS ---------------------------
+/* --------------------------- BREAKPOINTS ---------------------------
  *  sm     md     lg     xl     2xl
  * 576px  768px  992px  1200px 1400px
  */
@@ -14,14 +14,8 @@
 /* --------------------------- COLOR THEME --------------------------- */
 $clr-text-primary: #464A53;
 $clr-text-secondary: #B0B1B5;
-$clr-text-tag: #1E1E1E;
-$clr-text-board: #5D75BE;
 $clr-bg-primary: #EBECF2;
 $clr-bg-secondary: #D9D9D9; // E3E3E3
-$clr-bg-tag-1: #637B9A;
-$clr-bg-tag-2: #D2D6A9;
-$clr-bg-card-1: #ECECEC;
-$clr-bg-card-2: #C4C4C44D;
 $clr-accent: hsla(225, 100%, 75%, 1);
 
 $clr-gradient-primary-1: hsla(185, 100%, 75%, 1);
@@ -33,7 +27,6 @@ $clr-neu-fill-1: #D4D4DA;
 $clr-neu-fill-2: #FBFDFF;
 $clr-neu-shadow-1: #FFFFFF;
 $clr-neu-shadow-2: #BCBDC2;
-$clr-card-shadow: #00000040;
 
 
 
@@ -43,7 +36,7 @@ body {
     overflow-y: overlay !important;
     scrollbar-gutter: stable both-edges;
 
-    // TODO: Resolve CJK fonts not being loaded
+    // TODO: Test after pull #51890 merge into stable
     font-family: var(--font-space-grotesk), "Noto Sans TC", sans-serif;
     // font-family: var(--font-space-grotesk), var(--font-noto-sans-tc);
 }
@@ -150,15 +143,6 @@ a, button {
     }
 }
 
-@media (min-width: 768px) {
-    .md\:card-rounded {
-        border-radius: 2rem 2rem 0 0;
-    }
-}
-
-.picture-rounded {
-    border-radius: 2rem 2rem 0 0;
-}
 
 
 /* ---------------------------- COLORS --------------------------- */
@@ -236,7 +220,6 @@ p {
     -moz-text-fill-color: transparent;
     -webkit-text-fill-color: transparent;
 }
-
 
 @mixin bracket($fontSize: 175%, $fontWeight: normal) {
     display: flex;

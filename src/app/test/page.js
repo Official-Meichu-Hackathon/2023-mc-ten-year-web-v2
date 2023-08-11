@@ -11,8 +11,7 @@ import { Search_bar, Post } from "../components/Team/Gadgets";
 import refImg from "../../../public/img/Ref.png";
 import Filter  from "../components/Team/Filter";
 import { ImageSlider } from "../components/Team/Slides";
-import "../globals.scss";
-import "../components/Team/local.scss";
+import { Comment_Card } from "../components/Team/Comment_card";
 
 
 
@@ -88,10 +87,6 @@ function CardSec({ setInView }){
 
             <div className="pt-16">
                 <Filter checkBoxNames = {checkBoxNames}/>
-            </div>
-
-            <div>
-            
             </div>
         </section>
     );
