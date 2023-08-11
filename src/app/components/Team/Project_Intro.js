@@ -1,3 +1,6 @@
+import "./local.scss";
+import "../../globals.scss"
+
 export function Project_Intro ({ discrip }){
     return(
         <div className="bg-primary md:px-16 px-8 py-12 pb-6 md:flex md:space-x-32 items-start">

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import "./local.scss";
+import "../../globals.scss"
 import Team_Intro from "./Team_Intro";
 
 export function CardV({ img, title, contents, moreInfo, link }) {
@@ -56,6 +58,7 @@ export function CardV({ img, title, contents, moreInfo, link }) {
     setIsPopupOpen(false);
     console.log('Popup closed');
   };
+
 
   return (
     <div className="card max-w-[24rem] aspect-3/4 team-card-shadow max-w-screen-lg rounded-[2rem] snap-center" onClick={() => openPopup()}>

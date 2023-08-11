@@ -1,4 +1,6 @@
 import Image from "next/image";
+import "./local.scss";
+import "../../globals.scss"
 
 export function CommentItem({ name, date, content, head }) {
     return (

@@ -133,20 +133,6 @@ body {
                 inset 0.75em 0.75em 1.5em $clr-neu-shadow-2;
     
 }
-.team-card-shadow {
-    box-shadow: 0.3rem 0.3rem 0.25rem 0rem $clr-card-shadow,
-                0rem 0.25rem 0.25rem 0rem $clr-card-shadow;
-}
-.comments-shadow {
-    box-shadow: 0 0 4px $clr-card-shadow;
-}
-
-.search-shadow {
-    background: $clr-bg-primary;
-    box-shadow: inset 0.4rem 0.4rem 0.8rem 0rem $clr-neu-shadow-2,
-                inset -0.4rem -0.4rem 0.8rem 0rem $clr-neu-shadow-1;
-}
-
 
 iframe {
     aspect-ratio: 16 / 9;
@@ -187,12 +173,6 @@ a, button {
 }
 .bg-accent {
     background-color: $clr-accent;
-}
-.bg-card-1 {
-    background-color: $clr-bg-card-1;
-}
-.bg-card-2 {
-    background-color: $clr-bg-card-2;
 }
 
 .text-primary {
@@ -255,64 +235,6 @@ p {
     text-fill-color: transparent;
     -moz-text-fill-color: transparent;
     -webkit-text-fill-color: transparent;
-}
-
-.text-title {
-    font-size: 1.875rem;
-    font-weight: 400;
-    line-height: 4rem;
-}
-
-.text-tag{
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 2rem;
-    color: $clr-text-primary;
-}
-
-.text-sec-title {
-    font-weight: 700;
-    font-size: 1.375rem;
-    color: $clr-text-primary;
-}
-
-.text-discrip {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.15rem;
-    line-height: 2rem;
-    text-align: justify;
-    color: $clr-text-primary;
-}
-
-.text-board {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1.25rem;
-    text-align: justify;
-    color: $clr-text-board;
-}
-
-.text-comment {
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 3.75rem;
-    letter-spacing: 0.05rem;
-    text-align: justified;
-}
-
-.team-title {
-    font-size: 1.8em;
-    font-weight: bold;
-    line-height: 1.2;
-    white-space: normal;
-    display: -webkit-box;
-    -webkit-line-clamp: 1; /* 設置行數 */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    // margin-bottom: -0.7rem;
 }
 
 

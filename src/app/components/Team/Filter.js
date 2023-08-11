@@ -2,7 +2,8 @@
 //filter
 import React from 'react';
 import { useState } from 'react';
-
+import "./local.scss";
+import "../../globals.scss"
 
 export function CheckBoxItem({ checkBoxSetState, checkBoxState, checkBoxName, filterViewMode}) {
   return (

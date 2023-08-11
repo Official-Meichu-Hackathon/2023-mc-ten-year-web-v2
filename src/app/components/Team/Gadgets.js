@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Search from "../../../../public/img/Team/Search.svg"
 import React from 'react';
+import "./local.scss";
+import "../../globals.scss"
 
 export function Search_bar() {
     return (
