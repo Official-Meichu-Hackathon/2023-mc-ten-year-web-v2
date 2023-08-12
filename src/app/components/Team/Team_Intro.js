@@ -5,8 +5,10 @@ import { Project_Intro } from "./Project_Intro";
 import { Board } from "./Comments";
 import { useState, useEffect } from 'react';
 
+
 export default function Team_Intro({ onClose, title, group, name, mail, github, tags, view, msg, discrip, comments }) {
     const [popupTop, setPopupTop] = useState('50vh');
+
     
     useEffect(() => {
         const toolbarHeight = window.scrollY;

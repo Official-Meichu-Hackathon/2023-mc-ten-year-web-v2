@@ -140,14 +140,11 @@ body {
 .comments-shadow {
     box-shadow: 0 0 4px $clr-card-shadow;
 }
-
 .search-shadow {
     background: $clr-bg-primary;
     box-shadow: inset 0.4rem 0.4rem 0.8rem 0rem $clr-neu-shadow-2,
                 inset -0.4rem -0.4rem 0.8rem 0rem $clr-neu-shadow-1;
 }
-
-
 iframe {
     aspect-ratio: 16 / 9;
     width: 100%;
@@ -164,13 +161,7 @@ a, button {
     }
 }
 
-@media (min-width: 768px) {
-    .md\:card-rounded {
-        border-radius: 2rem 2rem 0 0;
-    }
-}
-
-.picture-rounded {
+.card-rounded{
     border-radius: 2rem 2rem 0 0;
 }
 
@@ -245,7 +236,7 @@ p {
     font-weight: 300;
     line-height: 2;
     text-align: center;
-}
+} 
 
 .text-primary-gradient {
     background: $clr-gradient-primary;
@@ -280,7 +271,7 @@ p {
 .text-discrip {
     font-style: normal;
     font-weight: 400;
-    font-size: 1.15rem;
+    font-size: 1rem;
     line-height: 2rem;
     text-align: justify;
     color: $clr-text-primary;
@@ -306,13 +297,6 @@ p {
     font-size: 1.8em;
     font-weight: bold;
     line-height: 1.2;
-    white-space: normal;
-    display: -webkit-box;
-    -webkit-line-clamp: 1; /* 設置行數 */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    // margin-bottom: -0.7rem;
 }
 
 

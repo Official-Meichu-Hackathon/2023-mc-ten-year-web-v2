@@ -56,7 +56,7 @@ export function CardV({ img, title, contents, moreInfo, link }) {
 
   const closePopup = () => {
     console.log("Closing popup...");
-    setIsPopupOpen(!isPopupOpen);
+    setIsPopupOpen( !setIsPopupOpen );
     console.log({isPopupOpen});
     document.body.style.overflow = 'auto';
   };
@@ -82,6 +82,7 @@ export function CardV({ img, title, contents, moreInfo, link }) {
         alt="Ref image"
         className="aspect-3/2 max-h-[20rem] picture-rounded object-cover h-[16rem]" /*具體的高度你再看要多少 rem*/
         priority
+        
       />
       <div className="px-6 py-8 h-[15rem] overflow-hidden">
         <div className="overflow-hidden">

@@ -47,7 +47,8 @@ export default function RootLayout({ children }) {
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" />
             </head>
 			<body className={`${spaceGrotesk.variable} ${notoSansTC.variable}
-                             grid grid-rows-[1fr_auto] md:grid-rows-[auto_1fr_auto] min-h-screen min-h-[100svh] scroll-smooth
+                             grid grid-rows-[1fr_auto] md:grid-rows-[auto_1fr_auto] 
+                              min-h-[100svh] scroll-smooth
                              text-sm md:text-base 2xl:text-lg
                              text-primary bg-primary`}>
                 <Navbar />
