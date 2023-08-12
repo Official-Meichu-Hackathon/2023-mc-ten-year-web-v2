@@ -14,13 +14,14 @@ import { ImageSlider } from "../components/Team/Slides";
 import { Comment_Card } from "../components/Team/Comment_card";
 
 
+
 export default function Home() {
     const [cardInView, setCardInView] = useState(false);
 
     return(
         <div>
             <header>
-                <h1 className="md:bracket-md">測試功能</h1>
+                <h1 className="bracket-md">測試功能</h1>
             </header>
             <main>
                 <article className="grid">
@@ -93,7 +94,7 @@ function CardSec({ setInView }){
    
 
 
-            <div className="grid gap-14 py-16 md:px-8 mx-10 md:grid-cols-3 sm:grid-cols-1">
+            <div className="grid gap-14 py-16 md:px-8 lg:mx-10 grid-cols-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award} />
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
@@ -110,12 +111,8 @@ function CardSec({ setInView }){
                 </div>
             </div>
 
-            <div>
+            <div className="pt-16">
                 <Filter checkBoxNames = {checkBoxNames}/>
-            </div>
-
-            <div>
-            
             </div>
         </section>
     );

@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
+import "./local.scss";
+import "../../globals.scss"
 
 export function ImageSlider() {
   const slides = [

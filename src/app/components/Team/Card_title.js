@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import mailIcon from "../../../../public/img/email-outline.svg";
-import githubIcon from "../../../../public/img/github.svg";
-import close from "../../../../public/img/close.svg";
-import eyeIcon from "../../../../public/img/eye-outline.svg";
-import msgIcon from "../../../../public/img/message-outline.svg";
+import mailIcon from "../../../../public/img/Team/email-outline.svg";
+import githubIcon from "../../../../public/img/Team/github.svg";
+import eyeIcon from "../../../../public/img/Team/eye-outline.svg";
+import msgIcon from "../../../../public/img/Team/message-outline.svg";
+import "./local.scss";
+import "../../globals.scss"
 
 export function Card_title({title, group, name, mail, github, tags, view, msg}){
     return(
@@ -13,7 +14,7 @@ export function Card_title({title, group, name, mail, github, tags, view, msg}){
             <div className="bg-card-1 md:px-16 px-8 py-12 pb-6">
                 <div className="flex justify-between items-start">
                     <h1>{ title }</h1>
-                    <Image src={ close } alt="close" width={30} height={30} className="pt-4"/>
+                    {/* <Image src={ close } alt="close" width={30} height={30} className="pt-4"/> */}
                 </div>
                 <p className="text-title">{ group } ｜ { name }</p>
                 <div className="space-y-1">
