@@ -9,7 +9,6 @@ import { Comment_Card } from "./Comment_card";
 export function CardV({ img, title, contents, moreInfo, link }) {
 
   const group = "2022 創客組";
-
   const name = "林家宇、許伊辰、葉孟昀";
   const mail = "mchackathon2023@gmail.com";
   const github = "teamName/teamProject";
@@ -58,10 +57,11 @@ export function CardV({ img, title, contents, moreInfo, link }) {
 
   const closePopup = () => {
     console.log("Closing popup...");
-    setIsPopupOpen( !setIsPopupOpen );
+    setIsPopupOpen( false );
     console.log({isPopupOpen});
-    document.body.style.overflow = 'auto';
-  };
+
+  }/*;
+
   const openPopupComment = () => {
     setisPopupOpenCommentCard(true);
     document.body.style.overflow = 'hidden';
@@ -73,6 +73,8 @@ export function CardV({ img, title, contents, moreInfo, link }) {
     console.log({isPopupOpenCommentCard});
     document.body.style.overflow = 'auto';
   };
+
+  */
 
   return (
     <div className="card max-h-[35rem] aspect-3/4 team-card-shadow max-w-screen-lg rounded-[2rem] snap-center" onClick={() => openPopup()}>

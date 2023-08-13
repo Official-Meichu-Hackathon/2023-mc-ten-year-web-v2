@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Card_title } from "./Card_title";
 import { Project_Intro } from "./Project_Intro";
 import { Board } from "./Comments";
+import { useState } from 'react';
+import { useEffect } from 'react';
 import close from "../../../../public/img/Team/close.svg";
 import "./local.scss";
 import "../../globals.scss"
