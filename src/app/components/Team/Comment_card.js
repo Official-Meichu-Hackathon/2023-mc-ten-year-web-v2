@@ -69,9 +69,9 @@ export default function Comment_Card({ closePopup }) {
             className="bg-transparent text-md ring-2 ring-gray-300 w-full h-full p-2 rounded-[0.5rem] block text-left"
           />
           <div className="flex items-center justify-center pt-8">
-            <button className="h-[2rem] w-[4rem] rounded-[0.625rem] bg-gray-200 w-full send-shadow"
+            <button className="h-[2rem] w-[4rem] rounded-[0.625rem] bg-gray-200 send-shadow"
               onClick={handleFormSubmit}>
-              <div className="mx-auto my-auto text-blue-700 items-center justify-center font-bold">送出</div>
+              <div className="text-blue-700 items-center justify-center font-bold">送出</div>
             </button>
           </div>
         </div>

@@ -59,22 +59,7 @@ export function CardV({ img, title, contents, moreInfo, link }) {
     console.log("Closing popup...");
     setIsPopupOpen( false );
     console.log({isPopupOpen});
-
-  }/*;
-
-  const openPopupComment = () => {
-    setisPopupOpenCommentCard(true);
-    document.body.style.overflow = 'hidden';
   };
-
-  const closePopupCommentCard = () => {
-    console.log("Closing popup...");
-    setIsPopupOpen(!isPopupOpen);
-    console.log({isPopupOpenCommentCard});
-    document.body.style.overflow = 'auto';
-  };
-
-  */
 
   return (
     <div className="card max-h-[35rem] aspect-3/4 team-card-shadow max-w-screen-lg rounded-[2rem] snap-center" onClick={() => openPopup()}>
@@ -87,7 +72,7 @@ export function CardV({ img, title, contents, moreInfo, link }) {
       />
       <div className="px-6 pb-8 pt-6 h-[15rem] overflow-hidden">
         <div className="overflow-hidden">
-          <div className="w-fit team-title pb-4 h-[2.35rem]">{title}</div>
+          <div className="w-fit team-title pb-4 h-[2.05rem]">{title}</div>
         </div>
         <div className="h-full max-h-[8.5rem] pt-4">
           <div className="md:line-clamp-4 line-clamp-5">
