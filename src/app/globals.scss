@@ -4,7 +4,7 @@
 
 
 
-/* --------------------------- BREAKPOINTS ---------------------------
+/* --------------------------- BREAKOPINTS ---------------------------
  *  sm     md     lg     xl     2xl
  * 576px  768px  992px  1200px 1400px
  */
@@ -14,8 +14,14 @@
 /* --------------------------- COLOR THEME --------------------------- */
 $clr-text-primary: #464A53;
 $clr-text-secondary: #B0B1B5;
+$clr-text-tag: #1E1E1E;
+$clr-text-board: #5D75BE;
 $clr-bg-primary: #EBECF2;
 $clr-bg-secondary: #D9D9D9; // E3E3E3
+$clr-bg-tag-1: #637B9A;
+$clr-bg-tag-2: #D2D6A9;
+$clr-bg-card-1: #ECECEC;
+$clr-bg-card-2: #C4C4C44D;
 $clr-accent: hsla(225, 100%, 75%, 1);
 
 $clr-gradient-primary-1: hsla(185, 100%, 75%, 1);
@@ -28,7 +34,8 @@ $clr-neu-fill-2: #FBFDFF;
 $clr-neu-shadow-1: #FFFFFF;
 $clr-neu-shadow-2: #BCBDC2;
 $clr-card-shadow: #00000040;
-$clr-text-board: #5D75BE;
+
+
 
 /* --------------------------- BODY+NAVBAR --------------------------- */
 body {
@@ -36,7 +43,7 @@ body {
     overflow-y: overlay !important;
     scrollbar-gutter: stable both-edges;
 
-    // TODO: Test after pull #51890 merge into stable
+    // TODO: Resolve CJK fonts not being loaded
     font-family: var(--font-space-grotesk), "Noto Sans TC", sans-serif;
     // font-family: var(--font-space-grotesk), var(--font-noto-sans-tc);
 }
@@ -154,13 +161,7 @@ a, button {
     }
 }
 
-@media (min-width: 768px) {
-    .md\:card-rounded {
-        border-radius: 2rem 2rem 0 0;
-    }
-}
-
-.picture-rounded {
+.card-rounded{
     border-radius: 2rem 2rem 0 0;
 }
 
@@ -177,6 +178,12 @@ a, button {
 }
 .bg-accent {
     background-color: $clr-accent;
+}
+.bg-card-1 {
+    background-color: $clr-bg-card-1;
+}
+.bg-card-2 {
+    background-color: $clr-bg-card-2;
 }
 
 .text-primary {
@@ -264,7 +271,7 @@ p {
 .text-discrip {
     font-style: normal;
     font-weight: 400;
-    font-size: 1.15rem;
+    font-size: 1rem;
     line-height: 2rem;
     text-align: justify;
     color: $clr-text-primary;
@@ -290,13 +297,6 @@ p {
     font-size: 1.8em;
     font-weight: bold;
     line-height: 1.2;
-    white-space: normal;
-    display: -webkit-box;
-    -webkit-line-clamp: 1; /* 設置行數 */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    // margin-bottom: -0.7rem;
 }
 
 
