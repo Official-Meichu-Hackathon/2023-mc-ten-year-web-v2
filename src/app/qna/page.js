@@ -4,8 +4,7 @@ import useSWR from 'swr';
 import { Load, LoadFailed } from '../components/gadgets';
 import Questions from '@/app/components/QApage/Question';
 import Pagination from '@/app/components/Pagination';
-import Filter from "@/app/components/QApage/Filter";
-import FilterList from "@/app/components/QApage/filter-list";
+import Filter from '@/app/components/QApage/Filter';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -55,7 +54,7 @@ export default function Qna() {
           <h1 className="bracket-md text-center">常見問題<br/>Q & A</h1>
         </header>
         <main>
-          <FilterList checkBoxNames={checkBoxNames} isMobile={isMobile} />
+          <Filter checkBoxNames={checkBoxNames} isMobile={isMobile} />
           <div className="mt-5"></div>
           <Questions data={isMobile ? data : currentData} />
           {!isMobile && (<Pagination
