@@ -5,6 +5,7 @@ import { Load, LoadFailed } from '../components/gadgets';
 import Questions from '@/app/components/QApage/Question';
 import Pagination from '@/app/components/Pagination';
 import Filter from "@/app/components/QApage/Filter";
+import FilterList from "@/app/components/QApage/filter-list";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -34,6 +35,14 @@ export default function Qna() {
   const endIndex = startIndex + itemsPerPage;
   const currentData = data.slice(startIndex, endIndex);
 
+  const checkBoxNames = [
+    {id : 0, name: "2022"},
+    {id : 1, name: "創客組"},
+    {id : 2, name: "競賽內容"},
+    {id : 3, name: "報名相關"},
+    {id : 4, name: "其他"}
+  ]
+
   const changePage = (page) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
@@ -46,7 +55,7 @@ export default function Qna() {
           <h1 className="bracket-md text-center">常見問題<br/>Q & A</h1>
         </header>
         <main>
-          <Filter />
+          <FilterList checkBoxNames={checkBoxNames} isMobile={isMobile} />
           <div className="mt-5"></div>
           <Questions data={isMobile ? data : currentData} />
           {!isMobile && (<Pagination

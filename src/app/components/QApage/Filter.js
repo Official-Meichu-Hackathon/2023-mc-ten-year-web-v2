@@ -100,6 +100,7 @@ export default function Filter() {
               )
               }            
             </button>
+            
             <div style={{ flex: 0.01 }}></div>
 
             <button 
