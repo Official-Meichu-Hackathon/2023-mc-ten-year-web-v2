@@ -11,13 +11,6 @@ import "./local.scss";
 import "../../globals.scss"
 
 export default function Team_Intro({ onClose, title, group, name, mail, github, tags, view, msg, discrip, comments }) {
-    const [popupTop, setPopupTop] = useState('50vh');
-
-    useEffect(() => {
-        const toolbarHeight = window.scrollY;
-        const popupPosition = `${toolbarHeight}px`;
-        setPopupTop(popupPosition);
-    }, []);
 
     const handleOutsideClick = (event) => {
         if (event.target === event.currentTarget) {
@@ -40,11 +33,10 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
     }, []);
 
     return (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center z-40" onClick={handleOutsideClick}>
-            <div className="fixed top-0 left-0 md:w-4/5 w-full h-fit bg-black bg-opacity-50 flex items-center justify-start overflow-auto z-50 transition-transform ease-in-out duration-300" style={{ position: 'fixed', top: 0 }}>
-                {/* 彈出視窗內容 */}
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center z-50 duration-500 ease-out transition-all inset-0" onClick={handleOutsideClick}>
+            <div className="fixed top-0 left-0 md:w-4/5 w-full h-fit bg-black bg-opacity-50 flex items-center justify-start overflow-auto z-50 duration-500 ease-out transition-all inset-0" style={{ position: 'fixed', top: 0 }}>
                 <div className="w-full bg-primary overflow-y-auto">
-                    <button className="float-right mt-16 mr-16" onClick={onclose}>
+                    <button className="float-right mt-16 mr-16" onClick={onClose}>
                         <Image src={close} alt="close" width={30} height={30} className="" />
                     </button>
                     <div className="">
