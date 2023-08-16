@@ -42,10 +42,9 @@ export function Board({ comments }) {
         <div className="pu-8 md:px-8">
             <div className="comments-shadow content-stretch bg-card-1 p-8 flex flex-col md:card-rounded min-h-screen">
                 <div className="select-none">　</div>
-                <div className="mr-[2rem]">
-                    <ImageSlider/>
-                </div>
-                <div className="md:flex md:space-x-32">
+                
+
+                <div className="mt-[2rem] md:flex md:space-x-32">
                     <div className="hidden md:block flex text-sec-title whitespace-nowrap mr-8">　留言板</div>
                     <div className="md:hidden flex justify-between">
                         <div className="text-sec-title">留言板</div>

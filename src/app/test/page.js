@@ -68,17 +68,6 @@ function CardSec({ setInView, isMobile}){
 
     return (
         <section ref={ref}>
-            {/* 這是slider */}
-            
-                <h1>hello new slider</h1>
-            <div>
-                {/* <ImageSlider></ImageSlider> */}
-                <ImageSlider
-                />
-
-                
-            </div>
-   
 
 
             <div className="grid gap-14 py-16 md:px-8 lg:mx-10 grid-cols-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -89,6 +78,7 @@ function CardSec({ setInView, isMobile}){
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award}/>
             </div>
+            
             <div className="p-4 grid md:grid-cols-3 gap-4 h-[1rem]">
                 <div className="">
                     <Search_bar/>
@@ -106,15 +96,6 @@ function CardSec({ setInView, isMobile}){
 }
 
 
-const slides = [
-
-    { url: "http://localhost:3000/image-1.jpg", title: "Beach" },
-    {url: "http://localhost:3000/image-2.jpg", title: "Boat" },
-    { url: "http://Localhost :3000/image-3. jpg" , title: "Forest"},
-    { url: "http://localhost: 3000/image-4. jpg", title: "City" },
-    {url: "http://Localhost:3000/image-5. jpg", title: "Italy" },
-
-]
 
 const checkBoxNames = [
     {id : 0, name: "2021"},

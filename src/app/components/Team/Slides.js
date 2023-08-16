@@ -8,8 +8,10 @@ import "../../globals.scss"
 import leftArrow from "../../../../public/img/Team/menu-left.svg";
 import rightArrow from "../../../../public/img/Team/menu-right.svg";
 import rectangle from "../../../../public/img/Team/Rectangle.svg";
+import dot from "../../../../public/img/Team/dot.svg"
+import fullscreen from "../../../../public/img/Team/fullscreen.svg"
 
-export function ImageSlider() {
+export function ImageSlider({closePopup, openPopup}) {
   const slides = [
     {
       url: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80',
@@ -31,6 +33,7 @@ export function ImageSlider() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
@@ -48,11 +51,21 @@ export function ImageSlider() {
   };
 
   return (
-    <div className='h-[20rem] w-[20rem] m-auto py-2 mr-[2rem] relative group'>
+    <div className='h-[24.75rem] w-[44rem] m-auto py-2 mr-[2rem] relative group'>
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
         className=' h-full w-full bg-center bg-cover duration-500'
       ></div>
+      {/*pop up button for viewing picture*/}
+
+      <button onClick={()=>{openPopup()}} className='absolute bottom-[0.7rem] right-[10rem] transform   text-black'>
+            <Image src={dot} alt="dot" className="centered-image "/>
+      </button>
+
+      <button onClick={()=>{openPopup()}} className='absolute bottom-[1.47rem] right-[10.52rem] transform   text-black' >
+
+            <Image src={fullscreen} alt="fullscreen" className="centered-image"/>
+      </button>
 
       {/* Oval Background */}
       <div className='absolute bottom-0 right-[0rem] transform -translate-x-1/2 w-24 h-12  rounded-full'>
@@ -75,17 +88,8 @@ export function ImageSlider() {
           <Image src={rightArrow} alt="msg Icon" width={20.83} height={16.67} />
       </div>
 
-      <div className='flex top-4 justify-center py-2'>
-        {slides.map((slide, slideIndex) => (
-          <div
-            key={slideIndex}
-            onClick={() => goToSlide(slideIndex)}
-            className='text-2xl cursor-pointer'
-          >
-            <RxDotFilled />
-          </div>
-        ))}
-      </div>
+
+
     </div>
   );
 }

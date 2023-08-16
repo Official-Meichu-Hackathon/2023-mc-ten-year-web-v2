@@ -21,7 +21,7 @@ export default function Comment_Card({ closePopup }) {
     // 這裡處理資料提交的邏輯，比如送出到資料庫
     // ...
 
-    // 提交完後清除輸入
+    // 提交完後清除輸入             
     setInputValue("");
     setTextareaValue("");
     closePopup();
