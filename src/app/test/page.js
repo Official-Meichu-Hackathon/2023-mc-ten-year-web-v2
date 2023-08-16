@@ -18,6 +18,18 @@ import { Comment_Card } from "../components/Team/Comment_card";
 
 export default function Home() {
     const [cardInView, setCardInView] = useState(false);
+    const [isMobile, setIsMobile] = useState(true); // Default to mobile
+
+    
+    useEffect(() => {
+        const handleResize = () => {
+        setIsMobile(window.innerWidth < 768);
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);    
 
     return(
         <div>
@@ -26,7 +38,7 @@ export default function Home() {
             </header>
             <main>
                 <article className="grid">
-                    <CardSec setInView={setCardInView} />
+                    <CardSec setInView={setCardInView} isMobile={isMobile} />
                 </article>
             </main>
         </div>
@@ -38,7 +50,7 @@ export default function Home() {
 
 
 
-function CardSec({ setInView }){
+function CardSec({ setInView, isMobile}){
     const ref = useRef(null);
     const isInView = useInView(ref, {
         amount: 0.5
@@ -87,7 +99,7 @@ function CardSec({ setInView }){
             </div>
 
             <div className="pt-16">
-                <Filter checkBoxNames = {checkBoxNames}/>
+                <Filter checkBoxNames = {checkBoxNames} isMobile={isMobile}/>
             </div>
         </section>
     );

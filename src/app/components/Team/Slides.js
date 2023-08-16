@@ -2,8 +2,12 @@
 import React, { useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
+import Image from 'next/image';
 import "./local.scss";
 import "../../globals.scss"
+import leftArrow from "../../../../public/img/Team/menu-left.svg";
+import rightArrow from "../../../../public/img/Team/menu-right.svg";
+import rectangle from "../../../../public/img/Team/Rectangle.svg";
 
 export function ImageSlider() {
   const slides = [
@@ -44,19 +48,33 @@ export function ImageSlider() {
   };
 
   return (
-    <div className='h-[400px]  m-auto py-2 relative group'>
+    <div className='h-[20rem] w-[20rem] m-auto py-2 mr-[2rem] relative group'>
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        className='w-full h-full  bg-center bg-cover duration-500'
+        className=' h-full w-full bg-center bg-cover duration-500'
       ></div>
+
+      {/* Oval Background */}
+      <div className='absolute bottom-0 right-[0rem] transform -translate-x-1/2 w-24 h-12  rounded-full'>
+        <Image src={rectangle} alt="Background"/>
+      </div>
+
+      {/* Current Slide Index */}
+      <div className='absolute bottom-[1.18rem] right-[5.58rem] transform   text-black'>
+          {currentIndex + 1} 
+      </div>
       {/* Left Arrow */}
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-        <BsChevronCompactLeft onClick={prevSlide} size={30} />
-      </div>
+      <button className='absolute bottom-[0.94rem] right-[6.2rem] text-2xl rounded-full p-2 text-white cursor-pointer'
+              onClick={prevSlide}>
+          <Image src={leftArrow} alt="msg Icon" width={20.83} height={16.67} />
+      </button>
+
       {/* Right Arrow */}
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-        <BsChevronCompactRight onClick={nextSlide} size={30} />
+      <div className='absolute bottom-[0.94rem] right-[3.4rem] text-2xl rounded-full p-2  text-white cursor-pointer'
+          onClick={nextSlide}>
+          <Image src={rightArrow} alt="msg Icon" width={20.83} height={16.67} />
       </div>
+
       <div className='flex top-4 justify-center py-2'>
         {slides.map((slide, slideIndex) => (
           <div

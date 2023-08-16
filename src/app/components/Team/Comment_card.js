@@ -5,6 +5,7 @@ import close from "../../../../public/img/Team/close.svg";
 import account from "../../../../public/img/Team/account.svg";
 import msg from "../../../../public/img/Team/message-outline.svg";
 
+
 export default function Comment_Card({ closePopup }) {
 
   const [inputValue, setInputValue] = useState("");
@@ -61,6 +62,7 @@ export default function Comment_Card({ closePopup }) {
           <div className="flex py-4">
             <Image src={msg} alt="msg Icon" width={20.83} height={16.67} />
             <p className="pl-2 text-comment-card">留言內容</p>
+
           </div>
           <textarea
             type="text"
