@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import "./local.scss";
 import "../../globals.scss"
 import Team_Intro from "./Team_Intro";
-import { Comment_Card } from "./Comment_card";
 
 export function CardV({ img, title, contents, moreInfo, link }) {
 
@@ -48,7 +47,6 @@ export function CardV({ img, title, contents, moreInfo, link }) {
   ];
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [isPopupOpenCommentCard, setisPopupOpenCommentCard] = useState(false);
 
   const openPopup = () => {
     setIsPopupOpen(true);
@@ -57,20 +55,20 @@ export function CardV({ img, title, contents, moreInfo, link }) {
 
   const closePopup = () => {
     console.log("Closing popup...");
-    setIsPopupOpen( false );
-    console.log({isPopupOpen});
+    setIsPopupOpen(false);
+    console.log({ isPopupOpen });
   };
 
   return (
-    <div className="card max-h-[35rem] aspect-3/4 team-card-shadow max-w-screen-lg rounded-[2rem] snap-center cursor-pointer" onClick={() => openPopup()}>
+    <div className="card max-h-[35rem] aspect-3/4 team-card-shadow max-w-screen-lg rounded-[2rem] snap-center cursor-pointer">
       <Image
         src={img}
         alt="Ref image"
         className="aspect-3/2 max-h-[20rem] picture-rounded object-cover h-[16rem]" /*具體的高度你再看要多少 rem*/
         priority
-        
+        onClick={() => openPopup()}
       />
-      <div className="px-6 pb-8 pt-6 h-[15rem] overflow-hidden">
+      <div className="px-6 pb-8 pt-6 h-[15rem] overflow-hidden" onClick={() => openPopup()}>
         <div className="overflow-hidden">
           <div className="w-fit team-title pb-4 h-[2.05rem]">{title}</div>
         </div>
@@ -86,9 +84,9 @@ export function CardV({ img, title, contents, moreInfo, link }) {
       </div>
 
       {isPopupOpen && (
-        <div className="overflow-y-auto">
-          <Team_Intro onClose={closePopup} title={title} msg={msg} group={group} name={name} mail={mail} github={github} tags={tags} view={view} discrip={discrip} comments={comments} />
-          </div>
+
+        <Team_Intro open={isPopupOpen} setOpen={setIsPopupOpen} onClose={closePopup} title={title} msg={msg} group={group} name={name} mail={mail} github={github} tags={tags} view={view} discrip={discrip} comments={comments} />
+
       )}
 
 
