@@ -62,7 +62,7 @@ export function ImageSlider({ closePopup, openPopup }) {
 
         {/*pop up button for viewing picture*/}
 
-        <div className='absolute bottom-0 right-0 z-100 flex items-end space-y-2 mb-4 mr-4 space-x-4'>
+        <div className='absolute bottom-0 right-0 z-100 flex items-end space-y-2 mb-6 mr-6 space-x-4'>
 
           <div className='bg-white border border-black rounded-full flex justify-center h-[2rem] w-[2rem] items-center cursor-pointer'>
             <button onClick={() => { openPopup() }} className='' >
