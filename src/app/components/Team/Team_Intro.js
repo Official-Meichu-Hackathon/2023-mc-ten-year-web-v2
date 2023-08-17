@@ -28,6 +28,13 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
     const handleOutsideClick = (event) => {
         if (event.target === event.currentTarget) {
             console.log("ouside clicked");
+            onClose();
+        }
+    };
+
+    const handleSlideOutsideClick = (event) => {
+        if (event.target === event.currentTarget) {
+            console.log("ouside clicked");
             closePopup();
         }
     };
@@ -57,14 +64,11 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
                     </button>
                     <div className="">
                         <Card_title title={title} group={group} name={name} mail={mail} github={github} tags={tags} view={view} msg={msg} />
-                        {/* <Project_Intro discrip={discrip} /> */}
+                        <Project_Intro discrip={discrip} />
                     </div>
                     
-                    <div className="right-0 mt-[3rem] mb-[3rem] h-[45vw] w-full flex relative">
-                        <div className="w-[25%] h-full  relative">
-
-                        </div>
-                        <div className="w-[75%] h-full  relative">
+                    <div className="h-[45vw] w-full relative">
+                        <div className="h-full relative">
                             {<ImageSlider openPopup={openPopup} closePopup={closePopup} />}
                             
                         </div>
@@ -72,7 +76,7 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
 
                     <div>
                         { openCard &&
-                        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center z-1000" onClick={handleOutsideClick}>
+                        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center z-1000" onClick={handleSlideOutsideClick}>
 
                                 <Image 
                                 src={teamphoto} 
