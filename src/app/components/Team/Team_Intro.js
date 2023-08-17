@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { ImageSlider } from './Slides';
 import close from "../../../../public/img/Team/close.svg";
-import slider_1 from "../../../../public/img/Team/Slider_1.png"
+import teamphoto from "../../../../public/img/Team/teamphoto.png"
 import "./local.scss";
 import "../../globals.scss"
 
@@ -28,7 +28,7 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
     const handleOutsideClick = (event) => {
         if (event.target === event.currentTarget) {
             console.log("ouside clicked");
-            onClose();
+            closePopup();
         }
     };
 
@@ -59,16 +59,27 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
                         <Card_title title={title} group={group} name={name} mail={mail} github={github} tags={tags} view={view} msg={msg} />
                         {/* <Project_Intro discrip={discrip} /> */}
                     </div>
-                    <div className="mt-[3rem]">
+                    
+                    <div className="right-0 mt-[3rem] mb-[3rem] h-[45vw] w-full flex relative">
+                        <div className="w-[25%] h-full  relative">
 
-                        <ImageSlider openPopup={openPopup} closePopup={closePopup}/>
+                        </div>
+                        <div className="w-[75%] h-full  relative">
+                            {<ImageSlider openPopup={openPopup} closePopup={closePopup} />}
+                            
+                        </div>
                     </div>
 
                     <div>
                         { openCard &&
                         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center z-1000" onClick={handleOutsideClick}>
 
-                                <Image src={slider_1} alt="close" width={3000} height={3000} className="" />
+                                <Image 
+                                src={teamphoto} 
+                                alt="close" 
+                                width={900} 
+                                height={900} 
+                                className="w-[75vw] h-[75vh]" />
 
                         </div>
                         }
@@ -83,3 +94,4 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
         </div>
     );
 }
+``
