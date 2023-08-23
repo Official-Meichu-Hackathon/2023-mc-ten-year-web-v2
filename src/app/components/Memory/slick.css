@@ -1,0 +1,43 @@
+.button__bar {
+    display: inline-block;
+    vertical-align: middle;
+    margin: auto;
+    padding: 2.6875rem 1.5625rem 0;
+    width: full;
+    text-align: start;
+  }
+  
+  .button__bar li {
+    list-style: none;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 0;
+  }
+  
+  .button__bar li button {
+    border: none;
+    background: #BCBCBC;
+    color: transparent;
+    cursor: pointer;
+    display: block;
+    height: 7px;
+    width: 7px;
+    border-radius: 7.5px;
+  }
+  
+  .button__bar li.slick-active button {
+    background-color: white;
+  }
+  
+  /*.button__bar li button:hover,
+  .button__bar li button:focus {
+    background: rgba(247, 34, 34, 0.8);
+    outline: 0;
+  }*/
+  
+  .slick-slide img {
+    display: block;
+    margin: auto;
+  }
+  

@@ -130,6 +130,9 @@ body {
     box-shadow: 0.125em 0.125em 1.5em $clr-neu-shadow-2,
                 -0.125em -0.125em 1.5em $clr-neu-shadow-2
 }
+.nue-black-m {
+    box-shadow: 0.25em 0.25em 0.25em #00000040,
+}
 
 
 iframe {
@@ -291,5 +294,3 @@ $scrollbar-width: 24px;
 ::-webkit-scrollbar-corner {
     border-radius: calc(0.6 * $scrollbar-width);
 }
-
-.slick-initialized { overflow: hidden; }
