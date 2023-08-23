@@ -84,7 +84,7 @@ export function SystemForSmallIcon({ img, title, contents }){
 <div className="sm:grid lg:flex lg:justify-between w-full">
     <div className="w-full lg:w-[26vw]"><System title="黑客組" contents={systemContent1} img={hacker_icon}/></div>
     <div className="w-full lg:w-[26vw]"><System title="創客交流組" contents={systemContent2} img={maker_icon}/></div>
-    <div className="w-full lg:w-[26vw]"><System title="社企組" contents={systemContent3} img={company_icon}/></div>
+    <div className="w-full lg:w-[26vw]"><SystemForSmallIcon title="社企組" contents={systemContent3} img={company_icon}/></div>
 </div>
 <div className="sm:grid lg:flex lg:justify-evenly w-full">
     <div className="w-full lg:w-[31vw]"><System title="黑客組" contents={systemContent1} img={hacker_icon}/></div>
