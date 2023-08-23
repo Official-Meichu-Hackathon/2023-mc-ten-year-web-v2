@@ -52,7 +52,7 @@ export function ImageSlider({ closePopup, openPopup }) {
   };
 
   return (
-    <div className="md:px-16 px-8 py-12 pb-6 md:flex md:space-x-32 items-start">
+    <div className="md:px-16 px-8 py-12 pb-6 md:flex md:space-x-16 lg:space-x-32 items-start">
       <p className="hidden md:block text-sec-title md:mr-8 whitespace-nowrap">隊伍簡報</p>
       <div className='relative h-full w-full pt-3'>
         <Image src={slides[currentIndex].path}

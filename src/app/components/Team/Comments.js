@@ -44,7 +44,7 @@ export function Board({ comments }) {
                 <div className="select-none">　</div>
                 
 
-                <div className="mt-[2rem] md:flex md:space-x-32">
+                <div className="mt-[2rem] md:flex md:space-x-16 lg:space-x-32">
                     <div className="hidden md:block flex text-sec-title whitespace-nowrap mr-8">　留言板</div>
                     <div className="md:hidden flex justify-between">
                         <div className="text-sec-title">留言板</div>
