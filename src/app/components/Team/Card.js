@@ -68,12 +68,12 @@ export function CardV({ img, title, contents, moreInfo, link }) {
         priority
         onClick={() => openPopup()}
       />
-      <div className="px-6 pb-8 pt-6 h-[15rem] overflow-hidden" onClick={() => openPopup()}>
+      <div className="px-6 pb-8 pt-6 overflow-hidden" onClick={() => openPopup()}>
         <div className="overflow-hidden">
-          <div className="w-fit team-title pb-4 h-[2.05rem]">{title}</div>
+          <div className="w-fit line-clamp-1 team-title">{title}</div>
         </div>
-        <div className="h-full max-h-[8.5rem] pt-4">
-          <div className="md:line-clamp-4 line-clamp-5">
+        <div className="h-fit pt-4 overflow-hidden">
+          <div className="line-clamp-5">
             {contents.map((content, index) => (
               <p key={index} className="">
                 {content}

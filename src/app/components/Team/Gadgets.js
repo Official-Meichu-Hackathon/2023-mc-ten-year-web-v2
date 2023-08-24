@@ -6,7 +6,7 @@ import "../../globals.scss"
 
 export function Search_bar() {
     return (
-        <div className="flex max-h-[2rem] max-w-[8.6rem] md:max-h-[5rem] md:max-w-[25rem] rounded-[4rem] search-shadow md:p-8 p-3 items-center">
+        <div className="flex max-h-[2rem] max-w-[8.6rem] lg:max-h-[5rem] lg:max-w-[20rem] md:max-h-[4rem] md:max-w-[18rem] rounded-[4rem] search-shadow md:p-8 p-3 items-center">
             <Image
                 src={Search}
                 alt="Search icon"
@@ -26,10 +26,10 @@ export function Post() {
         window.open(url, '_blank');
     };
     return (
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
             <button
                 onClick={() => redirectToURL('https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley')}
-                className="max-h-[5rem] max-w-[9rem] rounded-[4rem] nue-concave py-4 w-full"
+                className="max-h-[5rem] max-w-[9rem] rounded-[4rem] nue-concave p-4 w-full"
             >
                 <h2 className="mx-auto my-auto text-accent items-center justify-center">投稿</h2>
             </button>

@@ -126,15 +126,13 @@ $clr-card-shadow: #00000040;
 .team-title {
     font-size: 1.8em;
     font-weight: bold;
-    line-height: 3rem;
-    white-space: normal;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    /* 設置行數 */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    // margin-bottom: -0.7rem;
+    line-height: 3.5rem;
+    // white-space: normal;
+    // display: -webkit-box;
+    // -webkit-line-clamp: 1;
+    // -webkit-box-orient: vertical;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
 }
 
 .text-comment-card {
