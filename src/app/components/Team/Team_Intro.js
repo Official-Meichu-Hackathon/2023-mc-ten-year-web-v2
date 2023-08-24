@@ -68,7 +68,7 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
                     </div>
                     
                     <div className="h-[45vw] w-full relative">
-                        <div className="h-full relative">
+                        <div className="h-full relative border border-red-900">
                             {<ImageSlider openPopup={openPopup} closePopup={closePopup} />}
                             
                         </div>

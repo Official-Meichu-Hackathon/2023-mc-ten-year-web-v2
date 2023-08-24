@@ -10,6 +10,7 @@ import filterClose from "../../../../public/img/Team/filter-close.svg";
 import check from "../../../../public/img/Team/check.svg";
 import checkbox from "../../../../public/img/Team/checkbox.svg";
 import checkboxFill from "../../../../public/img/Team/checkbox-fill.svg";
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 export function CheckBoxItem({ checkBoxSetState, checkBoxState, checkBoxName, filterViewMode}) {
   return (
@@ -44,36 +45,74 @@ export function CheckBoxItem({ checkBoxSetState, checkBoxState, checkBoxName, fi
 
 
 
-export default function Filter({checkBoxNames, isMobile}) {
+export default function Filter({checkBoxNames, isMobile, checkBoxTitles}) {
 
   const [toggleViewMode, setToggleViewMode] = useState(false);
   const [filterViewMode, setFilterViewMode] = useState(false);
-  const [year, setYear] = useState('');
-  const [rank, setRank] = useState('');
   const [creatorGroup, setCreatorGroup] = useState(false);
-  const [competitionContent, setCompetitionContent] = useState(false);
-  const [registrationRelated, setRegistrationRelated] = useState(false);
+  const [awardworks, setAwardworks] = useState(false);
+  const [groupGroup, setGroupGroup] = useState(false);
+  const [hackerGroup, setHackerGroup] = useState(false);
+  const [communicationGroup, setCommunicationGroup] = useState(false);
+  const [hackerCreatorGroup, setHackerCreatorGroup] = useState(false);
   const [other, setOther] = useState(false);
-  const checkBoxes = [
-    {SetState: setCreatorGroup,
-     State: creatorGroup
-    },
-    {SetState: setCompetitionContent,
-      State: competitionContent
-    },
-    {SetState: setRegistrationRelated,
-      State: registrationRelated
-    },
-    {SetState: setOther,
-      State: other
-    },
-  ];
+  const checkBoxes = 
+  [
+    [
+      {SetState: setHackerGroup,
+      State: hackerGroup
+      },
+      {SetState: setCreatorGroup,
+        State: creatorGroup
+      },
+      {SetState: setCommunicationGroup,
+        State: communicationGroup
+      },
+      {SetState: setHackerCreatorGroup,
+        State: hackerCreatorGroup
+      },
+      {SetState: setGroupGroup,
+        State: groupGroup
+      }
+
+    ],
+    [
+      {SetState: setHackerGroup,
+      State: hackerGroup
+      },
+      {SetState: setCreatorGroup,
+        State: creatorGroup
+      },
+      {SetState: setCommunicationGroup,
+        State: communicationGroup
+      },
+      {SetState: setHackerCreatorGroup,
+        State: hackerCreatorGroup
+      },
+      {SetState: setGroupGroup,
+        State: groupGroup
+      }
+
+    ],
+    [
+      {SetState: setAwardworks,
+        State: awardworks
+      }
+    ]
+
+  ]
+
   const handleReset = () => {
     setFilterViewMode(false);
     setCreatorGroup(false);
     setCompetitionContent(false);
     setRegistrationRelated(false);
-    setOther(false);
+    setAwardworks(false);
+    setCommunicationGroup(false);
+    setGroupGroup(false);
+    setHackerCreatorGroup(false);
+    setHackerGroup(false);
+
   };
 
   return (
@@ -99,16 +138,19 @@ export default function Filter({checkBoxNames, isMobile}) {
         )}
       </button>
 
-      <div className="flex-col">
+    <div className="flex-col">
 
-        <div className="flex">
-          <div className={isMobile ? "flex-col" : "flex"}>
+      <div className=" flex-row ">
+
+
+          
+        <div className = "flex-row border border-red-600">
             {checkBoxNames && toggleViewMode &&
               (
                 <>
                 {isMobile ? (
                   <>
-                    <div className="flex flex-wrap">
+
                       {checkBoxNames.map( (item, index) => (
                         <CheckBoxItem
                           key={index}
@@ -118,11 +160,12 @@ export default function Filter({checkBoxNames, isMobile}) {
                           filterViewMode = {filterViewMode}
                         />
                       ))}
-                    </div>
+                    
                   </>
                 ) : (
                   checkBoxNames.map( (item, index) => {
                     return (
+                      
                       <CheckBoxItem
                         key={index}
                         checkBoxSetState={checkBoxes[index].SetState}
@@ -137,6 +180,66 @@ export default function Filter({checkBoxNames, isMobile}) {
               )
             }
           </div>
+
+
+          
+          <div className = "flex-row border border-red-600">
+            {checkBoxNames && toggleViewMode &&
+              <>
+                
+                {isMobile ? (
+                  <>
+
+                      {
+                        checkBoxNames.map((group, groupIndex) => {
+                          return (
+                            <div key={`group-${groupIndex}`}>
+                              {group.map((item, index) => {
+                                return (
+                                  <CheckBoxItem
+                                  key={`group-${groupIndex}-${index}`}
+                                  checkBoxSetState={checkBoxes[groupIndex][index].SetState}
+                                  checkBoxState={checkBoxes[groupIndex][index].State}
+                                  checkBoxName={item.name}
+                                  //filterViewMode = {filterViewMode}
+                                />
+                                );
+                              })}
+                            </div>
+                          );
+                        })
+                        
+                      }
+                    
+                  </>
+                ) : (
+                  <>
+                  {
+                    checkBoxNames.map((group, groupIndex) => 
+                       (
+                        <div key={`group-${groupIndex}`}>
+                          {group.map((item, index) => {
+                            return (
+                              <CheckBoxItem
+                              key={`group-${groupIndex}-${index}`}
+                              checkBoxSetState={checkBoxes[groupIndex][index].SetState}
+                              checkBoxState={checkBoxes[groupIndex][index].State}
+                              checkBoxName={item.name}
+                              //filterViewMode = {filterViewMode}
+                            />
+                            );
+                          })}
+                        </div>
+                        )
+                      )
+                  }
+                  </>  
+                )
+                }
+              </>
+            }
+            
+
         </div>
 
             {toggleViewMode &&
@@ -146,12 +249,12 @@ export default function Filter({checkBoxNames, isMobile}) {
               </button>
             )
             }
-      </div>
-
-   </div>
+      
+          </div>
+          </div>
+        </div>
     
   );
-}
 
 
 
@@ -191,3 +294,20 @@ export default function Filter({checkBoxNames, isMobile}) {
 }
 </>
 */
+checkBoxNames.map((group, groupIndex) => {
+  return (
+    <div key={`group-${groupIndex}`}>
+      {group.map((item, index) => {
+        return (
+          <CheckBoxItem
+          key={`group-${groupIndex}-${index}`}
+          checkBoxSetState={checkBoxes[groupIndex][index].SetState}
+          checkBoxState={checkBoxes[groupIndex][index].State}
+          checkBoxName={item.name}
+          //filterViewMode = {filterViewMode}
+        />
+        );
+      })}
+    </div>
+  );
+})};
