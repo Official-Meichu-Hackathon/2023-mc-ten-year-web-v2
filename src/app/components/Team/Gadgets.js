@@ -15,7 +15,7 @@ export function Search_bar() {
             />
             <input
                 type="text"
-                className="outline-none bg-transparent md:text-3xl text-xs pl-1 md:pl-6 pr-4 md:max-w-[19.5rem] max-w-[7rem] h-fit items-center"
+                className="outline-none bg-transparent md:text-3xl text-xs pl-1 md:pl-6 pr-4 md:max-w-[15rem] max-w-[7rem] h-fit items-center"
             />
         </div>
     );

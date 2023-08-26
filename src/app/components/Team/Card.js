@@ -47,24 +47,28 @@ export function CardV({ img, title, contents, moreInfo, link }) {
   ];
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   const openPopup = () => {
+    setScrollPosition(window.scrollY);
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollPosition}px`;
     setIsPopupOpen(true);
-    console.log('Popup opended');
   };
 
   const closePopup = () => {
-    console.log("Closing popup...");
+    document.body.style.position = "static"; // 將 position 設置為 static
+    document.body.style.top = ''; // 清空 top
+    window.scrollTo(0, scrollPosition); // 恢復卷軸位置
     setIsPopupOpen(false);
-    console.log({ isPopupOpen });
   };
 
   return (
-    <div className="card max-h-[35rem] aspect-3/4 team-card-shadow max-w-screen-lg rounded-[2rem] snap-center cursor-pointer">
+    <div className="card md:max-h-[35rem] max-h-[30rem] aspect-3/4 team-card-shadow max-w-screen-lg rounded-[2rem] snap-center cursor-pointer">
       <Image
         src={img}
         alt="Ref image"
-        className="aspect-3/2 max-h-[20rem] picture-rounded object-cover h-[16rem]" /*具體的高度你再看要多少 rem*/
+        className="aspect-3/2 picture-rounded object-cover" /*具體的高度你再看要多少 rem*/
         priority
         onClick={() => openPopup()}
       />
