@@ -13,7 +13,8 @@ export function Card_title({title, group, name, mail, github, tags, view, msg}){
         <div className="">
             <div className="bg-card-1 md:px-16 px-8 py-12 pb-6">
                 <div className="flex justify-between items-start">
-                    <h1>{ title }</h1>
+                    <h1 className="hidden md:block">{ title }</h1>
+                    <h2 className="block md:hidden">{ title }</h2>
                     {/* <Image src={ close } alt="close" width={30} height={30} className="pt-4"/> */}
                 </div>
                 <p className="text-title">{ group } ｜ { name }</p>
