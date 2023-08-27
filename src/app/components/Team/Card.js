@@ -47,19 +47,14 @@ export function CardV({ img, title, contents, moreInfo, link }) {
   ];
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
 
   const openPopup = () => {
-    setScrollPosition(window.scrollY);
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollPosition}px`;
+    document.querySelector('html').style.overflow = 'hidden';
     setIsPopupOpen(true);
   };
 
   const closePopup = () => {
-    document.body.style.position = "static"; // 將 position 設置為 static
-    document.body.style.top = ''; // 清空 top
-    window.scrollTo(0, scrollPosition); // 恢復卷軸位置
+    document.querySelector("html").style.overflow = "auto";
     setIsPopupOpen(false);
   };
 
