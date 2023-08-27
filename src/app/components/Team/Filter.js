@@ -46,7 +46,10 @@ export function CheckBoxItem({ checkBoxSetState, checkBoxState, checkBoxName, fi
 
 
 export default function Filter({checkBoxNames, isMobile, checkBoxTitles}) {
-
+  const [s2021, set2021] = useState(false);
+  const [s2022, set2022] = useState(false);
+  const [s2023, set2023] = useState(false);
+  const [s2024, set2024] = useState(false);
   const [toggleViewMode, setToggleViewMode] = useState(false);
   const [filterViewMode, setFilterViewMode] = useState(false);
   const [creatorGroup, setCreatorGroup] = useState(false);
@@ -59,20 +62,17 @@ export default function Filter({checkBoxNames, isMobile, checkBoxTitles}) {
   const checkBoxes = 
   [
     [
-      {SetState: setHackerGroup,
-      State: hackerGroup
+      {SetState: set2021,
+      State: s2021
       },
-      {SetState: setCreatorGroup,
-        State: creatorGroup
+      {SetState: set2022,
+        State: s2022
       },
-      {SetState: setCommunicationGroup,
-        State: communicationGroup
+      {SetState: set2023,
+        State: s2023
       },
-      {SetState: setHackerCreatorGroup,
-        State: hackerCreatorGroup
-      },
-      {SetState: setGroupGroup,
-        State: groupGroup
+      {SetState: set2024,
+        State: s2024
       }
 
     ],
@@ -105,8 +105,6 @@ export default function Filter({checkBoxNames, isMobile, checkBoxTitles}) {
   const handleReset = () => {
     setFilterViewMode(false);
     setCreatorGroup(false);
-    setCompetitionContent(false);
-    setRegistrationRelated(false);
     setAwardworks(false);
     setCommunicationGroup(false);
     setGroupGroup(false);
@@ -141,51 +139,10 @@ export default function Filter({checkBoxNames, isMobile, checkBoxTitles}) {
     <div className="flex-col">
 
       <div className=" flex-row ">
-
-
-          
-        <div className = "flex-row border border-red-600">
+       
+          <div className = "flex-col flex border border-red-200 ">
             {checkBoxNames && toggleViewMode &&
-              (
-                <>
-                {isMobile ? (
-                  <>
-
-                      {checkBoxNames.map( (item, index) => (
-                        <CheckBoxItem
-                          key={index}
-                          checkBoxSetState={checkBoxes[index].SetState}
-                          checkBoxState={checkBoxes[index].State}
-                          checkBoxName={item.name}
-                          filterViewMode = {filterViewMode}
-                        />
-                      ))}
-                    
-                  </>
-                ) : (
-                  checkBoxNames.map( (item, index) => {
-                    return (
-                      
-                      <CheckBoxItem
-                        key={index}
-                        checkBoxSetState={checkBoxes[index].SetState}
-                        checkBoxState={checkBoxes[index].State}
-                        checkBoxName={item.name}
-                        //filterViewMode = {filterViewMode}
-                      />
-                    );
-                    })
-                )} 
-                </>  
-              )
-            }
-          </div>
-
-
-          
-          <div className = "flex-row border border-red-600">
-            {checkBoxNames && toggleViewMode &&
-              <>
+              <div className='flex-col border border-green-600'>
                 
                 {isMobile ? (
                   <>
@@ -193,16 +150,20 @@ export default function Filter({checkBoxNames, isMobile, checkBoxTitles}) {
                       {
                         checkBoxNames.map((group, groupIndex) => {
                           return (
-                            <div key={`group-${groupIndex}`}>
-                              {group.map((item, index) => {
+                            <div key={`group-${groupIndex}` }  className="flex space-x-6">
+                             &nbsp;&nbsp;{group.name}&nbsp;&nbsp;
+                              {group.data.map((item, index) => {
                                 return (
+                                  <>
+                                  
                                   <CheckBoxItem
                                   key={`group-${groupIndex}-${index}`}
                                   checkBoxSetState={checkBoxes[groupIndex][index].SetState}
                                   checkBoxState={checkBoxes[groupIndex][index].State}
-                                  checkBoxName={item.name}
+                                  checkBoxName={item}
                                   //filterViewMode = {filterViewMode}
                                 />
+                                </>
                                 );
                               })}
                             </div>
@@ -217,16 +178,20 @@ export default function Filter({checkBoxNames, isMobile, checkBoxTitles}) {
                   {
                     checkBoxNames.map((group, groupIndex) => 
                        (
-                        <div key={`group-${groupIndex}`}>
-                          {group.map((item, index) => {
+                        <div key={`group-${groupIndex}`} className="flex space-x-6">
+                          &nbsp;&nbsp;{group.name}&nbsp;&nbsp;
+                          {group.data.map((item, index) => {
                             return (
+                              <>
+                              
                               <CheckBoxItem
                               key={`group-${groupIndex}-${index}`}
                               checkBoxSetState={checkBoxes[groupIndex][index].SetState}
                               checkBoxState={checkBoxes[groupIndex][index].State}
-                              checkBoxName={item.name}
+                              checkBoxName={item}
                               //filterViewMode = {filterViewMode}
                             />
+                            </>
                             );
                           })}
                         </div>
@@ -235,8 +200,9 @@ export default function Filter({checkBoxNames, isMobile, checkBoxTitles}) {
                   }
                   </>  
                 )
-                }
-              </>
+              }
+
+              </div>
             }
             
 
@@ -250,9 +216,9 @@ export default function Filter({checkBoxNames, isMobile, checkBoxTitles}) {
             )
             }
       
-          </div>
-          </div>
         </div>
+      </div>
+    </div>
     
   );
 

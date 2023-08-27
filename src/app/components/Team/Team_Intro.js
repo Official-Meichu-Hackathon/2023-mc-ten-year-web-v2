@@ -83,7 +83,7 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
                                 alt="close" 
                                 width={900} 
                                 height={900} 
-                                className="w-[95vh] h-[53.4375vh]" />
+                                className="w-[85.5vw] h-[48.09375vw]" />
 
                         </div>
                         }

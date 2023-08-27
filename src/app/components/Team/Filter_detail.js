@@ -105,7 +105,7 @@ export default function Filter({checkBoxNames, isMobile}) {
 
 
           
-        <div className = "flex-row border border-red-600">
+        <div className = "flex-col border border-red-600">
             {checkBoxNames && toggleViewMode &&
               (
                 <>
@@ -117,7 +117,8 @@ export default function Filter({checkBoxNames, isMobile}) {
                           key={index}
                           checkBoxSetState={checkBoxes[index].SetState}
                           checkBoxState={checkBoxes[index].State}
-                          checkBoxName={item.name}
+                          checkBoxName={i}
+                          checkTitle={item.name}
                           filterViewMode = {filterViewMode}
                         />
                       ))}
@@ -143,7 +144,7 @@ export default function Filter({checkBoxNames, isMobile}) {
 
 
           
-          <div className = "flex-row border border-red-600">
+          <div className = "flex-col border border-red-600">
             {checkBoxNames && toggleViewMode &&
               (
                 <>

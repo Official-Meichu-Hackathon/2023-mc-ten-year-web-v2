@@ -89,15 +89,15 @@ function CardSec({ setInView, isMobile}){
             </div>
 
             <div className="pt-16">
-                <Filter checkBoxNames = {checkBoxNames} isMobile={isMobile} checkBoxTitles={checkBoxTitles}/>
+                <Filter checkBoxNames = {checkBoxNames} isMobile={isMobile} />
             </div>
         </section>
     );
 }
 
+/*
 
-
-const checkBoxNames = [
+const checkBoxNamess = [
 
     [
         {id : 0, name: "2021"},
@@ -121,16 +121,18 @@ const checkBoxNames = [
 
 ]
 
+*/
 
-const checkBoxTitles = 
+
+const checkBoxNames = 
 
 
 [
     {id : 0, name: "年份", data: [2021,2022,2023,2024]},
     {id : 1, name: "組別", data: ["黑客組", "創客組", "交流組", "創客交流組","團體組"]   },
-    {id : 2, name: "得獎作品"},
-
-
+    {id : 2, name: "得獎作品", data:["abc"]},
 ]
+
+
 
 
