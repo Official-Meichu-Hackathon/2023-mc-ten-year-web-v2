@@ -17,11 +17,7 @@ export default function Comment_Card({ closePopup }) {
     }
   };
 
-  const handleFormSubmit = () => {
-    // 這裡處理資料提交的邏輯，比如送出到資料庫
-    // ...
-
-    // 提交完後清除輸入             
+  const handleFormSubmit = () => {            
     setInputValue("");
     setTextareaValue("");
     closePopup();
@@ -68,7 +64,7 @@ export default function Comment_Card({ closePopup }) {
             type="text"
             value={textareaValue}
             onChange={(e) => setTextareaValue(e.target.value)}
-            className="bg-transparent text-md ring-2 ring-gray-300 w-full h-full p-2 rounded-[0.5rem] block text-left"
+            className="bg-transparent text-md ring-2 resize-none ring-gray-300 w-full h-full p-2 rounded-[0.5rem] block text-left"
           />
           <div className="flex items-center justify-center pt-8">
             <button className="h-[2rem] w-[4rem] rounded-[0.625rem] bg-gray-200 send-shadow"
