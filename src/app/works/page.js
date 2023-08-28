@@ -76,17 +76,17 @@ function CardSec({ setInView, isMobile }) {
                 <div className="">
                     <Filter checkBoxNames={checkBoxNames} isMobile={isMobile} />
                 </div>
-                <div className="flex gap-8 h-[1rem] justify-end">
-                    <div className="justify-end hidden lg:block">
+                <div className="flex flex-col lg:flex-row gap-8 h-[15rem] justify-end ">
+                    <div className="justify-end hidden lg:block ">
                         <Search_bar />
                     </div>
-                    <div className="justify-end">
+                    <div className="border border-black justify-end">
                         <Post />
                     </div>
                 </div>
             </div>
 
-            <div className="grid gap-14 py-20 grid-cols-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center justify-items-center">
+            <div className="grid gap-14 py-20 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 items-center justify-center justify-items-center">
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award} />
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award} />
                 <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award} />
@@ -102,10 +102,12 @@ function CardSec({ setInView, isMobile }) {
 
 
 
-const checkBoxNames = [
-    { id: 0, name: "2021" },
-    { id: 1, name: "2022" },
-    { id: 2, name: "2023" },
-    { id: 3, name: "2024" }
 
+const checkBoxNames = 
+
+[
+    {id : 0, name: "年份  ", data: [2021,2022,2023,2024]},
+    {id : 1, name: "組別  ", data: ["黑客組", "創客組", "交流組", "創客交流組","團體組"]   },
+    {id : 2, name: "得獎作品", data:["abc"]},
 ]
+

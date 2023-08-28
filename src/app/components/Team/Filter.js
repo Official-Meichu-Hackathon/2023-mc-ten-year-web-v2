@@ -15,7 +15,7 @@ import { faL } from '@fortawesome/free-solid-svg-icons';
 export function CheckBoxItem({ checkBoxSetState, checkBoxState, checkBoxName, filterViewMode}) {
   return (
       <div>
-          <div className="flex  items-center border-8 w-[9rem]">
+          <div className="flex items-center w-[9rem] ">
               
                 <button 
                   className="flex items-center justify-center  mt-2 mb-2"
@@ -25,13 +25,13 @@ export function CheckBoxItem({ checkBoxSetState, checkBoxState, checkBoxName, fi
                   {checkBoxState ? (
                     <>
                       <Image src={checkboxFill} alt="checkbox-fill" width={25} height={27}/>
-                      <Image src={check} alt="check" width={19} height={15} style={{ position: 'absolute', zIndex: 1, left: '0.1875rem', top: '0.375rem' }}/>
-                      <div className='w-25'>{checkBoxName}</div>
+                      <Image src={check} alt="check" width={19} height={14} style={{ position: 'absolute', zIndex: 1, left: '0.1875rem', top: '0.375rem' }}/>
+                      <div className=' ml-2  w-25'>{checkBoxName}</div>
                     </>
                   ) : (
                     <>
                       <Image src={checkbox} alt="checkbox" width={25} height={27}/>
-                      <div className='w-25 border border-red-800'>{checkBoxName}</div>
+                      <div className='w-25 ml-2'>{checkBoxName}</div>
                   </>
                   
                   )
@@ -115,7 +115,7 @@ export default function Filter({checkBoxNames, isMobile, checkBoxTitles}) {
 
   return (
   
-    <div className="flex-basis-100">
+    <div className="flex-basis-100 mt-0 ">
 
       <button
         className="flex items-center justify-center w-28 h-12 font-bold text-black bg-slate-150 mt-3 mb-3"
@@ -140,9 +140,9 @@ export default function Filter({checkBoxNames, isMobile, checkBoxTitles}) {
 
       <div className=" flex-row ">
        
-          <div className = "flex-col flex border border-red-200 ">
+          <div className = "flex-col flex  ">
             {checkBoxNames && toggleViewMode &&
-              <div className='flex-col border border-green-600'>
+              <div className='flex-col '>
                 
                 {isMobile ? (
                   <>
@@ -150,7 +150,7 @@ export default function Filter({checkBoxNames, isMobile, checkBoxTitles}) {
                       {
                         checkBoxNames.map((group, groupIndex) => {
                           return (
-                            <div key={`group-${groupIndex}` }  className="flex sm:space-x-2 md:space-x-4 lg:space-x-6 xl:space-x-8">
+                            <div key={`group-${groupIndex}` }  className="flex space-x-1">
                              <div className='mt-2 mr-2 w-20 items-center'>{group.name}</div>
                               {group.data.map((item, index) => {
                                 return (
@@ -178,8 +178,8 @@ export default function Filter({checkBoxNames, isMobile, checkBoxTitles}) {
                   {
                     checkBoxNames.map((group, groupIndex) => 
                        (
-                        <div key={`group-${groupIndex}`} className="flex sm:space-x-2 md:space-x-4 lg:space-x-6 xl:space-x-8">
-                          <div className='ml-2 w-20 h-10 flex justify-center items-center border border-red-900'>{group.name}</div>
+                        <div key={`group-${groupIndex}`} className="flex space-x-0">
+                          <div className='ml-2 w-20 h-10 flex justify-center items-center '>{group.name}</div>
                           {group.data.map((item, index) => {
                             return (
                               <>
