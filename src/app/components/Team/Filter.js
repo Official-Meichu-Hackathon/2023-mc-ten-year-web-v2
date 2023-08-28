@@ -15,10 +15,10 @@ import { faL } from '@fortawesome/free-solid-svg-icons';
 export function CheckBoxItem({ checkBoxSetState, checkBoxState, checkBoxName, filterViewMode}) {
   return (
       <div>
-          <div className="flex space-x-4 items-center">
-              <div>
+          <div className="flex  items-center border-8 w-[9rem]">
+              
                 <button 
-                  className="flex items-center justify-center ml-1 mt-2 mb-2"
+                  className="flex items-center justify-center  mt-2 mb-2"
                   onClick={() => {checkBoxSetState(!checkBoxState)}}
                   style={{ position: 'relative' }}
                   >
@@ -26,18 +26,18 @@ export function CheckBoxItem({ checkBoxSetState, checkBoxState, checkBoxName, fi
                     <>
                       <Image src={checkboxFill} alt="checkbox-fill" width={25} height={27}/>
                       <Image src={check} alt="check" width={19} height={15} style={{ position: 'absolute', zIndex: 1, left: '0.1875rem', top: '0.375rem' }}/>
-                      &nbsp;&nbsp;{checkBoxName}&nbsp;&nbsp;
+                      <div className='w-25'>{checkBoxName}</div>
                     </>
                   ) : (
                     <>
                       <Image src={checkbox} alt="checkbox" width={25} height={27}/>
-                      &nbsp;&nbsp;{checkBoxName}&nbsp;&nbsp;
+                      <div className='w-25 border border-red-800'>{checkBoxName}</div>
                   </>
                   
                   )
                 }
               </button>
-            </div>
+            
           </div>
     </div>
   );
@@ -150,8 +150,8 @@ export default function Filter({checkBoxNames, isMobile, checkBoxTitles}) {
                       {
                         checkBoxNames.map((group, groupIndex) => {
                           return (
-                            <div key={`group-${groupIndex}` }  className="flex space-x-6">
-                             &nbsp;&nbsp;{group.name}&nbsp;&nbsp;
+                            <div key={`group-${groupIndex}` }  className="flex sm:space-x-2 md:space-x-4 lg:space-x-6 xl:space-x-8">
+                             <div className='mt-2 mr-2 w-20 items-center'>{group.name}</div>
                               {group.data.map((item, index) => {
                                 return (
                                   <>
@@ -178,8 +178,8 @@ export default function Filter({checkBoxNames, isMobile, checkBoxTitles}) {
                   {
                     checkBoxNames.map((group, groupIndex) => 
                        (
-                        <div key={`group-${groupIndex}`} className="flex space-x-6">
-                          &nbsp;&nbsp;{group.name}&nbsp;&nbsp;
+                        <div key={`group-${groupIndex}`} className="flex sm:space-x-2 md:space-x-4 lg:space-x-6 xl:space-x-8">
+                          <div className='ml-2 w-20 h-10 flex justify-center items-center border border-red-900'>{group.name}</div>
                           {group.data.map((item, index) => {
                             return (
                               <>
