@@ -53,9 +53,6 @@ export default function Home() {
 
 
 
-
-
-
 function CardSec({ setInView, isMobile }) {
     const ref = useRef(null);
     const isInView = useInView(ref, {

@@ -5,7 +5,7 @@ import "./local.scss";
 import "../../globals.scss"
 import Team_Intro from "./Team_Intro";
 
-export function CardV({ img, title, contents, moreInfo, link }) {
+export function CardV({ img, title, contents, link }) {
 
   const group = "2022 創客組";
   const name = "林家宇、許伊辰、葉孟昀";
