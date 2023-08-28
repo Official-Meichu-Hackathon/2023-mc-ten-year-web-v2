@@ -125,13 +125,13 @@ function CardSec({ setInView, isMobile }) {
                     <div className="justify-end hidden lg:block ">
                         <Search_bar />
                     </div>
-                    <div className="border border-black justify-end">
+                    <div className="justify-end">
                         <Post />
                     </div>
                 </div>
             </div>
 
-            <div className="grid gap-14 py-20 grid-cols-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center justify-items-center">
+            <div className="grid gap-14 py-20 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 items-center justify-center justify-items-center">
                 {team.map(item => (
                     <CardV
                         key={item.id}
