@@ -62,11 +62,56 @@ function CardSec({ setInView, isMobile }) {
         setInView(isInView);
     }, [isInView, setInView]);
 
-    const img = refImg;
-    const title = "隊伍名稱的地方，可能名字超級長就會變到第二行或直接不見之類的";
-    const contents = ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒。"];
-    const group = "2022 創客組";
-    const award = " 冠軍 ";
+    const team = [
+        {
+            id: 1,
+            title: "隊伍名稱的地方，可能名字超級長就會變到第二行或直接不見之類的",
+            img: refImg,
+            group: "2022 創客組",
+            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好"], 
+            award: "冠軍"
+        },
+        {
+            id: 2,
+            title: "隊伍名稱",
+            img: refImg,
+            group: "2022 創客組",
+            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好"], 
+            award: "冠軍"
+        },
+        {
+            id: 3,
+            title: "隊伍名稱的地方",
+            img: refImg,
+            group: "2022 創客組",
+            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好"], 
+            award: "冠軍"
+        },
+        {
+            id: 4,
+            title: "隊伍名稱的地方，可能名字",
+            img: refImg,
+            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好"], 
+            group: "2022 創客組",
+            award: "亞軍"
+        },
+        {
+            id: 5,
+            title: "隊伍名稱的地方，可能名字超級長就",
+            img: refImg,
+            group: "2022 創客組",
+            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好"], 
+            award: "冠軍"
+        },
+        {
+            id: 6,
+            title: "隊伍名稱的地方，可能名字超級長就會變到第",
+            img: refImg,
+            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒。"], 
+            group: "2022 創客組",
+            award: "季軍"
+        },
+    ];
 
 
     return (
@@ -86,13 +131,15 @@ function CardSec({ setInView, isMobile }) {
                 </div>
             </div>
 
-            <div className="grid gap-14 py-20 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 items-center justify-center justify-items-center">
-                <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award} />
-                <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award} />
-                <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award} />
-                <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award} />
-                <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award} />
-                <CardV img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" group={group} award={award} />
+            <div className="grid gap-14 py-20 grid-cols-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center justify-items-center">
+                {team.map(item => (
+                    <CardV
+                        key={item.id}
+                        img={item.img}
+                        title={item.title}
+                        contents={item.contents}  // 這裡的 contents 可能需要根據你的需求更改
+                    />
+                ))}
             </div>
 
 

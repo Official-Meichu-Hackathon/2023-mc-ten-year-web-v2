@@ -5,12 +5,12 @@ import "./local.scss";
 import "../../globals.scss"
 import Team_Intro from "./Team_Intro";
 
-export function CardV({ img, title, contents, link }) {
+export function CardV({ img, title, contents }) {
 
   const group = "2022 創客組";
   const name = "林家宇、許伊辰、葉孟昀";
   const mail = "mchackathon2023@gmail.com";
-  const github = "teamName/teamProject";
+  const github = "Official-Meichu-Hackathon";
   const tags = ["人工智慧", "金融科技", "創業"];
   const view = "3851";
   const msg = "12";
