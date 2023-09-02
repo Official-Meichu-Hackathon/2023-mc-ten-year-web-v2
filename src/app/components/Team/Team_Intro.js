@@ -18,13 +18,13 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
 
     const openPopup = () => {
         setOpenCard(true);
-        console.log({openCard});
+        console.log({ openCard });
     };
-  
+
     const closePopup = () => {
         setOpenCard(false);
     };
-  
+
     const handleOutsideClick = (event) => {
         if (event.target === event.currentTarget) {
             console.log("ouside clicked");
@@ -45,7 +45,7 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
         }
     };
 
-  
+
 
 
     useEffect(() => {
@@ -69,7 +69,7 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
                     <button className="float-right mt-16 mr-16" onClick={onClose}>
                         <Image src={close} alt="close" width={30} height={30} className="" />
                     </button>
-                    <div className="">
+                    <div className="bg-card-1">
                         <Card_title title={title} group={group} name={name} mail={mail} github={github} tags={tags} view={view} msg={msg} />
                         <Project_Intro discrip={discrip} />
                     </div>
@@ -81,24 +81,25 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
                         </div>
                     </div>
 
-                    <div>
-                        { openCard &&
-                        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center z-1000" onClick={handleSlideOutsideClick}>
+                        <div>
+                            {openCard &&
+                                <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center z-1000" onClick={handleSlideOutsideClick}>
 
-                                <Image 
-                                src={teamphoto} 
-                                alt="close" 
-                                width={900} 
-                                height={900} 
-                                className="w-[85.5vw] h-[48.09375vw]" />
+                                    <Image
+                                        src={teamphoto}
+                                        alt="close"
+                                        width={900}
+                                        height={900}
+                                        className="w-[85.5vw] h-[48.09375vw]" />
+
+                                </div>
+                            }
 
                         </div>
-                        }
 
-                    </div>
-
-                    <div className="pt-4 mt-[3rem]">
-                        <Board comments={comments} />
+                        <div className="pt-4 mt-[3rem]">
+                            <Board comments={comments} />
+                        </div>
                     </div>
                 </div>
             </div>

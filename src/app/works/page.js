@@ -121,7 +121,7 @@ function CardSec({ setInView, isMobile }) {
                 <div className="">
                     <Filter checkBoxNames={checkBoxNames} isMobile={isMobile} />
                 </div>
-                <div className="flex flex-col lg:flex-row gap-8 h-[15rem] justify-end ">
+                <div className="flex flex-col lg:flex-row gap-8 justify-end ">
                     <div className="justify-end hidden lg:block ">
                         <Search_bar />
                     </div>
