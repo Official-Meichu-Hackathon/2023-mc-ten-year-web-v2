@@ -143,3 +143,12 @@ $clr-card-shadow: #00000040;
     text-align: justified;
 
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+    width: 0px;
+}
+
+.hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}

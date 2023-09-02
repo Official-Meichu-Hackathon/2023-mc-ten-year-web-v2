@@ -38,14 +38,14 @@ export default function Comment_Card({ closePopup }) {
 
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center z-40" onClick={handleOutsideClick}>
-      <div className="bg-white py-8 px-12 h-[37rem] w-[32rem] rounded-[2rem] z-50 justify-between">
-        <div className="flex justify-end">
+      <div className="bg-white py-8 px-12 h-[37rem] w-[32rem] rounded-[2rem] z-50 justify-between ">
+        <div className="flex justify-end ">
           <button className="" onClick={closePopup}>
-            <Image src={close} alt="close" width={21} height={21} />
+            <Image  src={close} alt="close" width={21} height={21} />
           </button>
         </div>
         <div className="flex flex-col justify-center h-full pb-8">
-          <div className="flex py-4">
+          <div className="flex py-4 ">
             <Image src={account} alt="account Icon" width={20.83} height={16.67} />
             <p className="pl-2 text-comment-card pt-1">暱稱</p>
           </div>

@@ -44,14 +44,14 @@ export function Board({ comments }) {
                 <div className="select-none">　</div>
                 
 
-                <div className="mt-[2rem] md:flex md:space-x-16 lg:space-x-32">
+                <div className="mt-[2rem]  md:flex space-x-16 lg:space-x-32">
                     <div className="hidden md:block flex text-sec-title whitespace-nowrap mr-8">　留言板</div>
-                    <div className="md:hidden flex justify-between">
+                    <div className="md:hidden flex justify-between ">
                         <div className="text-sec-title">留言板</div>
-                        <button className="text-board" onClick={() => openPopup()}>立即留言...</button>
+                        <button className="text-board " onClick={() => openPopup()}>立即留言...</button>
                     </div>
                     <div className="md:ml-16 space-y-8">
-                        <button className="hidden md:block text-board" onClick={() => openPopup()}>立即留言...</button>
+                        <button className="hidden md:block text-board border border-green-700" onClick={() => openPopup()}>立即留言...</button>
                         <div className="space-y-8">
                             {comments.map((comment) => (
                                 <CommentItem
