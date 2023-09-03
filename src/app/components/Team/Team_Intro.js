@@ -67,7 +67,7 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
                         <Project_Intro discrip={discrip} />
                     </div>
 
-                    <div className="h-[45vw] w-full relative hidden md:block">
+                    <div className="h-[45vw] w-full relative hidden md:block bg-primary">
                         <div className="h-full relative ">
                             {<ImageSlider openPopup={openPopup} closePopup={closePopup} />}
 
@@ -90,7 +90,7 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
 
                     </div>
 
-                    <div className="pt-4 mt-[3rem]">
+                    <div className="pt-4 bg-primary">
                         <Board comments={comments} />
                     </div>
                 </div>
