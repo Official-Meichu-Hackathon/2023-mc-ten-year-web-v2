@@ -57,45 +57,53 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
 
     return (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center z-50 duration-500 ease-out transition-all inset-0" onClick={handleOutsideClick}>
-            <div className="team-body fixed top-0 left-0 md:w-4/5 w-full h-fit bg-black bg-opacity-50 items-center justify-start overflow-auto z-50 " style={{ position: 'fixed', top: 0 }}>
-                <div className="team-detail w-full" style={{ maxHeight: '100vh' }}>
-                    <button className="float-right mt-16 mr-16" onClick={onClose}>
-                        <Image src={close} alt="close" width={30} height={30} className="" />
-                    </button>
-                    <div className="bg-card-1">
-                        <Card_title title={title} group={group} name={name} mail={mail} github={github} tags={tags} view={view} msg={msg} />
-                        <Project_Intro discrip={discrip} />
-                    </div>
+            <div className="fixed top-0 left-0  md:w-4/5  h-fit bg-black bg-opacity-50 items-center justify-start overflow-auto z-50 duration-500 ease-out transition-all inset-0" style={{ position: 'fixed', top: 0 }}>
+                <div className="w-full overflow-y-scroll hide-scrollbar cursor-auto" style={{ maxHeight: '100vh' }}>
+                    <div className='bg-primary'>
 
-                    <div className="h-[45vw] w-full relative hidden md:block bg-primary">
-                        <div className="h-full relative ">
-                            {<ImageSlider openPopup={openPopup} closePopup={closePopup} />}
-
-                        </div>
-                    </div>
-
-                    <div>
-                        {openCard &&
-                            <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center z-1000" onClick={handleSlideOutsideClick}>
-
-                                <Image
-                                    src={teamphoto}
-                                    alt="close"
-                                    width={900}
-                                    height={900}
-                                    className="w-[85.5vw] h-[48.09375vw]" />
+                        <div className="h-[60vw] md:h-[45vw] w-full relative md:hidden bg-primary">
+                            <div className="h-full relative ">
+                                {<ImageSlider openPopup={openPopup} closePopup={closePopup} />}
 
                             </div>
-                        }
+                        </div>
+                        <button className="float-right mt-16 mr-16" onClick={onClose}>
+                            <Image src={close} alt="close" width={30} height={30} className="" />
+                        </button>
+                        <div className="">
+                            <Card_title title={title} group={group} name={name} mail={mail} github={github} tags={tags} view={view} msg={msg} />
+                            <Project_Intro discrip={discrip} />
+                        </div>
 
-                    </div>
+                        <div className="h-[45vw] w-full relative hidden md:block">
+                            <div className="h-full relative ">
+                                {<ImageSlider openPopup={openPopup} closePopup={closePopup} />}
 
-                    <div className="pt-4 bg-primary">
-                        <Board comments={comments} />
+                            </div>
+                        </div>
+
+                        <div>
+                            {openCard &&
+                                <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center z-1000" onClick={handleSlideOutsideClick}>
+
+                                    <Image
+                                        src={teamphoto}
+                                        alt="close"
+                                        width={900}
+                                        height={900}
+                                        className="w-[85.5vw] h-[48.09375vw]" />
+
+                                </div>
+                            }
+
+                        </div>
+
+                        <div className="pt-4 mt-[3rem]">
+                            <Board comments={comments} />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     );
 }
-``
