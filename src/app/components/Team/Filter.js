@@ -15,9 +15,9 @@ import { faL } from '@fortawesome/free-solid-svg-icons';
 export function CheckBoxItem({ checkBoxSetState, checkBoxState, checkBoxName, filterViewMode }) {
   return (
     <div>
-      <div className="flex items-center">
+      <div className="flex items-center h-[3rem]">
         <button
-          className="flex items-center justify-center mt-2 mb-2 mr-4"
+          className="flex items-center mt-2 mb-2 md:w-[7.69rem] w-[7rem]"
           onClick={() => { checkBoxSetState(!checkBoxState) }}
           style={{ position: 'relative' }}
         >
@@ -154,7 +154,7 @@ export default function Filter({ checkBoxNames, isMobile, checkBoxTitles }) {
               <div className='flex-col '>
 
                 {isMobile ? (
-                  <div className='flex space-x-16'>
+                  <div className='flex'>
                     {
                       checkBoxNames.map((group, groupIndex) => {
                         return (
@@ -186,8 +186,8 @@ export default function Filter({ checkBoxNames, isMobile, checkBoxTitles }) {
                     {
                       checkBoxNames.map((group, groupIndex) =>
                       (
-                        <div key={`group-${groupIndex}`} className="flex space-x-0">
-                          <div className='mr-6 w-20 flex items-center '>{group.name}</div>
+                        <div key={`group-${groupIndex}`} className="flex">
+                          <div className='mr-8 w-20 flex items-center font-bold'>{group.name}</div>
                           {group.data.map((item, index) => {
                             return (
                               <>

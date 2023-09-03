@@ -131,7 +131,7 @@ function CardSec({ setInView, isMobile }) {
                 </div>
             </div>
 
-            <div className="grid gap-14 py-20 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 items-center justify-center justify-items-center">
+            <div className="grid gap-14 py-16 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 items-center justify-center justify-items-center">
                 {team.map(item => (
                     <CardV
                         key={item.id}
@@ -154,7 +154,7 @@ const checkBoxNames =
 
 [
     {id : 0, name: "年份  ", data: [2021,2022,2023,2024]},
-    {id : 1, name: "組別  ", data: ["黑客組", "創客組", "交流組", "創客交流組","團體組"]   },
-    {id : 2, name: "得獎作品", data:["abc"]},
+    {id : 1, name: "組別  ", data: ["黑客組", "創客組", "交流組","團體組", "創客交流組"]   },
+    {id : 2, name: "得獎作品", data:["冠軍"]},
 ]
 

@@ -57,8 +57,8 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
 
     return (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center z-50 duration-500 ease-out transition-all inset-0" onClick={handleOutsideClick}>
-            <div className="fixed top-0 left-0 md:w-4/5 w-full h-fit bg-black bg-opacity-50 items-center justify-start overflow-auto z-50 duration-500 ease-out transition-all inset-0" style={{ position: 'fixed', top: 0 }}>
-                <div className="w-full" style={{ maxHeight: '100vh' }}>
+            <div className="team-body fixed top-0 left-0 md:w-4/5 w-full h-fit bg-black bg-opacity-50 items-center justify-start overflow-auto z-50 " style={{ position: 'fixed', top: 0 }}>
+                <div className="team-detail w-full" style={{ maxHeight: '100vh' }}>
                     <button className="float-right mt-16 mr-16" onClick={onClose}>
                         <Image src={close} alt="close" width={30} height={30} className="" />
                     </button>
