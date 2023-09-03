@@ -52,9 +52,9 @@ export function ImageSlider({ closePopup, openPopup }) {
   };
 
   return (
-    <div className="md:px-16 px-8 py-12 pb-6 md:flex md:space-x-16 lg:space-x-32 items-start">
+    <div className="md:px-16 md:py-12 md:pb-6 md:flex md:space-x-16 lg:space-x-32 items-start" >
       <p className="hidden md:block text-sec-title md:mr-8 whitespace-nowrap">隊伍簡報</p>
-      <div className='relative h-full w-full pt-3'>
+      <div className='relative h-full w-full '>
         <Image src={slides[currentIndex].path}
           alt="msg Icon"
           className="h-full w-full object-cover"
@@ -62,7 +62,7 @@ export function ImageSlider({ closePopup, openPopup }) {
 
         {/*pop up button for viewing picture*/}
 
-        <div className='absolute bottom-0 right-0 z-100 flex items-end space-y-2 mb-6 mr-6 space-x-4'>
+        <div className='absolute transform -translate-y-7  md:-translate-y-0 md:bottom-0 right-0 z-100 flex items-end space-y-2  md:mt-0 md:mb-6 mr-6 space-x-4' id='1'>
 
           <div className='bg-white border border-black rounded-full flex justify-center h-[2.2rem] w-[2.2rem] items-center cursor-pointer'>
             <button onClick={() => { openPopup() }} className='' >

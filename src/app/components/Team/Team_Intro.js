@@ -67,33 +67,31 @@ export default function Team_Intro({ onClose, title, group, name, mail, github, 
                         <Project_Intro discrip={discrip} />
                     </div>
 
-                    <div className="bg-primary">
-                        <div className="h-[45vw] w-full relative bg-primary">
-                            <div className="h-full relative ">
-                                {<ImageSlider openPopup={openPopup} closePopup={closePopup} />}
+                    <div className="h-[45vw] w-full relative hidden md:block">
+                        <div className="h-full relative ">
+                            {<ImageSlider openPopup={openPopup} closePopup={closePopup} />}
+
+                        </div>
+                    </div>
+
+                    <div>
+                        {openCard &&
+                            <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center z-1000" onClick={handleSlideOutsideClick}>
+
+                                <Image
+                                    src={teamphoto}
+                                    alt="close"
+                                    width={900}
+                                    height={900}
+                                    className="w-[85.5vw] h-[48.09375vw]" />
 
                             </div>
-                        </div>
+                        }
 
-                        <div>
-                            {openCard &&
-                                <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center z-1000" onClick={handleSlideOutsideClick}>
+                    </div>
 
-                                    <Image
-                                        src={teamphoto}
-                                        alt="close"
-                                        width={900}
-                                        height={900}
-                                        className="w-[85.5vw] h-[48.09375vw]" />
-
-                                </div>
-                            }
-
-                        </div>
-
-                        <div className="pt-4 mt-[3rem]">
-                            <Board comments={comments} />
-                        </div>
+                    <div className="pt-4 mt-[3rem]">
+                        <Board comments={comments} />
                     </div>
                 </div>
             </div>
