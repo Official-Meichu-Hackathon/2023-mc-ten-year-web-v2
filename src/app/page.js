@@ -13,6 +13,7 @@ export default function Home() {
     const [aboutUsInView, setAboutUsInView] = useState(false);
     const [teamInView, setTeamInView] = useState(false);
     const [qnaInView, setQnaInView] = useState(false);
+    const [testInView, setTestInView] = useState(false);
 
 	return (
         <div>
@@ -146,6 +147,26 @@ function QnaSec({ setInView }) {
     return (
         <section ref={ref} className="wrapper min-h-screen items-center">
             <CardH img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" />
+        </section>
+    );
+}
+
+function TestSec({ setInView }) {
+    const ref = useRef(null);
+    const isInView = useInView(ref, {
+        amount: 0.5
+    });
+    useEffect(() => {
+        setInView(isInView);
+    }, [isInView, setInView]);
+
+    const img = refImg;
+    const title = "Test";
+    const contents = ["Test"];
+
+    return (
+        <section ref={ref} className="wrapper min-h-screen items-center">
+            <CardH img={img} title={title} contents={contents} moreInfo={viewMore} link="/test" />
         </section>
     );
 }
