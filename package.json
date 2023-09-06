@@ -23,7 +23,7 @@
     "eslint-config-next": "13.4.2",
     "framer-motion": "^10.12.21",
     "gh-pages": "^5.0.0",
-    "next": "13.4.2",
+    "next": "^13.4.12",
     "next-themes": "^0.2.1",
     "postcss": "8.4.23",
     "react": "18.2.0",
