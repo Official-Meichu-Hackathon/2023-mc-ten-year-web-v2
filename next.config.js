@@ -16,9 +16,6 @@ const nextConfig = {
                 pathname: "/65535/**"
             }
         ]
-    },
-    "fontawesome-svg-core": {
-        "license": "free"
     }
 }
 

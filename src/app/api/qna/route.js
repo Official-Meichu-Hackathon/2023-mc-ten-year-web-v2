@@ -14,10 +14,10 @@ async function fetchQuestionList() {
     const questions = data.questions.map(q => ({question: q.question,
                                                 tags: q.tags,
                                                 answers: q.answers}));
-    return JSON.stringify(questions);
+    return questions;
 }
 
 export async function GET(request) {
     const data = await fetchQuestionList();
-    return NextResponse.json(JSON.parse(data));
+    return NextResponse.json(data);
 }

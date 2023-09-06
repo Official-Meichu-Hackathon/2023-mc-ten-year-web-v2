@@ -5,12 +5,13 @@ import homepageImg from "../../public/img/decoration/bg-home.svg";
 import { useRef, useEffect, useState } from "react";
 import { useInView } from "framer-motion";
 import { CardH, CardV, viewMore } from "./components/card"
+import { fetcher } from "./utils/fetcher";
 import { Load, LoadFailed } from "./components/gadgets"
 import refImg from "../../public/img/Ref.png";
 
 export default function Home() {
     const [aboutUsInView, setAboutUsInView] = useState(false);
-    const [workInView, setWorkInView] = useState(false);
+    const [teamInView, setTeamInView] = useState(false);
     const [qnaInView, setQnaInView] = useState(false);
 
 	return (
@@ -38,23 +39,23 @@ export default function Home() {
             <main>
                 <article className="grid">
                     <AboutUsSec setInView={setAboutUsInView} />
-                    <WorkSec setInView={setWorkInView} />
+                    <TeamSec setInView={setTeamInView} />
                     <QnaSec setInView={setQnaInView} />
                 </article>
             </main>
 
-            <BannerImg aboutUsInView={aboutUsInView} workInView={workInView} qnaInView={qnaInView} />
+            <BannerImg aboutUsInView={aboutUsInView} teamInView={teamInView} qnaInView={qnaInView} />
         </div>
 	);
 }
 
-function BannerImg({ aboutUsInView, workInView, qnaInView }) {
+function BannerImg({ aboutUsInView, teamInView, qnaInView }) {
     let x = 17.5, y = 12.5;
     if(qnaInView) {
         x = 70;
         y = -10;
     }
-    else if(workInView) {
+    else if(teamInView) {
         x = -60;
         y = -60;
     }
@@ -100,8 +101,7 @@ function AboutUsSec({ setInView }) {
 
 
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
-function WorkSec({ setInView }) {
+function TeamSec({ setInView }) {
     const ref = useRef(null);
     const isInView = useInView(ref, {
         amount: 0.5
@@ -110,9 +110,9 @@ function WorkSec({ setInView }) {
         setInView(isInView);
     }, [isInView, setInView]);
 
-    const { data, error } = useSWR("/api/about", fetcher);
+    const { data, error, isLoading } = useSWR("/api/about", fetcher);
     if(error) return <LoadFailed />;
-    if(!data) return <Load />;
+    if(isLoading) return <Load />;
     
     // TODO: Fix layout; Center in-view
     return (

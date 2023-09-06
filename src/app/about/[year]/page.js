@@ -1,13 +1,14 @@
 "use client";
 import useSWR from "swr";
-import { Load, LoadCustom } from "../../components/gadgets"
+import { fetcher } from "../../utils/fetcher";
+import { Load, LoadFailed, LoadCustom } from "../../components/gadgets"
 
 // TODO: Stuck in "Loading" instaed of "Failed" when data doesn't exist
-const fetcher = (url) => fetch(url).then((res) => res.json());
 export default function YearPage({ params }) {
-    const { data, error } = useSWR(params.year ? `/api/about/${params.year}` : null, fetcher);
-	if(error) return <LoadCustom msg={"Failed to load or event of the year does not exist!"}/>;
-	if(!data) return <Load />;
+    const { data, error, isLoading } = useSWR(params.year ? `/api/about/${params.year}` : null, fetcher);
+	if(error) return <LoadFailed />;
+	if(isLoading) return <Load />;
+    if(data && data.notFound) return <LoadCustom msg={`首位來自 ${params.year} 年的時空旅人出現了！`}/>;
 
     return (
         <div>
