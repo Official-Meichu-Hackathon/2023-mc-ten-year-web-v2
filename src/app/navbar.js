@@ -76,7 +76,7 @@ export default function Navbar() {
                 {!expanded ? (<FontAwesomeIcon icon={faBars} />) : (<FontAwesomeIcon icon={faTimes} />)}
             </button>
             <nav id="primary-navbar" data-visible={expanded}
-                 className={`${(active || (!screenMd && expanded)) ? "nue-concave frost-50" : ""}
+                 className={`${(active || (!screenMd && expanded)) ? "nue-concave-75 frost-50" : ""}
                             ${(!expanded) ? "h-0 p-0 opacity-0" : "h-auto p-6 opacity-100"}
                             grid fixed w-screen h-fit text-info z-10 overflow-hidden transition-shadow ease-in-out
                             md:sticky md:top-0 md:mt-[min(10vh,_6rem)]`}>

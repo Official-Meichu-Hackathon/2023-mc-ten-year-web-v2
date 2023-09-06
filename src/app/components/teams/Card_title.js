@@ -6,7 +6,6 @@ import githubIcon from "../../../../public/img/Team/github.svg";
 import eyeIcon from "../../../../public/img/Team/eye-outline.svg";
 import msgIcon from "../../../../public/img/Team/message-outline.svg";
 import "./local.scss";
-import "../../globals.scss"
 
 export function Card_title({ title, group, name, mail, github, tags, view, msg }) {
     return (

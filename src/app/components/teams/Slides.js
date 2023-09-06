@@ -4,7 +4,7 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 import Image from 'next/image';
 import "./local.scss";
-import "../../globals.scss"
+import "@/app/scss/global.scss"
 import leftArrow from "../../../../public/img/Team/menu-left.svg";
 import rightArrow from "../../../../public/img/Team/menu-right.svg";
 import rectangle from "../../../../public/img/Team/Rectangle.svg";

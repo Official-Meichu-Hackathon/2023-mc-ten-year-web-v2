@@ -5,7 +5,7 @@ export const metadata = {
 
 export default function AboutUsLayout({ children }) {
     return (
-        <div className="wrapper my-16">
+        <div className="wrapper my-16 md:my-10">
             {children}
         </div>
     );

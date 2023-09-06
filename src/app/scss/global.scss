@@ -101,6 +101,10 @@ body {
     scroll-snap-type: inline mandatory;
 }
 
+.pill {
+    border-radius: 100vw;
+}
+
 
 
 /* ---------------------------- STYLE ---------------------------- */
@@ -122,17 +126,30 @@ body {
     box-shadow: 0.5rem 0 1rem 0.1rem rgba($clr-neu-shadow-2, 0.5);
 }
 
-.nue-concave {
+@mixin nue-concave($amount) {
     background: linear-gradient(135deg, rgba($clr-neu-fill-1, 0.85), rgba($clr-neu-fill-2, 0.85));
-    box-shadow: -0.75em -0.75em 1.5em $clr-neu-shadow-1,
-                0.75em 0.75em 1.5em $clr-neu-shadow-2;
+    box-shadow: (- $amount) (- $amount) (2 * $amount) $clr-neu-shadow-1,
+                $amount $amount (2 * $amount) $clr-neu-shadow-2;
 }
-.nue-pressed {
+.nue-concave-75 {
+    @include nue-concave(0.75em);
+}
+.nue-concave-50 {
+    @include nue-concave(0.5em);
+}
+
+@mixin nue-pressed($amount) {
     background: rgba($clr-bg-primary, 0.85);
-    box-shadow: inset -0.75em -0.75em 1.5em $clr-neu-shadow-1,
-                inset 0.75em 0.75em 1.5em $clr-neu-shadow-2;
-    
+    box-shadow: inset (- $amount) (- $amount) (2 * $amount) $clr-neu-shadow-1,
+                inset $amount $amount (2 * $amount) $clr-neu-shadow-2;
 }
+.nue-pressed-75 {
+    @include nue-pressed(0.75em);
+}
+.nue-pressed-50 {
+    @include nue-pressed(0.5em);
+}
+
 .team-card-shadow {
     box-shadow: 0.3rem 0.3rem 0.25rem 0rem $clr-card-shadow,
                 0rem 0.25rem 0.25rem 0rem $clr-card-shadow;
@@ -158,6 +175,44 @@ a, button {
         color: $clr-accent;
         outline: 3px solid $clr-accent;
         outline-offset: 3px;
+    }
+}
+
+.form-control {
+    --size: 1.2em;
+    --inner-size: 0.75em;
+    display: grid;
+    align-items: center;
+    grid-template-columns: var(--size) auto;
+    gap: 0.5em;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+        -webkit-appearance: none;
+        appearance: none;
+
+        display: grid;
+        place-content: center;
+        width: var(--size);
+        height: var(--size);
+        color: currentColor;
+        border: 0.1rem currentColor solid;
+        border-radius: 0.4em;
+        cursor: pointer;
+    
+        &::before {
+            content: "";
+            width: var(--inner-size);
+            height: var(--inner-size);
+            
+            border-radius: 0.2em;
+            transform: scale(0);
+            transition: 150ms transform cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: inset var(--size) var(--size) $clr-accent;
+        }
+        &:checked::before {
+            transform: scale(1);
+        }
     }
 }
 

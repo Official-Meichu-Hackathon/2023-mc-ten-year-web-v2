@@ -1,5 +1,5 @@
 import "./local.scss";
-import "../../globals.scss"
+import "@/app/scss/global.scss"
 
 export function Project_Intro ({ discrip }){
     return(

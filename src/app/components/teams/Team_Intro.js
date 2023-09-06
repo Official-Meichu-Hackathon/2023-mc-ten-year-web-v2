@@ -10,7 +10,7 @@ import { ImageSlider } from './Slides';
 import close from "../../../../public/img/Team/close.svg";
 import teamphoto from "../../../../public/img/Team/teamphoto.png"
 import "./local.scss";
-import "../../globals.scss"
+import "@/app/scss/global.scss"
 
 export default function Team_Intro({ onClose, title, group, name, mail, github, tags, view, msg, discrip, comments }) {
 

@@ -1,4 +1,6 @@
 "use client";
+import { RecoilRoot } from "recoil";
+
 import Image from "next/image";
 import useSWR from "swr";
 import homepageImg from "../../public/img/decoration/bg-home.svg";
@@ -9,7 +11,17 @@ import { fetcher } from "./utils/fetcher";
 import { Load, LoadFailed } from "./components/gadgets"
 import refImg from "../../public/img/Ref.png";
 
-export default function Home() {
+
+
+export default function RecoilHompage() {
+    return (
+        <RecoilRoot>
+            <Homepage />
+        </RecoilRoot>
+    );
+}
+
+function Homepage() {
     const [aboutUsInView, setAboutUsInView] = useState(false);
     const [teamInView, setTeamInView] = useState(false);
     const [qnaInView, setQnaInView] = useState(false);
@@ -147,26 +159,6 @@ function QnaSec({ setInView }) {
     return (
         <section ref={ref} className="wrapper min-h-screen items-center">
             <CardH img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" />
-        </section>
-    );
-}
-
-function TestSec({ setInView }) {
-    const ref = useRef(null);
-    const isInView = useInView(ref, {
-        amount: 0.5
-    });
-    useEffect(() => {
-        setInView(isInView);
-    }, [isInView, setInView]);
-
-    const img = refImg;
-    const title = "Test";
-    const contents = ["Test"];
-
-    return (
-        <section ref={ref} className="wrapper min-h-screen items-center">
-            <CardH img={img} title={title} contents={contents} moreInfo={viewMore} link="/test" />
         </section>
     );
 }

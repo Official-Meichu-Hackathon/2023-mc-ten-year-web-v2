@@ -1,6 +1,5 @@
 import Image from "next/image";
 import "./local.scss";
-import "../../globals.scss"
 import Comment_Card from "./Comment_card";
 import { ImageSlider } from "./Slides";
 import { useState, useEffect } from "react";

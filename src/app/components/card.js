@@ -6,7 +6,7 @@ export const viewMore = "查看更多";
 // TODO: Short description causes layout break
 export function CardH({ img, title, contents, moreInfo, link }) {
     return(
-        <div className="card nue-concave frost-25 grid md:flex p-8 gap-6 place-content-center max-w-screen-md content-stretch rounded-[4rem] snap-center">
+        <div className="card nue-concave-75 frost-25 grid md:flex p-8 gap-6 place-content-center max-w-screen-md content-stretch rounded-[4rem] snap-center">
             <div className="max-h-full aspect-4/3 lg:aspect-4/5">
                 <Image
                     src={img}
@@ -36,7 +36,7 @@ export function CardH({ img, title, contents, moreInfo, link }) {
 
 export function CardV({ img, title, contents, moreInfo, link }) {
     return(
-        <div className="card nue-concave frost-25 grid p-8 gap-6 place-content-center max-w-screen-lg content-stretch rounded-[4rem] snap-center">
+        <div className="card nue-concave-75 frost-25 grid p-8 gap-6 place-content-center max-w-screen-lg content-stretch rounded-[4rem] snap-center">
             <div className="max-h-full aspect-4/3">
                 <Image
                     src={img}

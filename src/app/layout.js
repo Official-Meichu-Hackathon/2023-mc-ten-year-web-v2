@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-page-custom-font */
-import "./globals.scss";
+import "@/app/scss/global.scss"
 import Navbar from "./navbar";
 import Footer from "./footer";
 import { Space_Grotesk, Noto_Sans_TC } from "next/font/google";

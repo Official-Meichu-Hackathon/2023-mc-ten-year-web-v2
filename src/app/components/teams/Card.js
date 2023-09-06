@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from 'react';
 import "./local.scss";
-import "../../globals.scss"
+import "@/app/scss/global.scss"
 import Team_Intro from "./Team_Intro";
 
 export function CardV({ img, title, contents }) {
