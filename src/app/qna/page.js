@@ -1,41 +1,68 @@
 "use client";
-import useSWR from "swr";
-import { fetcher } from "../utils/fetcher";
-import { Load, LoadFailed } from "../components/gadgets"
+import React, { useState, useEffect } from 'react';
+import useSWR from 'swr';
+import { Load, LoadFailed } from '../components/gadgets';
+import Questions from '@/app/components/QApage/Question';
+import Pagination from '@/app/components/Pagination';
+import Filter from '@/app/components/QApage/Filter';
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function Qna() {
-    const { data, error, isLoading } = useSWR("/api/qna", fetcher);
-    if(error) return <LoadFailed />;
-	if(isLoading) return <Load />;
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
+  const [isMobile, setIsMobile] = useState(true); // Default to mobile
 
-    return (
-        <div>
-            <header>
-                <h1 className="bracket-md">Q & A</h1>
-            </header>
-            <main>
-                <ul className="grid gap-20">
-                    {data.map((q, index) => (
-                        <li key={index} className="grid gap-y-8 nue-concave frost-25 p-12 rounded-[4rem]">
-                            <h2 className="text-primary-gradient">Q: {q.question}</h2>
-                            <div className="grid gap-y-4">
-                                <ul className="flex list-none">
-                                    {q.tags.map((tag, index) => (
-                                        <li key={index} className={`${(index !== q.tags.length - 1) ? "mr-3" : ""} p-1 rounded-[0.375em] capitalize bg-secondary`}>
-                                            {tag}
-                                        </li>
-                                    ))}
-                                </ul>
-                                {q.answers.map((answer, index) => (
-                                    <p key={index}>
-                                        {answer}
-                                    </p>
-                                ))}
-                            </div>
-                        </li>
-                    ))}
-                </ul>
-            </main>
-        </div>
-    );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const { data, error } = useSWR('/api/qna', fetcher);
+  if (error) return <LoadFailed />;
+  if (!data) return <Load />;
+
+  const totalItems = data.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentData = data.slice(startIndex, endIndex);
+
+  const checkBoxNames = [
+    {id : 0, name: "2022"},
+    {id : 1, name: "創客組"},
+    {id : 2, name: "競賽內容"},
+    {id : 3, name: "報名相關"},
+    {id : 4, name: "其他"}
+  ]
+
+  const changePage = (page) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
+  return (
+      <div>
+        <header className="flex justify-center mb-5">
+          <h1 className="bracket-md text-center">常見問題<br/>Q & A</h1>
+        </header>
+        <main>
+          <Filter checkBoxNames={checkBoxNames} isMobile={isMobile} />
+          <div className="mt-5"></div>
+          <Questions data={isMobile ? data : currentData} />
+          {!isMobile && (<Pagination
+              totalPages={totalPages}
+              currentPage={currentPage}
+              onPageChange={changePage}
+          />)}
+        </main>
+      </div>
+  );
 }
