@@ -4,7 +4,7 @@ import { SearchBar, Post } from "./gadgets";
 
 // Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { faFilter, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -87,7 +87,7 @@ export default function Filter({ checkBoxNames }) {
 			<div className="flex items-center justify-between gap-2">
                 <button className="flex items-center justify-center gap-2 font-bold mt-3 mb-3"
                         onClick={() => setToggleViewMode(!toggleViewMode)}>
-                    <FontAwesomeIcon icon={faBars} />
+                    <FontAwesomeIcon icon={faFilter} />
                     <span className="whitespace-nowrap">篩選</span>
                     <FontAwesomeIcon icon={faAngleDown} className={`${toggleViewMode ? "rotate-180" : ""} transition-transform`} />
                 </button>

@@ -1,46 +1,14 @@
 "use client";
-import { RecoilRoot, useRecoilValue } from "recoil";
-import { useRecoilWindowWidth } from "../utils/useExternal";
-import { windowWidth } from "../utils/atoms";
-import { breakpointMD } from "../utils/resolutions";
-import Image from "next/image";
-import useSWR from "swr";
-import { useState, useEffect } from "react";
-import { CardH, CardV } from "../components/teams/Card";
-import { viewMore } from "../components/card";
-import { Card_title } from "../components/teams/Card_title";
-import { Project_Intro } from "../components/teams/Project_Intro";
-import { Board } from "../components/teams/Comments";
+import Filter from "../components/teampage/filter";
+import { CardV } from "../components/teampage/Card";
 import refImg from "../../../public/img/Ref.png";
-import Filter from "../components/teams/filter";
-import { ImageSlider } from "../components/teams/Slides";
-import { Comment_Card } from "../components/teams/Comment_card";
+
+// useSWR
+import useSWR from "swr";
 
 
-export default function RecoilHompage() {
-	return (
-		<RecoilRoot>
-			<Teampage />
-		</RecoilRoot>
-	);
-}
 
-function Teampage() {
-	useRecoilWindowWidth();
-	const width = useRecoilValue(windowWidth);
-	const [cardInView, setCardInView] = useState(false);
-	const [isMobile, setIsMobile] = useState(true); // Default to mobile
-
-	useEffect(() => {
-		const handleResize = () => {
-			setIsMobile(width < breakpointMD);
-		};
-
-		handleResize();
-		window.addEventListener("resize", handleResize);
-		return () => window.removeEventListener("resize", handleResize);
-	}, [width]);
-
+export default function Teampage() {
 	return (
 		<div>
 			<header className="mb-4">
@@ -49,13 +17,13 @@ function Teampage() {
 				</div>
 			</header>
 			<main>
-                <CardSec isMobile={isMobile} />
+                <CardSec />
 			</main>
 		</div>
 	);
 }
 
-function CardSec({ isMobile }) {
+function CardSec() {
 	const team = [
 		{
 			id: 1,
@@ -63,7 +31,7 @@ function CardSec({ isMobile }) {
 			img: refImg,
 			group: "2022 創客組",
 			contents: [
-				"這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好",
+				"這邊是隊伍的敘述，不知道要打甚麼。",
 			],
 			award: "冠軍",
 		},
@@ -121,7 +89,7 @@ function CardSec({ isMobile }) {
 
 	return (
 		<div>
-			<Filter checkBoxNames={checkBoxNames} isMobile={isMobile} />
+			<Filter checkBoxNames={checkBoxNames} />
 
 			<div className="grid gap-14 py-16 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 items-center justify-center justify-items-center">
 				{team.map((item) => (

@@ -1,0 +1,110 @@
+/* --------------------------- COLOR THEME --------------------------- */
+$clr-text-tag: #1E1E1E;
+$clr-text-board: #5D75BE;
+$clr-bg-tag-1: #637B9A;
+$clr-bg-tag-2: #D2D6A9;
+$clr-bg-card-1: #ECECEC;
+$clr-bg-card-2: #C4C4C44D;
+
+
+
+/* --------------------------- LAYOUTS --------------------------- */
+@mixin wrapper-padding-props($p1: 4rem, $p2: 6rem) {
+    --padding: #{$p1};
+    padding-inline: var(--padding);
+
+    @media screen and (min-width: 576px) {
+        --padding: #{$p2};
+    }
+}
+.wrapper-padding {
+    @include wrapper-padding-props;
+}
+.wrapper-padding-sm {
+    @include wrapper-padding-props(2rem, 4rem);
+}
+
+.wrapper-section {
+    display: grid;
+    row-gap: 0.75rem;
+
+    @media screen and (min-width: 768px) {
+        grid-template-columns: 10rem 1fr;
+    }
+    @media screen and (min-width: 992px) {
+        grid-template-columns: 16rem 1fr;
+    }
+    @media screen and (min-width: 1200px) {
+        grid-template-columns: 24rem 1fr;
+    }
+}
+
+.input-group {
+    display: grid;
+    gap: 0.25rem;
+    grid-template-rows: auto 1fr;
+}
+
+
+
+/* ---------------------------- COLORS --------------------------- */
+.bg-card-1 {
+    background-color: $clr-bg-card-1;
+}
+.bg-card-2 {
+    background-color: $clr-bg-card-2;
+}
+
+
+
+/* ---------------------------- TEXTS ---------------------------- */
+h1 {
+    font-size: 3em;
+}
+
+.team-subtitle {
+    font-size: 1.8em;
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    line-height: 3rem;
+    text-align: left;
+}
+
+
+
+.text-board {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-align: justify;
+    color: $clr-text-board;
+}
+
+.text-comment {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 3.75rem;
+    letter-spacing: 0.05rem;
+    text-align: justified;
+}
+
+
+
+/* ---------------------------- STYLE ---------------------------- */
+@media (min-width: 768px) {
+    .md\:card-rounded {
+        border-radius: 2rem 2rem 0 0;
+    }
+}
+
+.picture-rounded {
+    border-radius: 2rem 2rem 0 0;
+}

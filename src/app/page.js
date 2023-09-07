@@ -1,31 +1,22 @@
 "use client";
-import { RecoilRoot } from "recoil";
-
-import Image from "next/image";
-import useSWR from "swr";
-import homepageImg from "../../public/img/decoration/bg-home.svg";
 import { useRef, useEffect, useState } from "react";
 import { useInView } from "framer-motion";
 import { CardH, CardV, viewMore } from "./components/card"
-import { fetcher } from "./utils/fetcher";
 import { Load, LoadFailed } from "./components/gadgets"
+import Image from "next/image";
+import homepageImg from "../../public/img/decoration/bg-home.svg";
 import refImg from "../../public/img/Ref.png";
 
+// useSWR
+import useSWR from "swr";
+import { fetcher } from "./utils/fetcher";
 
 
-export default function RecoilHompage() {
-    return (
-        <RecoilRoot>
-            <Homepage />
-        </RecoilRoot>
-    );
-}
 
-function Homepage() {
+export default function Homepage() {
     const [aboutUsInView, setAboutUsInView] = useState(false);
     const [teamInView, setTeamInView] = useState(false);
     const [qnaInView, setQnaInView] = useState(false);
-    const [testInView, setTestInView] = useState(false);
 
 	return (
         <div>

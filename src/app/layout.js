@@ -50,8 +50,8 @@ export default function RootLayout({ children }) {
             </head>
 			<body className={`${spaceGrotesk.variable} ${notoSansTC.variable}
                              grid grid-rows-[1fr_auto] md:grid-rows-[auto_1fr_auto] 
-                              min-h-[100svh] scroll-smooth
-                             text-sm md:text-base 2xl:text-lg
+                             min-h-[100svh] scroll-smooth
+                             text-sm md:text-base
                              text-primary bg-primary`}>
                 <Navbar />
                 {children}
