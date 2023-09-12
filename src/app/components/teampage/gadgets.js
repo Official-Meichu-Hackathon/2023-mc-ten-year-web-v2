@@ -9,7 +9,7 @@ export function SearchBar() {
     }
 
     return (
-        <div className="flex items-center h-[1.5em] px-4 py-6 nue-pressed-25 pill">
+        <div className="flex items-center h-[1.5em] max-w-[12rem] md:max-w-none px-4 py-6 nue-pressed-25 pill">
             <FontAwesomeIcon icon={faMagnifyingGlass} className="mr-3" />
             <form onSubmit={handleSubmit}>
                 <input id="team-search" type="text" className="outline-none bg-transparent mr-1 h-fit items-center"/>

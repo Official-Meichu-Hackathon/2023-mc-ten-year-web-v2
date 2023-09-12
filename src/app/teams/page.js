@@ -91,13 +91,13 @@ function CardSec() {
 		<div>
 			<Filter checkBoxNames={checkBoxNames} />
 
-			<div className="grid gap-14 py-16 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 items-center justify-center justify-items-center">
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 py-16 justify-items-center place-items-stretch">
 				{team.map((item) => (
 					<CardV
 						key={item.id}
 						img={item.img}
 						title={item.title}
-						contents={item.contents} // 這裡的 contents 可能需要根據你的需求更改
+						contents={item.contents}
 					/>
 				))}
 			</div>
@@ -106,11 +106,19 @@ function CardSec() {
 }
 
 const checkBoxNames = [
-	{ id: 0, name: "年份  ", data: [2021, 2022, 2023, 2024] },
+	{
+        id: 0,
+        name: "年份",
+        data: [2021, 2022, 2023, 2024]
+    },
 	{
 		id: 1,
-		name: "組別  ",
+		name: "組別",
 		data: ["黑客組", "創客組", "交流組", "團體組", "創客交流組"],
 	},
-	{ id: 2, name: "得獎作品", data: ["冠軍"] },
+	{
+        id: 2,
+        name: "得獎作品",
+        data: ["冠軍"]
+    },
 ];

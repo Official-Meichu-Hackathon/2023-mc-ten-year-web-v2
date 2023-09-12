@@ -50,7 +50,7 @@ export function CommentBoard({ comments }) {
                         <button className="text-board " onClick={() => openPopup()}>立即留言...</button>
                     </div>
                     <div className="md:ml-16 space-y-8">
-                        <button className="hidden md:block text-board border border-green-700" onClick={() => openPopup()}>立即留言...</button>
+                        <button className="hidden md:block text-board" onClick={() => openPopup()}>立即留言...</button>
                         <div className="space-y-8">
                             {comments.map((comment) => (
                                 <CommentItem

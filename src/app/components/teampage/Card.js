@@ -52,23 +52,23 @@ export function CardV({ img, title, contents }) {
 	const [isPopupOpen, setIsPopupOpen] = useState(false);
 
 	const openPopup = () => {
-		document.querySelector("html").style.overflow = "hidden";
+        document.documentElement.classList.add("overflow-y-hidden");
 		setIsPopupOpen(true);
 	};
 
 	const closePopup = () => {
-		document.querySelector("html").style.overflow = "auto";
+        document.documentElement.classList.remove("overflow-y-hidden");
 		setIsPopupOpen(false);
 	};
 
 	return (
 		<>
-            <button>
-                <div className="card md:max-h-[35rem] max-h-[30rem] aspect-3/4 shadow-2xl max-w-screen-lg rounded-[2rem] snap-center">
+            <button className="max-w-md">
+                <div className="w-full h-full card shadow-2xl rounded-[2rem] snap-center">
                     <Image
                         src={img}
                         alt="Ref image"
-                        className="aspect-3/2 picture-rounded object-cover" /*具體的高度你再看要多少 rem*/
+                        className="aspect-2/1 md:aspect-3/2 rounded-t-[2rem] object-cover"
                         priority
                         onClick={() => openPopup()}
                     />

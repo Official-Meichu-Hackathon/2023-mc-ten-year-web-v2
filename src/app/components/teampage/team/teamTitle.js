@@ -9,7 +9,7 @@ import { faEnvelope, faEye, faMessage } from "@fortawesome/free-regular-svg-icon
 export function TeamTitle({ title, group, name, mail, github, tags, view, msg, onClose }) {
     return (
         <div>
-            <div className="wrapper-padding-sm pt-12 pb-6 bg-card-1">
+            <div className="wrapper-padding-sm grid pt-12 pb-6 gap-2 bg-card-1">
                 <div className="flex justify-between gap-8">
                     <h1 className="">{title}</h1>
                     <button className="self-start p-4" onClick={onClose}>

@@ -142,7 +142,7 @@ body {
 /* ---------------------------- TEXTS ---------------------------- */
 h1, h2 {
     max-width: fit-content;
-    text-wrap: balance;
+    // text-wrap: balance;
 }
 
 h1 {
@@ -299,7 +299,7 @@ input:not(#team-search), textarea {
 
 .form-control {
     --size: 1.2em;
-    --inner-size: 0.75em;
+    --inner-size: 0.7em;
     display: grid;
     align-items: center;
     grid-template-columns: var(--size) auto;

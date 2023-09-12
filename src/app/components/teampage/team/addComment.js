@@ -38,9 +38,9 @@ export default function AddComment({ closePopup }) {
 
 	return (
 		<div className="fixed grid inset-0 place-content-center bg-black bg-opacity-75 z-50" onClick={handleOutsideClick}>
-			<div className="grid grid-rows-[auto_1fr] h-[37rem] w-[32rem] px-12 bg-primary py-8 rounded-[2rem]">
+			<div className="grid grid-rows-[auto_1fr] w-[min(80vw,_32rem)] h-[min(50vh,_37rem)] p-8 bg-primary rounded-[2rem]">
 				<div className="justify-self-end">
-					<button className="p-2" onClick={closePopup}>
+					<button className="h-8 p-1 aspect-square" onClick={closePopup}>
 						<FontAwesomeIcon icon={faTimes} />
 					</button>
 				</div>

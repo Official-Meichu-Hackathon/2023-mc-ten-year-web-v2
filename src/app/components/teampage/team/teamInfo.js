@@ -63,7 +63,7 @@ export default function TeamInfo({ onClose, title, group, name, mail, github, ta
 						   mail={mail} github={github} tags={tags}
 						   view={view} msg={msg} onClose={onClose}/>
 
-                <article className="wrapper-padding-sm grid gap-y-18 py-12">
+                <article className="wrapper-padding-sm gap-y-18 py-12">
                     <ProjectIntro descrip={descrip} />
                     {/* // TODO: Why h-[45vw] ? */}
                     <section className="hidden md:block w-full">

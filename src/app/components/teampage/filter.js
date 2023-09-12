@@ -85,7 +85,7 @@ export default function Filter({ checkBoxNames }) {
 	return (
 		<div className="grid gap-4">
 			<div className="flex items-center justify-between gap-2">
-                <button className="flex items-center justify-center gap-2 font-bold mt-3 mb-3"
+                <button className="flex items-center justify-center gap-2 font-bold mt-3 mb-3 px-1"
                         onClick={() => setToggleViewMode(!toggleViewMode)}>
                     <FontAwesomeIcon icon={faFilter} />
                     <span className="whitespace-nowrap">篩選</span>
@@ -99,10 +99,10 @@ export default function Filter({ checkBoxNames }) {
 
             {checkBoxNames && toggleViewMode && (
 			    <div>
-                    <div className="flex place-items-start gap-x-4 md:flex-col">
+                    <div className="flex place-items-start gap-x-8 md:flex-col">
                         {checkBoxNames.map((group, groupIndex) => (
                             <div key={`group-${groupIndex}`} className="grid md:grid-flow-col">
-                                <span className="flex items-center w-18 mr-8 font-bold">
+                                <span className="flex items-center md:w-16 mr-8 font-bold whitespace-nowrap">
                                     {group.name}
                                 </span>
                                 {group.data.map((item, index) => {
@@ -128,7 +128,7 @@ export function CheckBox({ category, name, checkboxState, setCheckboxState }) {
     }
 
 	return (
-		<div className="flex items-center w-[7.6rem] h-[3rem]">
+		<div className="flex items-center md:w-[7rem] h-[3rem]">
             <label className="form-control w-fit">
                 <input type="checkbox" name={category} className="checkbox" checked={checkboxState} onChange={handleChange} />
                 <span className="">{name}</span>
