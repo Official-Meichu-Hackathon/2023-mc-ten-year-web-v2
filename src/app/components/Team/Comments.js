@@ -4,6 +4,7 @@ import "../../globals.scss"
 import Comment_Card from "./Comment_card";
 import { ImageSlider } from "./Slides";
 import { useState, useEffect } from "react";
+import Pagination from "./Pagination";
 
 export function CommentItem({ name, date, content, head }) {
     return (
@@ -28,6 +29,16 @@ export function CommentItem({ name, date, content, head }) {
 
 export function Board({ comments }) {
 
+    const [isMobile, setIsMobile] = useState(true);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const [openCard, setOpenCard] = useState(false);
 
     const openPopup = () => {
@@ -38,11 +49,25 @@ export function Board({ comments }) {
         setOpenCard(false);
     };
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 4;
+    const totalItems = comments.length;
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentComments = comments.slice(startIndex, endIndex);
+
+    const changePage = (page) => {
+        if (page >= 1 && page <= totalPages) {
+            setCurrentPage(page);
+        }
+    };
+
     return (
         <div className="pu-8 md:px-8">
             <div className="comments-shadow content-stretch bg-card-1 p-8 flex flex-col md:card-rounded min-h-screen">
                 <div className="select-none">　</div>
-                
+
 
                 <div className="mt-[2rem]  md:flex space-x-16 lg:space-x-32">
                     <div className="hidden md:block flex text-sec-title whitespace-nowrap mr-8">　留言板</div>
@@ -53,7 +78,7 @@ export function Board({ comments }) {
                     <div className="md:ml-16 space-y-8">
                         <button className="hidden md:block text-board" onClick={() => openPopup()}>立即留言...</button>
                         <div className="space-y-8">
-                            {comments.map((comment) => (
+                            {currentComments.map((comment) => (
                                 <CommentItem
                                     key={comment.id}
                                     name={comment.name}
@@ -66,6 +91,11 @@ export function Board({ comments }) {
                     </div>
                 </div>
                 <div className="flex-grow bg-card-1"></div>
+                {!isMobile && (<Pagination
+                    totalPages={totalPages}
+                    currentPage={currentPage}
+                    onPageChange={changePage}
+                />)}
             </div>
             {openCard && (
                 <Comment_Card closePopup={closePopup} />
