@@ -210,14 +210,22 @@ function CardSec({ setInView, isMobile }) {
             </div>
 
             <div className="grid gap-14 py-16 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 items-center justify-center justify-items-center">
-                {currentTeam.map(item => (
+                {isMobile ? team.map(item => (
                     <CardV
                         key={item.id}
                         img={item.img}
                         title={item.title}
-                        contents={item.contents}  // 這裡的 contents 可能需要根據你的需求更改
+                        contents={item.contents}
+                    />
+                )) : currentTeam.map(item => (
+                    <CardV
+                        key={item.id}
+                        img={item.img}
+                        title={item.title}
+                        contents={item.contents}
                     />
                 ))}
+
             </div>
             <div className="hidden md:block">
                 <Pagination
