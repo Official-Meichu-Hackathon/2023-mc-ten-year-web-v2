@@ -78,7 +78,16 @@ export function Board({ comments }) {
                     <div className="md:ml-16 space-y-8">
                         <button className="hidden md:block text-board" onClick={() => openPopup()}>立即留言...</button>
                         <div className="space-y-8">
-                            {currentComments.map((comment) => (
+                            {!isMobile && currentComments.map((comment) => (
+                                <CommentItem
+                                    key={comment.id}
+                                    name={comment.name}
+                                    date={comment.date}
+                                    content={comment.content}
+                                    head={comment.head}
+                                />
+                            ))}
+                            {isMobile && comments.map((comment) => (
                                 <CommentItem
                                     key={comment.id}
                                     name={comment.name}
