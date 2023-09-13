@@ -1,6 +1,6 @@
 import Image from "next/image";
-import rightArrow from "../../../../public/img/activity_rightArrow.svg";
-import leftArrow from "../../../../public/img/activity_leftArrow.svg";
+import rightArrow from "../../../../public/img/memory/activity_rightArrow.svg";
+import leftArrow from "../../../../public/img/memory/activity_leftArrow.svg";
 import React from "react";
 import Slider from "react-slick";
 import { useRef, useState, useEffect } from "react";
