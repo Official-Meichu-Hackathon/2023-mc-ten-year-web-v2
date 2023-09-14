@@ -5,7 +5,7 @@ import Tcard from "@/app/components/teampage/tcard";
 import Filter from "@/app/components/filter/filter";
 import Pagination from "@/app/components/pagination";
 
-import refImg from "../../../public/img/Ref.png";
+import refImg from "../../../public/img/Ref.jpg";
 
 // Recoil
 import { useRecoilWindowWidth } from "@/app/utils/useExternal";

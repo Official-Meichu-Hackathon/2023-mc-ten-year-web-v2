@@ -24,7 +24,7 @@ export function Post() {
     };
 
     return (
-        <button className="hidden md:block btn-nue-25 px-5 py-3 pill"
+        <button className="hidden md:block btn-nue-25 px-5 py-3 pill transition-shadow duration-75 motion-reduce:transition-none"
                 onClick={() => redirectToURL("https://youtu.be/dQw4w9WgXcQ")}>
             <span className="text-accent font-bold">投稿</span>
         </button>

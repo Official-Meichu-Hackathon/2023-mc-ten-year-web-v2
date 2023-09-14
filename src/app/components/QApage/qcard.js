@@ -16,7 +16,7 @@ export default function Qcard({ data }) {
 		<div className="md-px-8">
 			<li
 				
-				className="grid gap-y-8 frost-25 p-12 rounded-[4rem]"
+				className="nue-card-md grid p-12 gap-y-8 transition-shadow duration-75 motion-reduce:transition-none"
 				style={{
 					background: "hsla(231, 21%, 94%, 1)",
 					boxShadow: "0.75em 0.75em 1.5em #BCBDC2",
@@ -29,7 +29,7 @@ export default function Qcard({ data }) {
 					<div className="grid gap-y-4 mt-10">
 						{data.answers.map((answer, index) => (
 							<p key={index}>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								　　
 								{answer.length > 80 && selectedQuestion !== data
 									? answer.slice(0, 75) + "..."
 									: answer}

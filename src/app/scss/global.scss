@@ -255,7 +255,9 @@ span {
 
 @mixin nue-pressed($amount) {
     background: rgba($clr-bg-primary, 0.85);
-    box-shadow: inset (- $amount) (- $amount) (2 * $amount) $clr-neu-shadow-1,
+    box-shadow: (- $amount) (- $amount) (2 * $amount) rgba($clr-neu-shadow-1, 0),
+                $amount $amount (2 * $amount) rgba($clr-neu-shadow-2, 0),
+                inset (- $amount) (- $amount) (2 * $amount) $clr-neu-shadow-1,
                 inset $amount $amount (2 * $amount) $clr-neu-shadow-2;
 }
 .nue-pressed-75 {
@@ -337,7 +339,6 @@ input:not(#team-search), textarea {
 
 .btn-nue-50 {
     @include nue-concave(0.5em);
-    // transition: 150ms box-shadow cubic-bezier(0.4, 0, 0.2, 1);
 
     &:active {
         @include nue-pressed(0.5em);
@@ -345,10 +346,29 @@ input:not(#team-search), textarea {
 }
 .btn-nue-25 {
     @include nue-concave(0.25em);
-    // transition: 1500ms box-shadow cubic-bezier(0.4, 0, 0.2, 1);
 
     &:active {
         @include nue-pressed(0.25em);
+    }
+}
+
+.nue-card-md {
+    @include nue-concave(0.75em);
+    @include frost(0.25em);
+    border-radius: 4em;
+
+    &:is(button):active {
+        @include nue-pressed(0.75em);
+    }
+}
+
+.nue-card-sm {
+    @include nue-concave(0.5em);
+    @include frost(0.25em);
+    border-radius: 2em;
+
+    &:is(button):active {
+        @include nue-pressed(0.5em);
     }
 }
 

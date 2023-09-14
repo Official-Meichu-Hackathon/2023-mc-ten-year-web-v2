@@ -61,7 +61,7 @@ export default function AddComment({ closePopup }) {
                                   onChange={(e) => setTextareaValue(e.target.value)}/>
 					</div>
 					
-					<button className="justify-self-center px-4 py-2 btn-nue-25 pill font-bold text-accent" onClick={handleFormSubmit}>
+					<button className="justify-self-center px-4 py-2 btn-nue-25 pill font-bold text-accent transition-shadow duration-75 motion-reduce:transition-none" onClick={handleFormSubmit}>
                         送出
 					</button>
 				</div>

@@ -63,8 +63,8 @@ export default function Tcard({ img, title, contents }) {
 
 	return (
 		<>
-            <button className="max-w-md" onClick={() => openPopup()}>
-                <div className="w-full h-full card shadow-2xl rounded-[2rem] snap-center">
+            <button className="nue-card-sm max-w-md transition-shadow duration-75 motion-reduce:transition-none" onClick={() => openPopup()}>
+                <div className="w-full h-full snap-center">
                     <Image
                         src={img}
                         alt="Ref image"
