@@ -66,7 +66,7 @@ function Navbar() {
     return (
         <>
             <button onClick={toggleNav} aria-controls="primary-navbar" aria-expanded={expanded}
-                    className="fixed top-5 right-5 aspect-square text-lg z-10
+                    className="fixed top-5 right-5 w-6 aspect-square text-lg z-[11]
                                block md:hidden">
                 <span className="sr-only">MENU</span>
                 {!expanded ? (<FontAwesomeIcon icon={faBars} />) : (<FontAwesomeIcon icon={faTimes} />)}
