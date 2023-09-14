@@ -88,7 +88,7 @@ export default function TeamInfo({ onClose, title, group, name, mail, github, ta
                     <Image
                         src={teamphoto2}
                         alt="close"
-                        className="max-w-[2000px] object-contain md:scale-[80%]"
+                        className="object-contain md:scale-[80%]"
                         quality={100}
                         priority
                     />
