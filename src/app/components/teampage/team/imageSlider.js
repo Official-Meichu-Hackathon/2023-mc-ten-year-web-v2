@@ -1,7 +1,8 @@
 //slides
 import { useState } from "react";
 import Image from "next/image";
-import teamphoto from "../../../../../public/img/Team/teamphoto.png";
+import teamphoto1 from "../../../../../public/img/Team/teamphoto1.jpg";
+import teamphoto2 from "../../../../../public/img/Team/teamphoto2.webp";
 
 // Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,20 +13,19 @@ import { faExpand, faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg
 export function ImageSlider({ closePopup, openPopup }) {
 	const slides = [
 		{
-			path: teamphoto,
+			path: teamphoto1,
 		},
 		{
-			path: teamphoto,
+			path: teamphoto2,
 		},
 		{
-			path: teamphoto,
-		},
-
-		{
-			path: teamphoto,
+			path: teamphoto1,
 		},
 		{
-			path: teamphoto,
+			path: teamphoto2,
+		},
+		{
+			path: teamphoto1,
 		},
 	];
 
@@ -57,20 +57,19 @@ export function ImageSlider({ closePopup, openPopup }) {
 					src={slides[currentIndex].path}
 					alt="msg Icon"
 					className="h-full w-full object-cover"
+                    quality={100}
+                    priority
 				/>
 
 				{/*pop up button for viewing picture*/}
-				<div className="absolute -bottom-4 md:bottom-6 right-6 flex items-end gap-x-4 [&_>_*]:shadow-md"
-					id="1">
-					<div className="flex justify-center items-center w-9 h-9 bg-primary pill cursor-pointer">
-						<button onClick={() => openPopup()}>
-							<FontAwesomeIcon icon={faExpand} />
-						</button>
-					</div>
+				<div className="absolute -bottom-4 md:bottom-6 right-6 flex items-end gap-x-4 [&_>_*]:shadow-md">
+					<button className="flex justify-center items-center w-9 h-9 bg-primary pill" onClick={() => openPopup()}>
+                        <FontAwesomeIcon icon={faExpand} />
+                    </button>
 
 					<div className="flex items-center gap-x-2 h-9 p-2 bg-primary pill">
 						{/* Left Arrow */}
-						<button className="cursor-pointer p-2" onClick={prevSlide}>
+						<button className="p-2" onClick={prevSlide}>
 							<FontAwesomeIcon icon={faCaretLeft} />
 						</button>
 
@@ -80,9 +79,9 @@ export function ImageSlider({ closePopup, openPopup }) {
 						</span>
 
 						{/* Right Arrow */}
-						<div className="cursor-pointer p-2" onClick={nextSlide}>
+						<button className="p-2" onClick={nextSlide}>
                             <FontAwesomeIcon icon={faCaretRight} />
-						</div>
+						</button>
 					</div>
 				</div>
 			</div>
