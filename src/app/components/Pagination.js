@@ -1,43 +1,39 @@
-import React from 'react';
-import Image from "next/image";
-import leftArrow from "../../../public/img/QApage/left-arrow.svg";
-import rightArrow from "../../../public/img/QApage/right-arrow.svg";
-export default function Pagination({ totalPages, currentPage, onPageChange }) {
-  const handlePageChange = (pageNumber) => {
-    if (pageNumber >= 1 && pageNumber <= totalPages) {
-      onPageChange(pageNumber);
-    }
-  };
+// Font Awesome Icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
-  return (
-      <div className="flex justify-center mt-5">
-        <button
-            className="mr-3 p-2 cursor-pointer"
-            disabled={currentPage === 1}
-            onClick={() => handlePageChange(currentPage - 1)}
-        >
-          <Image src={leftArrow} alt="left-arrow" width={24} height={24}/>
-        </button>
 
-        {[currentPage - 1, currentPage, currentPage + 1].map((pageNumber) => (
-            pageNumber >= 1 && pageNumber <= totalPages ? (
-                <span
-                    key={pageNumber}
-                    onClick={() => handlePageChange(pageNumber)}
-                    className={`mr-2 p-2 cursor-pointer ${currentPage === pageNumber ? 'font-bold' : ''}`}
-                >
-            {pageNumber}
-          </span>
-            ) : null
-        ))}
 
-        <button
-            className="p-2 cursor-pointer text-[#464A53]"
-            disabled={currentPage === totalPages}
-            onClick={() => handlePageChange(currentPage + 1)}
-        >
-          <Image src={rightArrow} alt="right-arrow" width={24} height={24}/>
-        </button>
-      </div>
-  );
+export default function Pagination({ totalPages, currentPage, setCurrentPage, className }) {
+	function handlePageChange(pageNum) {
+		if (1 <= pageNum && pageNum <= totalPages) {
+			setCurrentPage(pageNum);
+            // console.log("Page", pageNum)
+		}
+	};
+
+	return (
+		<div className={`${className} flex gap-3 justify-center font-light`}>
+			<button className="px-2 disabled:text-gray-300" disabled={currentPage === 1}
+				    onClick={() => handlePageChange(currentPage - 1)}>
+				<FontAwesomeIcon icon={faCaretLeft} />
+			</button>
+
+			<div className="flex items-center gap-2 [&_>_*]:px-2">
+                {[currentPage - 1, currentPage, currentPage + 1].map((num) =>
+                    (1 <= num && num <= totalPages) ? (
+                        <button key={num} className={`${currentPage === num ? "font-bold" : ""}`}
+                              onClick={() => handlePageChange(num)}>
+                            {num}
+                        </button>
+                    ) : null
+                )}  
+            </div>
+
+			<button className="px-2 disabled:text-gray-300" disabled={currentPage === totalPages}
+				    onClick={() => handlePageChange(currentPage + 1)}>
+				<FontAwesomeIcon icon={faCaretRight} />
+			</button>
+		</div>
+	);
 }

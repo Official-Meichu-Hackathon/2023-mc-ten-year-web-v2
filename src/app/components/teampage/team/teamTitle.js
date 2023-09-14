@@ -6,7 +6,7 @@ import { faEnvelope, faEye, faMessage } from "@fortawesome/free-regular-svg-icon
 
 
 
-export function TeamTitle({ title, group, name, mail, github, tags, view, msg, onClose }) {
+export function TeamTitle({ title, group, names, mail, github, tags, view, msg, onClose }) {
     return (
         <div>
             <div className="wrapper-padding-sm grid pt-12 pb-6 gap-2 bg-card-1">
@@ -16,7 +16,7 @@ export function TeamTitle({ title, group, name, mail, github, tags, view, msg, o
                         <FontAwesomeIcon icon={faTimes} className="scale-200" />
                     </button>
                 </div>
-                <span className="team-subtitle">{group} ｜ {name}</span>
+                <span className="team-subtitle">{group} ｜ {names}</span>
                 <div className="grid gap-y-1 [&_>_a]:w-fit">
                     <a href={`mailto:${ mail }`} target="_blank" rel="noreferrer noopener">
                         <FontAwesomeIcon icon={faEnvelope} />

@@ -1,16 +1,53 @@
 "use client";
 import { useState } from "react";
-import Filter from "../components/teampage/filter";
-import Pagination from "../components/teampage/team/Pagination";
-import { CardV } from "../components/teampage/Card";
+import { Load, LoadFailed } from "@/app/components/gadgets";
+import Tcard from "@/app/components/teampage/tcard";
+import Filter from "@/app/components/filter/filter";
+import Pagination from "@/app/components/pagination";
+
 import refImg from "../../../public/img/Ref.png";
+
+// Recoil
+import { useRecoilWindowWidth } from "@/app/utils/useExternal";
+import { RecoilRoot, useRecoilValue } from "recoil";
+import { windowWidth } from "@/app/utils/atoms";
+import { breakpointMD } from "@/app/utils/resolutions";
 
 // useSWR
 import useSWR from "swr";
+import { fetcher } from "@/app/utils/fetcher";
 
 
 
-export default function Teampage() {
+const checkboxes = [
+	{
+        id: 0,
+        category: "年份",
+        names: [2021, 2022, 2023, 2024]
+    },
+	{
+		id: 1,
+		category: "組別",
+		names: ["黑客組", "創客組", "交流組", "團體組", "創客交流組"],
+	},
+	{
+        id: 2,
+        category: "得獎作品",
+        names: ["冠軍"]
+    },
+];
+
+export default function RecoilTeampage() {
+    return (
+        <RecoilRoot>
+            <Teampage />
+        </RecoilRoot>
+    );
+}
+
+function Teampage() {
+    useRecoilWindowWidth();
+
 	return (
 		<div>
 			<header className="mb-4">
@@ -19,194 +56,51 @@ export default function Teampage() {
 				</div>
 			</header>
 			<main>
-                <CardSec />
+                <TeamGrid />
 			</main>
 		</div>
 	);
 }
 
-function CardSec() {
-	const team = [
-        {
-            id: 1,
-            title: "隊伍名稱的地方，可能名字超級長就會變到第二行或直接不見之類的",
-            img: refImg,
-            group: "2022 創客組",
-            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好"],
-            award: "冠軍"
-        },
-        {
-            id: 2,
-            title: "隊伍名稱",
-            img: refImg,
-            group: "2022 創客組",
-            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好"],
-            award: "冠軍"
-        },
-        {
-            id: 3,
-            title: "隊伍名稱的地方",
-            img: refImg,
-            group: "2022 創客組",
-            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好"],
-            award: "冠軍"
-        },
-        {
-            id: 4,
-            title: "隊伍名稱的地方，可能名字",
-            img: refImg,
-            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好"],
-            group: "2022 創客組",
-            award: "亞軍"
-        },
-        {
-            id: 5,
-            title: "隊伍名稱的地方，可能名字超級長就",
-            img: refImg,
-            group: "2022 創客組",
-            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好"],
-            award: "冠軍"
-        },
-        {
-            id: 6,
-            title: "隊伍名稱的地方，可能名字超級長就會變到第",
-            img: refImg,
-            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒。"],
-            group: "2022 創客組",
-            award: "季軍"
-        },
-        {
-            id: 7,
-            title: "隊伍名稱的地方，可能名字超級長就",
-            img: refImg,
-            group: "2022 創客組",
-            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好"],
-            award: "冠軍"
-        },
-        {
-            id: 8,
-            title: "隊伍名稱的地方，可能名字超級長就會變到第",
-            img: refImg,
-            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒。"],
-            group: "2022 創客組",
-            award: "季軍"
-        },
-        {
-            id: 9,
-            title: "隊伍名稱的地方，可能名字超級長就",
-            img: refImg,
-            group: "2022 創客組",
-            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好"],
-            award: "冠軍"
-        },
-        {
-            id: 10,
-            title: "隊伍名稱的地方，可能名字超級長就會變到第",
-            img: refImg,
-            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒。"],
-            group: "2022 創客組",
-            award: "季軍"
-        },
-        {
-            id: 11,
-            title: "隊伍名稱的地方，可能名字超級長就",
-            img: refImg,
-            group: "2022 創客組",
-            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好"],
-            award: "冠軍"
-        },
-        {
-            id: 12,
-            title: "隊伍名稱的地方，可能名字超級長就會變到第",
-            img: refImg,
-            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒。"],
-            group: "2022 創客組",
-            award: "季軍"
-        },
-        {
-            id: 13,
-            title: "隊伍名稱的地方，可能名字超級長就",
-            img: refImg,
-            group: "2022 創客組",
-            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好"],
-            award: "冠軍"
-        },
-        {
-            id: 14,
-            title: "隊伍名稱的地方，可能名字超級長就會變到第",
-            img: refImg,
-            contents: ["這邊是隊伍的敘述，不知道要打甚麼。梅竹黑客松好棒好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒好棒。"],
-            group: "2022 創客組",
-            award: "季軍"
-        }
-    ];
-
+function TeamGrid() {
+    const width = useRecoilValue(windowWidth);
     const [currentPage, setCurrentPage] = useState(1);
+
+    const { data, error } = useSWR("/api/teams", fetcher);
+	if (error) return <LoadFailed />;
+	if (!data) return <Load />;
+    
     const itemsPerPage = 6;
-    const totalItems = team.length;
+    const totalItems = data.length;
     const totalPages = Math.ceil(totalItems / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const currentTeam = team.slice(startIndex, endIndex);
+    const teamSubset = data.slice(startIndex, endIndex);
 
-    const changePage = (page) => {
-        if (page >= 1 && page <= totalPages) {
-            setCurrentPage(page);
-        }
-        console.log(currentPage);
-        console.log(currentTeam);
-    };
+    const teamSrc = (width >= breakpointMD) ? teamSubset : data;
 
 	return (
 		<div>
-			<Filter checkBoxNames={checkBoxNames} />
+			<Filter id="team-filter" checkboxes={checkboxes} hasSearch={true} hasSubmit={true} />
 
-            <div className="grid md:hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 py-16 justify-items-center place-items-stretch">
-				{team.map(item => (
-                    <CardV
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 py-16 justify-items-center place-items-stretch">
+				{teamSrc.map(item => (
+                    <Tcard
                         key={item.id}
-                        img={item.img}
+                        img={(item.img === "refImg" ? refImg : refImg)}
                         title={item.title}
                         contents={item.contents}
                     />
                 ))}
             </div>
-            <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 py-16 justify-items-center place-items-stretch">
-                {currentTeam.map(item => (
-                    <CardV
-                        key={item.id}
-                        img={item.img}
-                        title={item.title}
-                        contents={item.contents}
-                    />
-                ))}
-			</div>
 
-            <div className="hidden md:block">
+            <div className="hidden md:block mt-5">
                 <Pagination
                     totalPages={totalPages}
                     currentPage={currentPage}
-                    onPageChange={changePage}
+                    setCurrentPage={setCurrentPage}
                 />
             </div>
 		</div>
 	);
 }
-
-const checkBoxNames = [
-	{
-        id: 0,
-        name: "年份",
-        data: [2021, 2022, 2023, 2024]
-    },
-	{
-		id: 1,
-		name: "組別",
-		data: ["黑客組", "創客組", "交流組", "團體組", "創客交流組"],
-	},
-	{
-        id: 2,
-        name: "得獎作品",
-        data: ["冠軍"]
-    },
-];

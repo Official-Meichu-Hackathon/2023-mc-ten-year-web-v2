@@ -7,7 +7,7 @@ import TeamInfo from "./team/teamInfo";
 
 
 
-export function CardV({ img, title, contents }) {
+export default function Tcard({ img, title, contents }) {
 	const group = "2022 創客組";
 	const name = "林家宇、許伊辰、葉孟昀";
 	const mail = "mchackathon2023@gmail.com";
@@ -63,27 +63,22 @@ export function CardV({ img, title, contents }) {
 
 	return (
 		<>
-            <button className="max-w-md">
+            <button className="max-w-md" onClick={() => openPopup()}>
                 <div className="w-full h-full card shadow-2xl rounded-[2rem] snap-center">
                     <Image
                         src={img}
                         alt="Ref image"
                         className="aspect-2/1 md:aspect-3/2 rounded-t-[2rem] object-cover"
                         priority
-                        onClick={() => openPopup()}
                     />
-                    <div className="px-6 pb-8 pt-6 overflow-hidden" onClick={() => openPopup()}>
-                        <div className="overflow-hidden">
-                            <div className="w-fit line-clamp-1 card-title">{title}</div>
-                        </div>
-                        <div className="h-fit pt-4 overflow-hidden">
-                            <div className="line-clamp-5">
-                                {contents.map((content, index) => (
-                                    <p key={index} className="">
-                                        {content}
-                                    </p>
-                                ))}
-                            </div>
+                    <div className="grid p-6 pb-8 gap-4">
+                        <span className="line-clamp-1 card-title overflow-hidden">{title}</span>
+                        <div className="line-clamp-5 overflow-hidden">
+                            {contents.map((content, index) => (
+                                <p key={index} className="">
+                                    {content}
+                                </p>
+                            ))}
                         </div>
                     </div>
                 </div>

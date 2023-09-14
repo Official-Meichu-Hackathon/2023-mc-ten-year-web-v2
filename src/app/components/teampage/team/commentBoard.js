@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-import Pagination from "./Pagination";
+import Pagination from "@/app/components/pagination";
 import AddComment from "./addComment";
 
 export function CommentItem({ name, date, content, head }) {

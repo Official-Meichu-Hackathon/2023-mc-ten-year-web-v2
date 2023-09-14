@@ -1,71 +1,91 @@
 "use client";
-import { fetcher } from "../utils/fetcher";
-import React, { useState, useEffect } from "react";
-import useSWR from "swr";
+import { useState } from "react";
 import { Load, LoadFailed } from "../components/gadgets";
-import Questions from "@/app/components/QApage/Question";
-import Pagination from "@/app/components/Pagination";
-import Filter from "@/app/components/QApage/Filter";
+import Qcard from "@/app/components/QApage/qcard";
+import Filter from "@/app/components/filter/filter";
+import Pagination from "@/app/components/pagination";
 
-export default function Qna() {
-	const [currentPage, setCurrentPage] = useState(1);
-	const itemsPerPage = 6;
-	const [isMobile, setIsMobile] = useState(true); // Default to mobile
+// Recoil
+import { useRecoilWindowWidth } from "@/app/utils/useExternal";
+import { RecoilRoot, useRecoilValue } from "recoil";
+import { windowWidth } from "@/app/utils/atoms";
+import { breakpointMD } from "@/app/utils/resolutions";
 
-	useEffect(() => {
-		const handleResize = () => {
-			setIsMobile(window.innerWidth < 768);
-		};
+// useSWR
+import useSWR from "swr";
+import { fetcher } from "@/app/utils/fetcher";
 
-		handleResize();
-		window.addEventListener("resize", handleResize);
-		return () => window.removeEventListener("resize", handleResize);
-	}, []);
 
-	const { data, error } = useSWR("/api/qna", fetcher);
+
+const checkboxes = [
+    {
+        id: 0,
+        category: "屬性",
+        names: ["2022", "創客組", "競賽內容", "報名相關", "其他"],
+    }
+];
+
+export default function RecoilQnapage() {
+    return (
+        <RecoilRoot>
+            <Qnapage />
+        </RecoilRoot>
+    );
+}
+
+function Qnapage() {
+    useRecoilWindowWidth();
+
+    return (
+        <div>
+            <header className="mb-4">
+				<div className="flex items-center justify-between">
+					<h1 className="bracket-md justify-center">常見問題</h1>
+				</div>
+			</header>
+			<main>
+                <QuestionGrid />
+            </main>
+        </div>
+    );
+}
+
+function QuestionGrid() {
+    useRecoilWindowWidth();
+    const width = useRecoilValue(windowWidth);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const { data, error } = useSWR("/api/qna", fetcher);
 	if (error) return <LoadFailed />;
 	if (!data) return <Load />;
 
-	const totalItems = data.length;
-	const totalPages = Math.ceil(totalItems / itemsPerPage);
-	const startIndex = (currentPage - 1) * itemsPerPage;
-	const endIndex = startIndex + itemsPerPage;
-	const currentData = data.slice(startIndex, endIndex);
+	const itemsPerPage = 6;
+    const totalItems = data.length;
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const questionSubset = data.slice(startIndex, endIndex);
 
-	const checkBoxNames = [
-		{ id: 0, name: "2022" },
-		{ id: 1, name: "創客組" },
-		{ id: 2, name: "競賽內容" },
-		{ id: 3, name: "報名相關" },
-		{ id: 4, name: "其他" },
-	];
-
-	const changePage = (page) => {
-		if (page >= 1 && page <= totalPages) {
-			setCurrentPage(page);
-		}
-	};
+    const questionSrc = (width >= breakpointMD) ? questionSubset : data;
 
 	return (
 		<div>
-			<header className="flex justify-center mb-5">
-				<h1 className="bracket-md text-center">
-					常見問題
-					<br />Q & A
-				</h1>
-			</header>
-			<main>
-				<Filter checkBoxNames={checkBoxNames} isMobile={isMobile} />
-				<div className="mt-5"></div>
-				<Questions data={isMobile ? data : currentData} />
-				{!isMobile && (
-					<Pagination
-						totalPages={totalPages}
-						currentPage={currentPage}
-						onPageChange={changePage}
-					/>
-				)}
-			</main>
+			<Filter id="qna-filter" checkboxes={checkboxes} />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-14 py-16 justify-items-center place-items-stretch">
+                {questionSrc.map((question, index) => (
+                    <Qcard key={index} data={question} />
+                ))}
+                
+            </div>
+
+            <div className="hidden md:block mt-5">
+                <Pagination
+                    totalPages={totalPages}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                />
+            </div>
 		</div>
 	);
 }

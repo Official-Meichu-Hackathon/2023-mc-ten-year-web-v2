@@ -61,7 +61,6 @@ export function ImageSlider({ closePopup, openPopup }) {
                     priority
 				/>
 
-				{/*pop up button for viewing picture*/}
 				<div className="absolute -bottom-4 md:bottom-6 right-6 flex items-end gap-x-4 [&_>_*]:shadow-md">
 					<button className="flex justify-center items-center w-9 h-9 bg-primary pill" onClick={() => openPopup()}>
                         <FontAwesomeIcon icon={faExpand} />

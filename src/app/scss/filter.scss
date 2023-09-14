@@ -1,0 +1,37 @@
+.filter {
+    display: grid;
+    gap: 1.5rem;
+    max-height: 3.3em;
+
+    // overflow: hidden;
+    transition: max-height 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:has([aria-expanded="true"]) {
+        // ! Temp approach
+        max-height: 40em;
+    }
+
+    & .filter-content {
+        transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 50ms;
+    }
+
+    &:has([aria-expanded="false"]) {
+        & .filter-content {
+            transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+
+        & .filter-content {
+            transition: none;
+        }
+
+        &:has([aria-expanded="false"]) {
+            & .filter-content {
+                transition: none;
+            }
+        }
+    }
+}
