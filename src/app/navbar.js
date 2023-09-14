@@ -1,67 +1,63 @@
 "use client";
-import Link from "next/link";
-import { useState, useEffect, useLayoutEffect, useSyncExternalStore } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
+import { useRecoilWindowWidth } from "./utils/useExternal";
+import { RecoilRoot, useRecoilValue } from "recoil";
+import { windowWidth } from "@/app/utils/atoms";
+import { breakpointMD } from "@/app/utils/resolutions";
 import { usePathname } from "next/navigation";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"
+import Link from "next/link";
 import useScrollPos from "./utils/useScrollPos";
 
-// useSyncExternalStore to prevent error during hydration
-function useWindowWidth() {
-    const windowWidth = useSyncExternalStore(onResize, getWindowWidthSnapshot, getServerSnapshot);
-    return {
-        width: windowWidth
-    };
-}
-function onResize(onChange) {
-    window.addEventListener("resize", onChange);
-    return () => window.removeEventListener("resize", onChange);
-}
-function getWindowWidthSnapshot() {
-    return window.innerWidth;
-}
-function getServerSnapshot() {
-    return 0;
-}
+// Font Awesome Icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"
 
-function useNavbarEffect() {
-    const breakpoint = 768;
+
+
+const navbarBP = breakpointMD;
+function useNavbarEffect(width) {
     const pathname = usePathname();
-    const { width } = useWindowWidth();
-    const [expanded, setExpanded] = useState(width >= breakpoint);
-
-    // Determine screenMd and expanded on resize
-    useEffect(() => {
-        setExpanded(width >= breakpoint);
-    }, [width]);
+    const [ expanded, setExpanded ] = useState(width >= navbarBP);
 
     // Expand/collapse navbar when screen size LTBP/STBP
     useLayoutEffect(() => {
-        const isScreenMd = width >= breakpoint;
-        setExpanded(isScreenMd);
+        const state = (width >= navbarBP);
+        setExpanded(state);
     }, [width]);
 
-
-
-    // Collapse navbar on pathname change && screen size smaller than breakpoint
+    // Collapse navbar on pathname change && STBP
     useEffect(() => {
-        if (width < breakpoint) {
+        if (width < navbarBP) {
             setExpanded(false);
         }
     }, [pathname, width]);
 
-    return { expanded, setExpanded, screenMd: width >= breakpoint };
+    return { expanded, setExpanded };
 }
 
-export default function Navbar() {
+export default function RecoilNavbar() {
+    return (
+        <RecoilRoot>
+            <Navbar />
+        </RecoilRoot>
+    );
+}
+
+function Navbar() {
+    useRecoilWindowWidth();
+    const width = useRecoilValue(windowWidth);
+    const { expanded, setExpanded } = useNavbarEffect(width);
     const active = (useScrollPos() >= 100);
-    const {expanded, setExpanded, screenMd} = useNavbarEffect();
     const links = [
         ["首頁", "/"],
         ["關於我們", "/about"],
         ["歷年作品", "/teams"],
         ["Q & A", "/qna"],
     ];
+
+    function isScreenMd() {
+        return (width >= navbarBP);
+    }
 
     function toggleNav() {
         setExpanded(!expanded);
@@ -70,15 +66,15 @@ export default function Navbar() {
     return (
         <>
             <button onClick={toggleNav} aria-controls="primary-navbar" aria-expanded={expanded}
-                    className="fixed top-5 right-5 aspect-square text-lg z-20
+                    className="fixed top-5 right-5 aspect-square text-lg z-10
                                block md:hidden">
                 <span className="sr-only">MENU</span>
                 {!expanded ? (<FontAwesomeIcon icon={faBars} />) : (<FontAwesomeIcon icon={faTimes} />)}
             </button>
             <nav id="primary-navbar" data-visible={expanded}
-                 className={`${(active || (!screenMd && expanded)) ? "nue-concave frost-50" : ""}
+                 className={`${(active || (!isScreenMd() && expanded)) ? "nue-concave-75 frost-50" : ""}
                             ${(!expanded) ? "h-0 p-0 opacity-0" : "h-auto p-6 opacity-100"}
-                            grid fixed w-screen h-fit text-info z-10 overflow-hidden transition-shadow ease-in-out
+                            grid fixed w-screen h-fit text-fineprint z-10 overflow-hidden transition-shadow ease-in-out
                             md:sticky md:top-0 md:mt-[min(10vh,_6rem)]`}>
                 
                 <ul className="navbar-nav flex flex-wrap gap-x-[4.5em] gap-y-[2.5em] p-2

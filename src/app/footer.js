@@ -18,7 +18,7 @@ export default function Footer() {
                         <FontAwesomeIcon icon={faEnvelope} />
                     </a>
                 </div>
-                <span className="text-info">Copyright © 2023 MeiChu Hackathon. All rights reserved</span>
+                <span className="text-fineprint">Copyright © 2023 MeiChu Hackathon. All rights reserved</span>
             </div>
 		</footer>
 	);

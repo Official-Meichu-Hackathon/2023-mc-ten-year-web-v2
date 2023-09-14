@@ -135,3 +135,4 @@ export function CardV({ img, title, contents }) {
 
   );
 }
+

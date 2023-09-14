@@ -1,7 +1,13 @@
 import React from 'react';
 import Image from "next/image";
-import leftArrow from "../../../../public/img/Team/menu-left.svg";
-import rightArrow from "../../../../public/img/Team/menu-right.svg";
+import leftArrow from "../../../../../public/img/Team/menu-left.svg";
+import rightArrow from "../../../../../public/img/Team/menu-right.svg";
+
+// Font Awesome Icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExpand, faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
+
+
 
 export default function Pagination({ totalPages, currentPage, onPageChange }) {
     

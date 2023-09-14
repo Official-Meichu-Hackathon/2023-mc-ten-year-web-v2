@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-page-custom-font */
-import "./globals.scss";
+import "@/app/scss/global.scss"
+import { Analytics } from "@vercel/analytics/react"
+import { Space_Grotesk, Noto_Sans_TC } from "next/font/google";
 import Navbar from "./navbar";
 import Footer from "./footer";
-import { Space_Grotesk, Noto_Sans_TC } from "next/font/google";
 
 // FontAwesome
 import { config } from '@fortawesome/fontawesome-svg-core'
@@ -36,6 +37,8 @@ export const metadata = {
     themeColor: "white",
 };
 
+
+
 export default function RootLayout({ children }) {
 
 	return (
@@ -50,12 +53,13 @@ export default function RootLayout({ children }) {
             </head>
 			<body className={`${spaceGrotesk.variable} ${notoSansTC.variable}
                              grid grid-rows-[1fr_auto] md:grid-rows-[auto_1fr_auto] 
-                              min-h-[100svh] scroll-smooth
-                             text-sm md:text-base 2xl:text-lg
+                             min-h-[100svh] scroll-smooth
+                             text-sm md:text-base
                              text-primary bg-primary`}>
                 <Navbar />
                 {children}
                 <Footer />
+                <Analytics />
             </body>
 		</html>
 	);

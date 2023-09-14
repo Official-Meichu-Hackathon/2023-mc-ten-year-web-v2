@@ -1,10 +1,8 @@
-import Image from "next/image";
-import "./local.scss";
-import "../../globals.scss"
-import Comment_Card from "./Comment_card";
-import { ImageSlider } from "./Slides";
 import { useState, useEffect } from "react";
+import Image from "next/image";
+
 import Pagination from "./Pagination";
+import AddComment from "./addComment";
 
 export function CommentItem({ name, date, content, head }) {
     return (
@@ -27,7 +25,7 @@ export function CommentItem({ name, date, content, head }) {
     );
 }
 
-export function Board({ comments }) {
+export function CommentBoard({ comments }) {
 
     const [isMobile, setIsMobile] = useState(true);
     useEffect(() => {
@@ -65,7 +63,7 @@ export function Board({ comments }) {
 
     return (
         <div className="pu-8 md:px-8">
-            <div className="comments-shadow content-stretch bg-card-1 p-8 flex flex-col md:card-rounded min-h-screen">
+            <div className="content-stretch bg-card-1 p-8 flex flex-col md:card-rounded min-h-screen shadow-2xl">
                 <div className="select-none">　</div>
 
 
@@ -107,9 +105,8 @@ export function Board({ comments }) {
                 />)}
             </div>
             {openCard && (
-                <Comment_Card closePopup={closePopup} />
+                <AddComment closePopup={closePopup} />
             )}
         </div>
-
     );
 }
