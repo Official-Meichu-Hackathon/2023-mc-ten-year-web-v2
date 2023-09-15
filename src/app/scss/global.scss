@@ -13,17 +13,25 @@
 
 /* --------------------------- COLOR THEME --------------------------- */
 $clr-text-primary: #464A53;
-$clr-text-secondary: #B0B1B5;
-$clr-text-tag: #1E1E1E;
-$clr-text-board: #5D75BE;
+$clr-text-secondary: #868B98; // B0B1B5
 $clr-bg-primary: #EBECF2;
-$clr-bg-secondary: #D9D9D9; // E3E3E3
-$clr-accent: hsla(225, 100%, 75%, 1);
+$clr-bg-secondary: #E0E0E0;
 
 $clr-gradient-primary-1: hsla(185, 100%, 75%, 1);
 $clr-gradient-primary-2: hsla(225, 100%, 75%, 1);
 $clr-gradient-primary-3: hsla(265, 100%, 75%, 1);
-$clr-gradient-primary: linear-gradient(60deg, $clr-gradient-primary-1 0%, $clr-gradient-primary-2 50%, $clr-gradient-primary-3 100%);
+$clr-gradient-primary: linear-gradient(60deg,
+                                       $clr-gradient-primary-1 0%,
+                                       $clr-gradient-primary-2 50%,
+                                       $clr-gradient-primary-3 100%);
+@mixin gradient-primary-props($opacity: 1) {
+    background: linear-gradient(60deg,
+                                rgba($clr-gradient-primary-1, $opacity) 0%,
+                                rgba($clr-gradient-primary-2, $opacity) 50%,
+                                rgba($clr-gradient-primary-3, $opacity) 100%);
+}
+
+$clr-accent: $clr-gradient-primary-2;
 
 $clr-neu-fill-1: #D4D4DA;
 $clr-neu-fill-2: #FBFDFF;
@@ -71,8 +79,6 @@ body {
 /* --------------------------- LAYOUTS --------------------------- */
 @mixin wrapper-props($m1: 4rem, $m2: 6rem, $w: 1400px) {
     --margin: #{$m1};
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
     width: min(100% - var(--margin), $w);
     margin-inline: auto;
 
@@ -82,9 +88,22 @@ body {
 }
 .wrapper {
     @include wrapper-props;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
 }
 .wrapper-sm {
     @include wrapper-props(2rem, 4rem, 1000px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.wrapper-flex {
+    @include wrapper-props;
+    display: flex;
+}
+.wrapper-flex-sm {
+    @include wrapper-props(2rem, 4rem, 1000px);
+    display: flex;
 }
 
 .swiper {
@@ -118,6 +137,9 @@ body {
 }
 .bg-secondary {
     background-color: $clr-bg-secondary;
+}
+.bg-gradient-primary-30 {
+    @include gradient-primary-props(0.3);
 }
 .bg-accent {
     background-color: $clr-accent;
@@ -286,6 +308,22 @@ a, button {
     }
 }
 
+a:not(.nav-link, .footer-link, .nue-card-sm, .nue-card) {
+    &:visited {
+        color: color-mix(in srgb, $clr-gradient-primary-3 30%, $clr-text-secondary);
+    }
+}
+
+a:not(.nav-link, .nue-card-sm, .nue-card) {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+
+    &:hover {
+        color: $clr-accent;
+    }
+}
+
 input:not(#team-search), textarea {
     border: $clr-neu-shadow-2 2px solid;
     &:focus-visible {
@@ -355,9 +393,8 @@ input:not(#team-search), textarea {
 .nue-card-md {
     @include nue-concave(0.75em);
     @include frost(0.25em);
-    border-radius: 4em;
 
-    &:is(button):active {
+    &:is(button, a):active {
         @include nue-pressed(0.75em);
     }
 }
@@ -365,9 +402,8 @@ input:not(#team-search), textarea {
 .nue-card-sm {
     @include nue-concave(0.5em);
     @include frost(0.25em);
-    border-radius: 2em;
 
-    &:is(button):active {
+    &:is(button, a):active {
         @include nue-pressed(0.5em);
     }
 }

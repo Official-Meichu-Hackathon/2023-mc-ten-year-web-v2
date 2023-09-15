@@ -5,8 +5,6 @@ import Tcard from "@/app/components/teampage/tcard";
 import Filter from "@/app/components/filter/filter";
 import Pagination from "@/app/components/pagination";
 
-import refImg from "../../../public/img/Ref.jpg";
-
 // Recoil
 import { useRecoilWindowWidth } from "@/app/utils/useExternal";
 import { RecoilRoot, useRecoilValue } from "recoil";
@@ -49,20 +47,20 @@ function Teampage() {
     useRecoilWindowWidth();
 
 	return (
-		<div>
+		<div className="wrapper my-16 md:my-10">
 			<header className="mb-4">
 				<div className="flex items-center justify-between">
 					<h1 className="bracket-md justify-center">歷年作品</h1>
 				</div>
 			</header>
 			<main>
-                <TeamGrid />
+                <TeamList />
 			</main>
 		</div>
 	);
 }
 
-function TeamGrid() {
+function TeamList() {
     const width = useRecoilValue(windowWidth);
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -77,20 +75,15 @@ function TeamGrid() {
     const endIndex = startIndex + itemsPerPage;
     const teamSubset = data.slice(startIndex, endIndex);
 
-    const teamSrc = (width >= breakpointMD) ? teamSubset : data;
+    const teamList = (width >= breakpointMD) ? teamSubset : data;
 
 	return (
-		<div>
+		<div className="mb-16 md:mb-10">
 			<Filter id="team-filter" checkboxes={checkboxes} hasSearch={true} hasSubmit={true} />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 py-16 justify-items-center place-items-stretch">
-				{teamSrc.map(item => (
-                    <Tcard
-                        key={item.id}
-                        img={(item.img === "refImg" ? refImg : refImg)}
-                        title={item.title}
-                        contents={item.contents}
-                    />
+				{teamList.map(team => (
+                    <Tcard key={team.id} data={team} />
                 ))}
             </div>
 

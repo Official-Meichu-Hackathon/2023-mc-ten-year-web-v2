@@ -16,7 +16,7 @@ export default function Qcard({ data }) {
 		<div className="md-px-8">
 			<li
 				
-				className="nue-card-md grid p-12 gap-y-8 transition-shadow duration-75 motion-reduce:transition-none"
+				className="nue-card-md grid p-12 gap-y-8 rounded-[4em] transition-shadow duration-75 motion-reduce:transition-none"
 				style={{
 					background: "hsla(231, 21%, 94%, 1)",
 					boxShadow: "0.75em 0.75em 1.5em #BCBDC2",

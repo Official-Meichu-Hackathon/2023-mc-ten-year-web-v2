@@ -7,14 +7,14 @@ export default function Footer() {
 		<footer className="bg-slate-50">
 			<div className="grid place-items-center p-10">
                 <div className="flex gap-x-8">
-                    <a href="https://www.facebook.com/HackMeiChu" target="_blank" rel="noreferrer noopener">
+                    <a href="https://www.facebook.com/HackMeiChu" className="footer-link" target="_blank" rel="noreferrer noopener">
                         <FontAwesomeIcon icon={faFacebook} />
                     </a>
-                    <a href="https://www.instagram.com/mc_hackathon/" target="_blank" rel="noreferrer noopener">
+                    <a href="https://www.instagram.com/mc_hackathon/" className="footer-link" target="_blank" rel="noreferrer noopener">
                         <FontAwesomeIcon icon={faInstagram} />
                     </a>
                     
-                    <a href="mailto:mchackathon2023@gmail.com" target="_blank" rel="noreferrer noopener">
+                    <a href="mailto:mchackathon2023@gmail.com" className="footer-link" target="_blank" rel="noreferrer noopener">
                         <FontAwesomeIcon icon={faEnvelope} />
                     </a>
                 </div>
