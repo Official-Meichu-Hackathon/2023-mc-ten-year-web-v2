@@ -1,5 +1,5 @@
 import "@/app/scss/filter.scss"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SearchBar, Post } from "./gadgets";
 
 // Font Awesome Icons
@@ -8,20 +8,23 @@ import { faFilter, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 
 
-export default function Filter({ id, checkboxes, hasSearch, hasSubmit }) {
-    function generateInitialState(checkboxes) {
-        const initialState = {};
-        checkboxes.forEach(group => {
-            initialState[group.category] = {};
-            group.names.forEach(name => {
-                initialState[group.category][name] = false;
-            });
+export function generateInitialState(checkboxes) {
+    const initialState = {};
+    checkboxes.forEach(group => {
+        initialState[group.category] = {};
+        group.names.forEach(name => {
+            initialState[group.category][name] = false;
         });
-        return initialState;
-    }
-    
-    const [checkboxStates, setCheckboxStates] = useState(() => generateInitialState(checkboxes));
+    });
+    return initialState;
+}
+
+export default function Filter({ id, checkboxes, hasSearch, hasSubmit, checkboxStates, setCheckboxStates }) {
     const [expanded, setExpanded] = useState(false);
+
+    useEffect(() => {
+        console.log(checkboxStates);
+    }, [checkboxStates])
 
     function handleCheckboxChange(category, name, value) {
         setCheckboxStates(prevState => ({

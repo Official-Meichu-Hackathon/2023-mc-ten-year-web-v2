@@ -32,6 +32,9 @@ $clr-gradient-primary: linear-gradient(60deg,
 }
 
 $clr-accent: $clr-gradient-primary-2;
+@mixin clr-accent-props($opacity: 1) {
+    color: rgba($clr-accent, $opacity);
+}
 
 $clr-neu-fill-1: #D4D4DA;
 $clr-neu-fill-2: #FBFDFF;
@@ -104,6 +107,11 @@ body {
 .wrapper-flex-sm {
     @include wrapper-props(2rem, 4rem, 1000px);
     display: flex;
+}
+
+.min-h-svh {
+    min-height: 100vh;
+    min-height: 100svh;
 }
 
 .swiper {
@@ -264,6 +272,10 @@ span {
     background: linear-gradient(135deg, rgba($clr-neu-fill-1, 0.85), rgba($clr-neu-fill-2, 0.85));
     box-shadow: (- $amount) (- $amount) (2 * $amount) $clr-neu-shadow-1,
                 $amount $amount (2 * $amount) $clr-neu-shadow-2;
+
+    transition-property: box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 75ms;
 }
 .nue-concave-75 {
     @include nue-concave(0.75em);
@@ -281,6 +293,10 @@ span {
                 $amount $amount (2 * $amount) rgba($clr-neu-shadow-2, 0),
                 inset (- $amount) (- $amount) (2 * $amount) $clr-neu-shadow-1,
                 inset $amount $amount (2 * $amount) $clr-neu-shadow-2;
+
+    transition-property: box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 75ms;
 }
 .nue-pressed-75 {
     @include nue-pressed(0.75em);
@@ -308,19 +324,23 @@ a, button {
     }
 }
 
-a:not(.nav-link, .footer-link, .nue-card-sm, .nue-card) {
-    &:visited {
-        color: color-mix(in srgb, $clr-gradient-primary-3 30%, $clr-text-secondary);
-    }
-}
-
-a:not(.nav-link, .nue-card-sm, .nue-card) {
+a:not(.nav-link, .footer-link,
+      .nue-card-md, .nue-card-sm,
+      .btn-nue-50, .btn-nue-25) {
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
 
+    // &:visited {
+    //     color: color-mix(in srgb, $clr-gradient-primary-3 30%, $clr-text-secondary);
+    // }
+
     &:hover {
         color: $clr-accent;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
     }
 }
 

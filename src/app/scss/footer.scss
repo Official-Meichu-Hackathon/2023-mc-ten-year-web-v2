@@ -1,0 +1,29 @@
+.footer-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 1.5em;
+    aspect-ratio: 1 / 1;
+
+    font-size: 1.2em;
+}
+
+#fb-link {
+    &:hover {
+        color: #1877F2;
+    }
+}
+
+#ig-link {
+    &:hover {
+        // radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
+        color: #D92E7F;
+    }
+}
+
+#mail-link {
+    &:hover {
+        color: #EA4335;
+    }
+}

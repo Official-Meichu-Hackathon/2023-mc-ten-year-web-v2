@@ -10,8 +10,7 @@ import refImg from "../../../../public/img/Ref.jpg";
 // TODO: Pass in real img
 export default function Tcard({ data }) {
 	return (
-        <Link href={"/teams/" + data.id} className="nue-card-sm relative max-w-md rounded-[2em]
-                                                    transition-shadow duration-75 motion-reduce:transition-none">
+        <Link href={"/teams/" + data.id} className="nue-card-sm relative max-w-md rounded-[2em]">
             <div className="w-full h-full snap-center">
                 <Image
                     src={refImg}

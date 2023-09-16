@@ -9,7 +9,7 @@ export function SearchBar() {
     }
 
     return (
-        <div className="flex items-center h-[1.5em] max-w-[12rem] md:max-w-none px-4 py-6 nue-pressed-25 pill">
+        <div className="nue-pressed-25 flex items-center h-[1.5em] max-w-[12rem] md:max-w-none px-4 py-6 pill">
             <FontAwesomeIcon icon={faMagnifyingGlass} className="mr-3" />
             <form onSubmit={handleSubmit}>
                 <input id="team-search" type="text" className="outline-none bg-transparent mr-1 h-fit items-center"/>
@@ -19,14 +19,11 @@ export function SearchBar() {
 }
 
 export function Post() {
-    function redirectToURL(url) {
-        window.open(url, '_blank');
-    };
-
+    // TODO: Link to real submit form
     return (
-        <button className="hidden md:block btn-nue-25 px-5 py-3 pill transition-shadow duration-75 motion-reduce:transition-none"
-                onClick={() => redirectToURL("https://youtu.be/dQw4w9WgXcQ")}>
+        <a href="https://youtu.be/lpiB2wMc49g" target="_blank" rel="noreferrer noopener"
+           className="btn-nue-25 hidden md:inline-flex items-center h-[3em] px-5 py-3 py-auto pill">
             <span className="text-accent font-bold">投稿</span>
-        </button>
+        </a>
     );
 }

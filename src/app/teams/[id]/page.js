@@ -26,7 +26,7 @@ export default function Teampage({ params }) {
 				
 				<TeamTitle title={data.title} year={data.year} group={data.group}
                            names={data.names} mail={data.mail} github={data.github}
-                           tags={data.tags} awards={data.awards} view={data.view} msg={data.msg} />
+                           tags={data.tags} awards={data.awards} view={data.view} msg={data.comments.length} />
 			</header>
             <main>
                 <div className="wrapper">
@@ -42,14 +42,17 @@ export default function Teampage({ params }) {
                                 ))}
                             </div>
                         </section>
+                        
                         <section className="hidden md:block w-full h-fit">
-                            <ImageSlider />
+                            <div className="wrapper-section">
+                                <h2 className="whitespace-nowrap">隊伍簡報</h2>
+                                <ImageSlider />
+                            </div>
                         </section>
                     </article>
-                    
-                    <div className="pt-4 mt-[3rem]">
-                        <CommentBoard comments={data.comments} />
-                    </div>
+                </div>
+                <div className="md:w-[min(100vw_-_6rem,_1400px)] mx-auto pt-8 mt-[3rem]">
+                    <CommentBoard comments={data.comments} />
                 </div>
             </main>
 		</div>

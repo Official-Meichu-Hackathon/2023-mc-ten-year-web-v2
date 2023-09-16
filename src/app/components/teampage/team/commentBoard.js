@@ -43,42 +43,24 @@ export function CommentBoard({ comments }) {
     const commentList = (width >= breakpointMD) ? commentSubset : comments;
 
 	return (
-		<div className="md:px-8">
-			<div className="bg-title p-8 flex flex-col min-h-[75vh] shadow-2xl rounded-t-[2rem]">
-				<div className="mt-[2rem]  md:flex space-x-16 lg:space-x-32">
-					<div className="hidden md:block whitespace-nowrap mr-8">
-						　留言板
-					</div>
-					<div className="md:hidden flex justify-between ">
-						<div className="text-sec-title">留言板</div>
-						<button className="text-board " onClick={() => openPopup()}>
-							立即留言...
-						</button>
-					</div>
-					<div className="grid md:ml-16 gap-y-8">
-						<button
-							className="hidden md:block text-board"
-							onClick={() => openPopup()}
-						>
-							立即留言...
-						</button>
-						<div className="space-y-8">
-							{commentList.map((comment) => (
-                                <CommentItem
-                                    key={comment.id}
-                                    name={comment.name}
-                                    date={comment.date}
-                                    content={comment.content}
-                                    pfp={comment.pfp}
-                                />
-                            ))}
-						</div>
-					</div>
-				</div>
+		<>
+			<div className="flex flex-col justify-between md:min-h-[75vh] px-10 py-8 gap-8
+                            bg-title border-t-2 md:border-x-2 border-stone-300 md:rounded-t-[2rem]">
+                <div id="comment-board" className="md:px-16 md:py-8">
+                    <h2 className="whitespace-nowrap">留言板</h2>
+                    <button className="text-xl text-[#5D75BE] font-bold whitespace-nowrap" onClick={() => openPopup()}>
+                        立即留言...
+                    </button>
+                    <div id="comments" className="grid gap-y-8 justify-items-start">
+                        {commentList.map((comment) => (
+                            <CommentItem key={comment.id} pfp={comment.pfp} name={comment.name}
+                                            date={comment.date} content={comment.content}
+                            />
+                        ))}
+                    </div>
+                </div>
 
-				<div className="flex-grow bg-card-1"></div>
-
-				<div className="hidden md:block mt-5">
+				<div className="hidden md:block">
                     <Pagination
                         totalPages={totalPages}
                         currentPage={currentPage}
@@ -87,7 +69,7 @@ export function CommentBoard({ comments }) {
                 </div>
 			</div>
 			{openCard && <AddComment closePopup={closePopup} />}
-		</div>
+		</>
 	);
 }
 
@@ -117,7 +99,7 @@ export function CommentItem({ pfp, name, date, content }) {
 
 	return (
 		<div className="comment-box">
-			<div className="comment-pfp w-12 bg-gradient-primary-30 aspect-square pill">
+			<div className="comment-pfp w-8 md:w-12 bg-gradient-primary-30 aspect-square pill">
                 <Image
                     src={getPFP(pfp)}
                     alt="head"

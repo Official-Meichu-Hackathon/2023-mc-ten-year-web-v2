@@ -84,40 +84,35 @@ export function ImageSlider() {
 
 	return (
 		<>
-            <div className="wrapper-section">
-                <h2 className="hidden md:block whitespace-nowrap">
-                    隊伍簡報
-                </h2>
-                <div className="relative h-full w-full ">
-                    <Image
-                        src={slides[currentIndex].path}
-                        alt="msg Icon"
-                        className="h-full w-full object-cover"
-                        quality={100}
-                        priority
-                    />
+            <div className="relative h-full w-full ">
+                <Image
+                    src={slides[currentIndex].path}
+                    alt="msg Icon"
+                    className="h-full w-full object-cover"
+                    quality={100}
+                    priority
+                />
 
-                    <div className="absolute -bottom-4 md:bottom-6 right-6 flex items-end gap-x-4 [&_>_*]:shadow-md">
-                        <button className="flex justify-center items-center w-9 h-9 bg-primary pill" onClick={() => openPopup()}>
-                            <FontAwesomeIcon icon={faExpand} />
+                <div className="absolute -bottom-4 md:bottom-6 right-6 flex items-end gap-x-4 [&_>_*]:shadow-md">
+                    <button className="flex justify-center items-center w-9 h-9 bg-primary pill" onClick={() => openPopup()}>
+                        <FontAwesomeIcon icon={faExpand} />
+                    </button>
+
+                    <div className="flex items-center gap-x-2 h-9 p-2 bg-primary pill">
+                        {/* Left Arrow */}
+                        <button className="p-2" onClick={prevSlide}>
+                            <FontAwesomeIcon icon={faCaretLeft} />
                         </button>
 
-                        <div className="flex items-center gap-x-2 h-9 p-2 bg-primary pill">
-                            {/* Left Arrow */}
-                            <button className="p-2" onClick={prevSlide}>
-                                <FontAwesomeIcon icon={faCaretLeft} />
-                            </button>
+                        {/* Current Slide Index */}
+                        <span className="text-lg font-bold flex-shrink-0 w-[1rem] text-center">
+                            {currentIndex + 1}
+                        </span>
 
-                            {/* Current Slide Index */}
-                            <span className="text-lg font-bold flex-shrink-0 w-[1rem] text-center">
-                                {currentIndex + 1}
-                            </span>
-
-                            {/* Right Arrow */}
-                            <button className="p-2" onClick={nextSlide}>
-                                <FontAwesomeIcon icon={faCaretRight} />
-                            </button>
-                        </div>
+                        {/* Right Arrow */}
+                        <button className="p-2" onClick={nextSlide}>
+                            <FontAwesomeIcon icon={faCaretRight} />
+                        </button>
                     </div>
                 </div>
             </div>

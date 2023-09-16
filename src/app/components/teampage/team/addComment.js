@@ -7,6 +7,7 @@ import { faMessage } from "@fortawesome/free-regular-svg-icons";
 
 
 
+// TODO: Can add comments
 export default function AddComment({ closePopup }) {
 	const [inputValue, setInputValue] = useState("");
 	const [textareaValue, setTextareaValue] = useState("");
@@ -61,7 +62,7 @@ export default function AddComment({ closePopup }) {
                                   onChange={(e) => setTextareaValue(e.target.value)}/>
 					</div>
 					
-					<button className="justify-self-center px-4 py-2 btn-nue-25 pill font-bold text-accent transition-shadow duration-75 motion-reduce:transition-none" onClick={handleFormSubmit}>
+					<button className="btn-nue-25 justify-self-center px-4 py-2 pill font-bold text-accent" onClick={handleFormSubmit}>
                         送出
 					</button>
 				</div>

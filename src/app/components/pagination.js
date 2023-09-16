@@ -1,10 +1,15 @@
 // Font Awesome Icons
+import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
 
 
 export default function Pagination({ totalPages, currentPage, setCurrentPage, className }) {
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [totalPages, setCurrentPage]);
+
 	function handlePageChange(pageNum) {
 		if (1 <= pageNum && pageNum <= totalPages) {
 			setCurrentPage(pageNum);
@@ -30,7 +35,7 @@ export default function Pagination({ totalPages, currentPage, setCurrentPage, cl
                 )}  
             </div>
 
-			<button className="px-2 disabled:text-gray-300" disabled={currentPage === totalPages}
+			<button className="px-2 disabled:text-gray-300" disabled={currentPage === totalPages || !totalPages}
 				    onClick={() => handlePageChange(currentPage + 1)}>
 				<FontAwesomeIcon icon={faCaretRight} />
 			</button>
