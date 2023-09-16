@@ -1,12 +1,14 @@
 export default function AboutUs() {
     return (
         <div>
-            <header className="mb-16">
+            <header className="grid mb-16">
+                <h1 className="bracket-md mb-4">關於我們</h1>
                 <iframe width="640" height="360"
                         src="https://www.youtube.com/embed/kPPvNrtvhJs"
                         title="【2020 梅竹黑客松】激發你的潛能！梅竹黑客松是什麼？競賽過程全紀錄！"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
+                        className="justify-self-center"
                 ></iframe>
             </header>
             <main>

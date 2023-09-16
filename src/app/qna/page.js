@@ -84,18 +84,19 @@ function QuestionList() {
     const endIndex = startIndex + itemsPerPage;
     
     const questionSubset = filteredQuestions.slice(startIndex, endIndex);
-    const questionList = (width >= breakpointMD) ? questionSubset : data;
+    const questionList = (width >= breakpointMD) ? questionSubset : filteredQuestions;
 
 	return (
 		<div>
 			<Filter id="qna-filter" checkboxes={checkboxes} checkboxStates={checkboxStates} setCheckboxStates={setCheckboxStates}  />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-14 py-16 justify-items-center place-items-stretch">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-14 py-16 justify-items-center place-items-stretch">
                 {questionList.map((question, index) => (
-                    <Qcard key={index} data={question} />
+                    <li key={index}>
+                        <Qcard data={question} />
+                    </li>
                 ))}
-                
-            </div>
+            </ul>
 
             <div className="hidden md:block mt-5">
                 <Pagination

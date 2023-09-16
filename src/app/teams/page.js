@@ -36,7 +36,7 @@ const checkboxes = [
 
 export default function Teams() {
     return (
-		<div className="wrapper grid-rows-[auto_1fr] my-16 md:my-10">
+		<div className="wrapper grid-rows-[auto_1fr] my-16 compact:my-16 md:my-10">
 			<header className="mb-4">
                 <h1 className="bracket-md justify-center">歷年作品</h1>
 			</header>
@@ -100,7 +100,7 @@ function TeamList() {
     const endIndex = startIndex + itemsPerPage;
     
     const teamSubset = filteredTeams.slice(startIndex, endIndex);
-    const teamList = (width >= breakpointMD) ? teamSubset : data;
+    const teamList = (width >= breakpointMD) ? teamSubset : filteredTeams;
 
 	return (
 		<div className="mb-16 md:mb-10">

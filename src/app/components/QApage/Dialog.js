@@ -25,20 +25,17 @@ export default function Dialog({ selectedQuestion, closePopup }) {
 	}, []);
 
 	return (
-		<div
-			className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex items-center justify-center z-40"
-			onClick={handleOutsideClick}
-		>
-			<div className="bg-white p-8 w-4/5 rounded-[2rem] z-50">
-				<div className="flex justify-end">
-                    <button className="h-8 p-1 aspect-square" onClick={closePopup}>
+		<div className="fixed grid inset-0 place-content-center bg-black bg-opacity-75 z-20" onClick={handleOutsideClick}>
+			<div className="grid grid-rows-[auto_1fr] w-[min(80vw,_64rem)] min-w-[200px] p-8 bg-primary rounded-[2rem]">
+                <div className="justify-self-end">
+					<button className="h-8 p-1 aspect-square" onClick={closePopup}>
 						<FontAwesomeIcon icon={faTimes} />
 					</button>
 				</div>
-				<div className="flex flex-col justify-center items-center text-center">
-					<h2 className="text-primary-gradient mb-5">
-						Q: {selectedQuestion.question}
-					</h2>
+				<div className="flex flex-col justify-center items-center gap-5 text-center">
+                    <span className="text-3xl text-primary-gradient font-bold text-center">
+                        Q: {selectedQuestion.question}
+                    </span>
 					<div className="overflow-auto h-64">
 						{selectedQuestion.answers.map((answer, index) => (
 							<p key={index}>{answer}</p>

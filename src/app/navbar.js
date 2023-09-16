@@ -1,8 +1,8 @@
 "use client";
+import "@/app/scss/navbar.scss"
 import { useState, useEffect, useLayoutEffect } from "react";
-import { useRecoilWindowWidth } from "./utils/useExternal";
-import { RecoilRoot, useRecoilValue } from "recoil";
-import { windowWidth } from "@/app/utils/recoilProvider";
+import { useRecoilValue } from "recoil";
+import { windowWidth, windowHeight } from "@/app/utils/recoilProvider";
 import { breakpointMD } from "@/app/utils/resolutions";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -15,38 +15,30 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"
 
 
 const navbarBP = breakpointMD;
-function useNavbarEffect(width) {
+function useNavbarEffect(width, height) {
     const pathname = usePathname();
-    const [ expanded, setExpanded ] = useState(width >= navbarBP);
+    const [ expanded, setExpanded ] = useState(width >= navbarBP && height >= navbarBP);
 
     // Expand/collapse navbar when screen size LTBP/STBP
     useLayoutEffect(() => {
-        const state = (width >= navbarBP);
+        const state = (width >= navbarBP && height >= navbarBP);
         setExpanded(state);
-    }, [width]);
+    }, [width, height]);
 
     // Collapse navbar on pathname change && STBP
     useEffect(() => {
-        if (width < navbarBP) {
+        if (width < navbarBP || height < navbarBP) {
             setExpanded(false);
         }
-    }, [pathname, width]);
+    }, [pathname, width, height]);
 
     return { expanded, setExpanded };
 }
 
-export default function RecoilNavbar() {
-    return (
-        <RecoilRoot>
-            <Navbar />
-        </RecoilRoot>
-    );
-}
-
-function Navbar() {
-    useRecoilWindowWidth();
+export default function Navbar() {
     const width = useRecoilValue(windowWidth);
-    const { expanded, setExpanded } = useNavbarEffect(width);
+    const height = useRecoilValue(windowHeight);
+    const { expanded, setExpanded } = useNavbarEffect(width, height);
     const active = (useScrollPos() >= 100);
     const links = [
         ["首頁", "/"],
@@ -59,44 +51,46 @@ function Navbar() {
         return (width >= navbarBP);
     }
 
+    function isHeightMd() {
+        return (height < navbarBP);
+    }
+
     function toggleNav() {
         setExpanded(!expanded);
     };
 
     return (
-        <>
+        <nav id="primary-navbar" data-visible={expanded}
+             className={`${(active || (expanded && (isHeightMd() || !isScreenMd()))) ? "nue-concave-50 frost-50" : ""}
+                         md:top-0 md:mt-[min(10vh,_6rem)] compact:mt-0 z-10`}>
             <button onClick={toggleNav} aria-controls="primary-navbar" aria-expanded={expanded}
-                    className="fixed top-5 right-5 w-6 aspect-square text-lg z-[11]
-                               block md:hidden">
+                    className="self-end text-lg">
                 <span className="sr-only">MENU</span>
                 {!expanded ? (<FontAwesomeIcon icon={faBars} />) : (<FontAwesomeIcon icon={faTimes} />)}
             </button>
-            <nav id="primary-navbar" data-visible={expanded}
-                 className={`${(active || (!isScreenMd() && expanded)) ? "nue-concave-75 frost-50" : ""}
-                            ${(!expanded) ? "h-0 p-0 opacity-0" : "h-auto p-6 opacity-100"}
-                            grid fixed w-screen h-fit text-fineprint z-10 overflow-hidden transition-shadow ease-in-out
-                            md:sticky md:top-0 md:mt-[min(10vh,_6rem)]`}>
-                
-                <ul className="navbar-nav flex flex-wrap gap-x-[4.5em] gap-y-[2.5em] p-2
-                                flex-col justify-self-center
-                                md:flex-row md:justify-self-start
-                                md:ml-20 lg:ml-32 xl:ml-40"
-                                >
-                    <NavLinks links={links} />
-                </ul>
-            </nav>
-        </>
+            <ul className="navbar-nav md:ml-20 lg:ml-32 xl:ml-40 compact:ml-0">
+                <NavLinks links={links} expanded={expanded} setExpanded={setExpanded} />
+            </ul>
+        </nav>
     );
 }
 
-function NavLinks({links}) {
+function NavLinks({ links, expanded, setExpanded }) {
+    const width = useRecoilValue(windowWidth);
+    const height = useRecoilValue(windowHeight);
+
+    function handleClick() {
+        if (expanded && (width < navbarBP || height < navbarBP)) {
+            setExpanded(false);
+        }
+    }
+
     return (
         <>
             {links.map((link, index) => (
                 <li key={index} className="text-center">
-                    <Link
-                        href={link[1]}
-                        className="nav-link max-w-fit hover:after:opacity-100">
+                    <Link href={link[1]} tabIndex={expanded ? 0 : -1} onClick={handleClick}
+                          className="nav-link max-w-fit text-fineprint font-light hover:after:opacity-100">
                         {link[0]}
                     </Link>
                 </li>

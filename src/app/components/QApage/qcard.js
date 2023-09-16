@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import Dialog from "@/app/components/QApage/Dialog";
 
 export default function Qcard({ data }) {
@@ -13,44 +13,27 @@ export default function Qcard({ data }) {
 	};
 
 	return (
-		<div className="md-px-8">
-			<li
-				className="nue-card-md grid p-12 gap-y-8 rounded-[4em]"
-				style={{
-					background: "hsla(231, 21%, 94%, 1)",
-					boxShadow: "0.75em 0.75em 1.5em #BCBDC2",
-				}}
-			>
-				<div className="flex flex-col justify-center items-center">
-					<div className="text-primary-gradient text-center mb-5 absolute top-8 md-text-4xl text-3xl font-bold">
-						Q: {data.question}
-					</div>
-					<div className="grid gap-y-4 mt-10">
-						{data.answers.map((answer, index) => (
-							<p key={index}>
-								　　
-								{answer.length > 80 && selectedQuestion !== data
-									? answer.slice(0, 75) + "..."
-									: answer}
-							</p>
-						))}
-						{data.answers.length > 0 && (
-							<button
-								className="mt-2 text-[#B580FF] focus:text-[#B580FF] focus:outline-none"
-								onClick={() => openPopup(data)}
-							>
-								{selectedQuestion === data
-									? "收起回答 / Collapse"
-									: "查看更多 / View more..."}
-							</button>
-						)}
-					</div>
-				</div>
-			</li>
+		<>
+			<div className="nue-card-sm grid place-items-center w-full h-full p-12 gap-y-6 rounded-[4em]">
+                <span className="text-3xl text-primary-gradient font-bold text-center">
+                    Q: {data.question}
+                </span>
+                <div className="line-clamp-2">
+                    {data.answers.map((answer, index) => (
+                        <Fragment key={index}>
+                            <p>{answer}</p>
+                            {index !== data.answers.length - 1 && <br />}
+                        </Fragment>
+                    ))}
+                </div>
+                <button className="text-accent" onClick={() => openPopup(data)}>
+                    查看更多 / View more...
+                </button>
+            </div>
 
 			{selectedQuestion && (
 				<Dialog selectedQuestion={selectedQuestion} closePopup={closePopup} />
 			)}
-		</div>
+		</>
 	);
 }

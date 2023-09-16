@@ -32,9 +32,7 @@ $clr-gradient-primary: linear-gradient(60deg,
 }
 
 $clr-accent: $clr-gradient-primary-2;
-@mixin clr-accent-props($opacity: 1) {
-    color: rgba($clr-accent, $opacity);
-}
+@mixin clr-accent-props($opacity: 1) { color: rgba($clr-accent, $opacity); }
 
 $clr-neu-fill-1: #D4D4DA;
 $clr-neu-fill-2: #FBFDFF;
@@ -46,6 +44,8 @@ $clr-card-shadow: #00000040;
 
 /* --------------------------- BODY+NAVBAR --------------------------- */
 body {
+    display: grid;
+    grid-template-rows: 1fr auto;
     overflow-x: hidden;
     overflow-y: overlay !important;
     scrollbar-gutter: stable both-edges;
@@ -53,27 +53,9 @@ body {
     // TODO: Test after pull #51890 merge into stable
     font-family: var(--font-space-grotesk), "Noto Sans TC", sans-serif;
     // font-family: var(--font-space-grotesk), var(--font-noto-sans-tc);
-}
 
-.nav-link {
-    --spacing: 0.2em;
-    position: relative;
-    
-    letter-spacing: var(--spacing);
-    text-transform: uppercase;
-
-    &::after {
-        content: '';
-        position: absolute;
-        width: calc(100% - var(--spacing));
-        height: 0.1rem;
-        left: 0;
-        bottom: -0.15em;
-
-        background: $clr-text-primary;
-        border-radius: 100vw;
-        opacity: 0;
-        transition: opacity 0.15s ease-in-out;
+    @media screen and (min-width: 768px) and (min-height: 768px) {
+        grid-template-rows: auto 1fr auto;
     }
 }
 
@@ -310,7 +292,7 @@ span {
 
 iframe {
     aspect-ratio: 16 / 9;
-    width: 100%;
+    width: min(100%, 992px);
     height: 100%;
 }
 

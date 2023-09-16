@@ -51,13 +51,14 @@ export default function RootLayout({ children }) {
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" />
             </head>
 			<body className={`${spaceGrotesk.variable} ${notoSansTC.variable}
-                             grid grid-rows-[1fr_auto] md:grid-rows-[auto_1fr_auto] 
                              min-h-svh scroll-smooth
                              text-sm md:text-base
                              text-primary bg-primary`}>
-                <Navbar />
-                <RecoilContextProvider>{children}</RecoilContextProvider>
-                <Footer />
+                <RecoilContextProvider>
+                    <Navbar />
+                    {children}
+                    <Footer />
+                </RecoilContextProvider>
                 <Analytics />
             </body>
 		</html>

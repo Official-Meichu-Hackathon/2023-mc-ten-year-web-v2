@@ -1,0 +1,93 @@
+@import "./global.scss";
+
+#primary-navbar {
+    --padding: 1.5rem;
+    --height: 1.5rem;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    padding: 1.5rem;
+    row-gap: 1.5rem;
+    max-height: calc(2 * var(--padding) + var(--height));
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+
+    transition: max-height 150ms, box-shadow 75ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:has([aria-expanded="true"]) {
+        // ! Temp approach
+        max-height: 25em;
+    }
+
+    & > button {
+        height: var(--height);
+        aspect-ratio: 1 / 1;
+    }
+
+    & > .navbar-nav {
+        display: flex;
+        padding: 0.5rem;
+        row-gap: 2.5em;
+        column-gap: 4.5em;
+        flex-direction: column;
+        justify-self: center;
+        opacity: 100;
+        transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 50ms;
+
+        @media (prefers-reduced-motion: reduce) {
+            transition: none;
+        }
+    }
+    &:has([aria-expanded="false"]) {
+        & .navbar-nav {
+            opacity: 0;
+            transition: opacity 100ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            transition: none;
+        }
+    }
+
+    @media screen and (min-width: 768px) and (min-height: 768px) {
+        position: sticky;
+        flex-direction: row;
+
+        & > button {
+            display: none;
+        }
+
+        & > .navbar-nav {
+            flex-direction: row;
+            justify-self: flex-start;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+}
+
+.nav-link {
+    --spacing: 0.2em;
+    position: relative;
+    
+    letter-spacing: var(--spacing);
+    text-transform: uppercase;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: calc(100% - var(--spacing));
+        height: 0.1rem;
+        left: 0;
+        bottom: -0.15em;
+
+        background: $clr-text-primary;
+        border-radius: 100vw;
+        opacity: 0;
+        transition: opacity 0.15s ease-in-out;
+    }
+}
