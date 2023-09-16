@@ -7,7 +7,7 @@
     display: flex;
     width: 100%;
     padding: 1.5rem;
-    row-gap: 1.5rem;
+    row-gap: 0rem;
     max-height: calc(2 * var(--padding) + var(--height));
     flex-direction: column;
     justify-content: space-between;
@@ -29,7 +29,7 @@
     & > .navbar-nav {
         display: flex;
         padding: 0.5rem;
-        row-gap: 2.5em;
+        row-gap: 2em;
         column-gap: 4.5em;
         flex-direction: column;
         justify-self: center;
@@ -53,6 +53,7 @@
 
     @media screen and (min-width: 768px) and (min-height: 576px) {
         position: sticky;
+        row-gap: 1.5rem;
         flex-direction: row;
 
         & > button {
@@ -61,6 +62,7 @@
 
         & > .navbar-nav {
             flex-direction: row;
+            row-gap: 2.5em;
             justify-self: flex-start;
         }
     }
