@@ -3,7 +3,7 @@ import "@/app/scss/navbar.scss"
 import { useState, useEffect, useLayoutEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { windowWidth, windowHeight } from "@/app/utils/recoilProvider";
-import { breakpointMD } from "@/app/utils/resolutions";
+import { breakpointMD, breakpointSM } from "@/app/utils/resolutions";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import useScrollPos from "./utils/useScrollPos";
@@ -14,20 +14,21 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"
 
 
 
-const navbarBP = breakpointMD;
+const navbarWBP = breakpointMD;
+const navbarHBP = breakpointSM;
 function useNavbarEffect(width, height) {
     const pathname = usePathname();
-    const [ expanded, setExpanded ] = useState(width >= navbarBP && height >= navbarBP);
+    const [ expanded, setExpanded ] = useState(width >= navbarWBP && height >= navbarHBP);
 
     // Expand/collapse navbar when screen size LTBP/STBP
     useLayoutEffect(() => {
-        const state = (width >= navbarBP && height >= navbarBP);
+        const state = (width >= navbarWBP && height >= navbarHBP);
         setExpanded(state);
     }, [width, height]);
 
     // Collapse navbar on pathname change && STBP
     useEffect(() => {
-        if (width < navbarBP || height < navbarBP) {
+        if (width < navbarWBP || height < navbarHBP) {
             setExpanded(false);
         }
     }, [pathname, width, height]);
@@ -48,11 +49,11 @@ export default function Navbar() {
     ];
 
     function isScreenMd() {
-        return (width >= navbarBP);
+        return (width >= navbarWBP);
     }
 
     function isHeightMd() {
-        return (height < navbarBP);
+        return (height < navbarHBP);
     }
 
     function toggleNav() {
@@ -62,13 +63,13 @@ export default function Navbar() {
     return (
         <nav id="primary-navbar" data-visible={expanded}
              className={`${(active || (expanded && (isHeightMd() || !isScreenMd()))) ? "nue-concave-50 frost-50" : ""}
-                         md:top-0 md:mt-[min(10vh,_6rem)] compact:mt-0 z-10`}>
+                         md:top-0 md:mt-[min(10vh,_6rem)] petite:mt-0 z-10`}>
             <button onClick={toggleNav} aria-controls="primary-navbar" aria-expanded={expanded}
                     className="self-end text-lg">
                 <span className="sr-only">MENU</span>
                 {!expanded ? (<FontAwesomeIcon icon={faBars} />) : (<FontAwesomeIcon icon={faTimes} />)}
             </button>
-            <ul className="navbar-nav md:ml-20 lg:ml-32 xl:ml-40 compact:ml-0">
+            <ul className="navbar-nav md:ml-20 lg:ml-32 xl:ml-40 petite:ml-0">
                 <NavLinks links={links} expanded={expanded} setExpanded={setExpanded} />
             </ul>
         </nav>
@@ -80,7 +81,7 @@ function NavLinks({ links, expanded, setExpanded }) {
     const height = useRecoilValue(windowHeight);
 
     function handleClick() {
-        if (expanded && (width < navbarBP || height < navbarBP)) {
+        if (expanded && (width < navbarWBP || height < navbarHBP)) {
             setExpanded(false);
         }
     }

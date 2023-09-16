@@ -36,7 +36,7 @@ const checkboxes = [
 
 export default function Teams() {
     return (
-		<div className="wrapper grid-rows-[auto_1fr] my-16 compact:my-16 md:my-10">
+		<div className="wrapper grid-rows-[auto_1fr] my-16 petite:my-16 md:my-10">
 			<header className="mb-4">
                 <h1 className="bracket-md justify-center">歷年作品</h1>
 			</header>
