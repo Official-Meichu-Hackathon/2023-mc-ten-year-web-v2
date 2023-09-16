@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
-import { windowWidth } from "./atoms";
+import { windowWidth } from "./recoilProvider";
 
 
 

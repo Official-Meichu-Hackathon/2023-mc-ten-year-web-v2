@@ -8,6 +8,7 @@ import Footer from "./footer";
 // FontAwesome
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import RecoilContextProvider from "./utils/recoilProvider";
 config.autoAddCss = false
 
 // Google Fonts
@@ -40,8 +41,7 @@ export const metadata = {
 
 
 export default function RootLayout({ children }) {
-
-	return (
+    return (
 		<html lang="en">
             <head>
                 <link rel="icon" href="/icon?<generated>" type="image/<generated>" sizes="<generated>" />
@@ -57,7 +57,7 @@ export default function RootLayout({ children }) {
                              text-sm md:text-base
                              text-primary bg-primary`}>
                 <Navbar />
-                {children}
+                <RecoilContextProvider>{children}</RecoilContextProvider>
                 <Footer />
                 <Analytics />
             </body>

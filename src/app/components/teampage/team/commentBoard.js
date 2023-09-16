@@ -5,7 +5,7 @@ import Pagination from "@/app/components/pagination";
 
 // Recoil
 import { useRecoilValue } from "recoil";
-import { windowWidth } from "@/app/utils/atoms";
+import { windowWidth } from "@/app/utils/recoilProvider";
 import { breakpointMD } from "@/app/utils/resolutions";
 
 // Message Icons

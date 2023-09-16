@@ -1,4 +1,5 @@
 import "@/app/scss/team.scss";
+import { Fragment } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -22,10 +23,10 @@ export default function Tcard({ data }) {
                     <span className="team-subtitle line-clamp-1 font-bold overflow-hidden">{data.title}</span>
                     <div className="line-clamp-5 overflow-hidden">
                         {data.descriptions.map((descrip, index) => (
-                            <>
-                                <p key={index}>{descrip}</p>
+                            <Fragment key={index}>
+                                <p>{descrip}</p>
                                 {index !== data.descriptions.length - 1 && <br />}
-                            </>
+                            </Fragment>
                         ))}
                     </div>
                 </div>

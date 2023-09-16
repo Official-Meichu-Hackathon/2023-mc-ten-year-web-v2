@@ -8,7 +8,7 @@ import Pagination from "@/app/components/pagination";
 // Recoil
 import { useRecoilWindowWidth } from "@/app/utils/useExternal";
 import { RecoilRoot, useRecoilValue } from "recoil";
-import { windowWidth } from "@/app/utils/atoms";
+import { windowWidth } from "@/app/utils/recoilProvider";
 import { breakpointMD } from "@/app/utils/resolutions";
 
 // useSWR

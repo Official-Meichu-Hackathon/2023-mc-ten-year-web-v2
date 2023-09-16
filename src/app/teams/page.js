@@ -6,9 +6,8 @@ import Filter from "@/app/components/filter/filter";
 import Pagination from "@/app/components/pagination";
 
 // Recoil
-import { useRecoilWindowWidth } from "@/app/utils/useExternal";
-import { RecoilRoot, useRecoilValue } from "recoil";
-import { windowWidth } from "@/app/utils/atoms";
+import { useRecoilValue } from "recoil";
+import { windowWidth } from "@/app/utils/recoilProvider";
 import { breakpointMD } from "@/app/utils/resolutions";
 
 // useSWR
@@ -35,18 +34,8 @@ const checkboxes = [
     },
 ];
 
-export default function RecoilTeampage() {
+export default function Teams() {
     return (
-        <RecoilRoot>
-            <Teampage />
-        </RecoilRoot>
-    );
-}
-
-function Teampage() {
-    useRecoilWindowWidth();
-
-	return (
 		<div className="wrapper my-16 md:my-10">
 			<header className="mb-4">
 				<div className="flex items-center justify-between">

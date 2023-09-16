@@ -2,7 +2,7 @@
 import { useState, useEffect, useLayoutEffect } from "react";
 import { useRecoilWindowWidth } from "./utils/useExternal";
 import { RecoilRoot, useRecoilValue } from "recoil";
-import { windowWidth } from "@/app/utils/atoms";
+import { windowWidth } from "@/app/utils/recoilProvider";
 import { breakpointMD } from "@/app/utils/resolutions";
 import { usePathname } from "next/navigation";
 import Link from "next/link";

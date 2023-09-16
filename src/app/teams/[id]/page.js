@@ -4,28 +4,14 @@ import { TeamTitle } from "@/app/components/teampage/team/teamTitle";
 import { ImageSlider } from "@/app/components/teampage/team/imageSlider";
 import { CommentBoard } from "@/app/components/teampage/team/commentBoard";
 
-// Recoil
-import { useRecoilWindowWidth } from "@/app/utils/useExternal";
-
 // useSWR
 import useSWR from "swr";
 import { fetcher } from "../../utils/fetcher";
 import { Load, LoadFailed, LoadCustom } from "../../components/gadgets"
-import { RecoilRoot } from "recoil";
 
 
 
-export default function RecoilTeampage({ params }) {
-    return (
-        <RecoilRoot>
-            <Teampage params={params} />
-        </RecoilRoot>
-    );
-}
-
-function Teampage({ params }) {
-    useRecoilWindowWidth();
-
+export default function Teampage({ params }) {
     const { data, error, isLoading } = useSWR(params.id ? `/api/teams/${params.id}` : null, fetcher);
 	if(error) return <LoadFailed />;
 	if(isLoading) return <Load />;
