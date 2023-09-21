@@ -9,15 +9,12 @@ export async function fetchJSON() {
     return JSON.parse(data);
 }
 
-async function fetchQuestionList() {
+async function fetchQuestions() {
     const data = await fetchJSON();
-    const questions = data.questions.map(q => ({question: q.question,
-                                                tags: q.tags,
-                                                answers: q.answers}));
-    return questions;
+    return data.questions;
 }
 
 export async function GET(request) {
-    const data = await fetchQuestionList();
+    const data = await fetchQuestions();
     return NextResponse.json(data);
 }

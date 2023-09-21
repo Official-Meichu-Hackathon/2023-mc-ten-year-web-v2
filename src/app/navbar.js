@@ -39,8 +39,19 @@ function useNavbarEffect(width, height) {
 export default function Navbar() {
     const width = useRecoilValue(windowWidth);
     const height = useRecoilValue(windowHeight);
+    const scroll = useScrollPos();
     const { expanded, setExpanded } = useNavbarEffect(width, height);
-    const active = (useScrollPos() >= 100);
+    const [ active, setActive ] = useState(false);
+
+    useEffect(() => {
+        if (isScreenMd() && !isHeightMd()) {
+            setActive(scroll >= 100);
+        } else {
+            setActive(scroll >= 10);
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [scroll])
+    
     const links = [
         ["首頁", "/"],
         ["關於我們", "/about"],

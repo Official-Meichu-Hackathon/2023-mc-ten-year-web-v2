@@ -1,0 +1,61 @@
+@import "./global.scss";
+
+
+
+.toggle-list {
+    $padding: 1.25rem;
+    $rounded: 2.5rem;
+    --text-size: 1.25rem;
+    @include nue-concave(0.5em);
+    @include frost(0.25em);
+    display: grid;
+    max-height: calc(2 * $padding + 2 * 1.8 * var(--text-size));
+    padding-inline: $rounded - 0.25rem;
+    padding-block: $padding;
+    grid-auto-rows: min-content;
+    grid-template-rows: auto 1fr;
+    
+    border-radius: $rounded;
+
+    overflow: hidden;
+    transition: max-height 150ms, box-shadow 75ms !important;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    @media screen and (min-width: 576px) {
+        --text-size: 1.5rem;
+        max-height: calc(2 * $padding + 1.8 * var(--text-size));
+
+        & button {
+            margin-top: 0.2 * ($rounded - $padding) !important;
+        }
+    }
+
+    &:has([aria-expanded="true"]) {
+        @include nue-pressed(0.5em);
+
+        // ! Temp approach
+        max-height: 50em;
+    }
+
+    .toggle-list-title {
+        font-size: var(--text-size);
+    }
+
+    button {
+        margin-top: calc(0.2 * ($rounded - $padding) + 0.9 * var(--text-size));
+    }
+
+    & .toggle-list-content {
+        display: grid;
+        grid-auto-rows: min-content;
+        overflow-y: auto;
+        opacity: 100;
+        transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 50ms;
+    }
+    &:has([aria-expanded="false"]) {
+        & .toggle-list-content {
+            opacity: 0;
+            transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    }
+}

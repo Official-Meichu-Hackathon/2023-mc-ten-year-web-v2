@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Load, LoadFailed } from "../components/gadgets";
 import Filter, { generateInitialState } from "@/app/components/filter/filter";
-import Qcard from "@/app/components/QApage/qcard";
+import Qcard from "@/app/components/qnapage/qcard";
 import Pagination from "@/app/components/pagination";
 
 // Recoil
@@ -90,13 +90,11 @@ function QuestionList() {
 		<div>
 			<Filter id="qna-filter" checkboxes={checkboxes} checkboxStates={checkboxStates} setCheckboxStates={setCheckboxStates}  />
 
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-14 py-16 justify-items-center place-items-stretch">
-                {questionList.map((question, index) => (
-                    <li key={index}>
-                        <Qcard data={question} />
-                    </li>
+            <div className="grid gap-12 py-16 justify-items-stretch">
+                {questionList.map((question) => (
+                    <Qcard key={question.id} data={question} />
                 ))}
-            </ul>
+            </div>
 
             <div className="hidden md:block mt-5">
                 <Pagination

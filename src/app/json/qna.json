@@ -1,169 +1,130 @@
 {
 	"questions": [
 		{
+			"id": 1,
 			"question": "明天早餐吃什麼?",
 			"tags": ["eat", "philosophy"],
-			"answers": [
-				"深入的探討早餐，是釐清一切的關鍵。早餐對我來說，已經成為了我生活的一部分。馬克思曾經說過，一切節省，歸根到底都歸結為時間的節省。這段話看似複雜，其中的邏輯思路卻清晰可見。",
-				"就我個人來說，早餐對我的意義，不能不說非常重大。拿破崙講過一句值得人反覆尋思的話，強將手下無弱兵。這把視野帶到了全新的高度。帶著這些問題，我們一起來審視早餐。由於，早餐勢必能夠左右未來。在人生的歷程中，早餐的出現是必然的。那麼，若發現問題比我們想像的還要深奧，那肯定不簡單。面對如此難題，我們必須設想周全。對於一般人來說，早餐究竟象徵著什麼呢？毛佛魯說過，才能自然形成，性格則涉人世之風。希望大家實際感受一下這段話。若沒有早餐的存在，那麼後果可想而知。蘇軾在過去曾經講過，水枕能令山俯仰，風船解與月徘徊。這影響了我的價值觀。"
-			]
+			"answer": "深入的探討早餐，是釐清一切的關鍵。早餐對我來說，已經成為了我生活的一部分。馬克思曾經說過，一切節省，歸根到底都歸結為時間的節省。這段話看似複雜，其中的邏輯思路卻清晰可見。\n就我個人來說，早餐對我的意義，不能不說非常重大。拿破崙講過一句值得人反覆尋思的話，強將手下無弱兵。這把視野帶到了全新的高度。帶著這些問題，我們一起來審視早餐。由於，早餐勢必能夠左右未來。在人生的歷程中，早餐的出現是必然的。那麼，若發現問題比我們想像的還要深奧，那肯定不簡單。面對如此難題，我們必須設想周全。對於一般人來說，早餐究竟象徵著什麼呢？毛佛魯說過，才能自然形成，性格則涉人世之風。希望大家實際感受一下這段話。若沒有早餐的存在，那麼後果可想而知。蘇軾在過去曾經講過，水枕能令山俯仰，風船解與月徘徊。這影響了我的價值觀。"
 		},
 		{
+			"id": 2,
 			"question": "Are there any miscellaneous points to note about the event?",
 			"tags": ["競賽內容"],
-			"answers": [
-				"The key trends for 2022 revolve around sustainability, digital transformation, and a focus on customer-centric approaches. With the rise of artificial intelligence and machine learning, companies are looking to leverage these technologies for better customer experiences."
-			]
+			"answer": "The key trends for 2022 revolve around sustainability, digital transformation, and a focus on customer-centric approaches. With the rise of artificial intelligence and machine learning, companies are looking to leverage these technologies for better customer experiences."
 		},
 		{
+			"id": 3,
 			"question": "Can you provide details about the registration process?",
 			"tags": ["其他", "2022", "競賽內容"],
-			"answers": [
-				"Yes, participants are advised to regularly check the event website for updates and to adhere to the deadlines."
-			]
+			"answer": "Yes, participants are advised to regularly check the event website for updates and to adhere to the deadlines."
 		},
 		{
+			"id": 4,
 			"question": "您能提供有關報名過程的詳細信息嗎？",
 			"tags": ["創客組", "報名相關"],
-			"answers": [
-				"預計技術將以更快的速度發展。我們預期在量子計算、增強現實和可持續技術方面將取得重大突破。"
-			]
+			"answer": "預計技術將以更快的速度發展。我們預期在量子計算、增強現實和可持續技術方面將取得重大突破。"
 		},
 		{
+			"id": 5,
 			"question": "Can you provide details about the registration process?",
 			"tags": ["其他", "2022"],
-			"answers": [
-				"The key trends for 2022 revolve around sustainability, digital transformation, and a focus on customer-centric approaches. With the rise of artificial intelligence and machine learning, companies are looking to leverage these technologies for better customer experiences.",
-				"Teams often face challenges related to coordination, technical difficulties, and time management. It's crucial for them to prepare well in advance to tackle these challenges."
-			]
+			"answer": "The key trends for 2022 revolve around sustainability, digital transformation, and a focus on customer-centric approaches. With the rise of artificial intelligence and machine learning, companies are looking to leverage these technologies for better customer experiences.\nTeams often face challenges related to coordination, technical difficulties, and time management. It's crucial for them to prepare well in advance to tackle these challenges."
 		},
 		{
+			"id": 6,
 			"question": "團隊在比賽中通常面臨哪些挑戰？",
 			"tags": ["競賽內容"],
-			"answers": [
-				"報名過程包括填寫在線表格、提交必要的文件和支付報名費。建議在申請前仔細閱讀指南。",
-				"預計技術將以更快的速度發展。我們預期在量子計算、增強現實和可持續技術方面將取得重大突破。"
-			]
+			"answer": "報名過程包括填寫在線表格、提交必要的文件和支付報名費。建議在申請前仔細閱讀指南。\n預計技術將以更快的速度發展。我們預期在量子計算、增強現實和可持續技術方面將取得重大突破。"
 		},
 		{
+			"id": 7,
 			"question": "What are the key trends you see in the market for 2022?",
 			"tags": ["競賽內容"],
-			"answers": [
-				"Technology is expected to evolve at an even faster pace. We're anticipating major breakthroughs in quantum computing, augmented reality, and sustainable technologies.",
-				"The key trends for 2022 revolve around sustainability, digital transformation, and a focus on customer-centric approaches. With the rise of artificial intelligence and machine learning, companies are looking to leverage these technologies for better customer experiences."
-			]
+			"answer": "Technology is expected to evolve at an even faster pace. We're anticipating major breakthroughs in quantum computing, augmented reality, and sustainable technologies.\nThe key trends for 2022 revolve around sustainability, digital transformation, and a focus on customer-centric approaches. With the rise of artificial intelligence and machine learning, companies are looking to leverage these technologies for better customer experiences."
 		},
 		{
+			"id": 8,
 			"question": "關於活動有其他要注意的地方嗎？",
 			"tags": ["報名相關"],
-			"answers": [
-				"預計技術將以更快的速度發展。我們預期在量子計算、增強現實和可持續技術方面將取得重大突破。",
-				"報名過程包括填寫在線表格、提交必要的文件和支付報名費。建議在申請前仔細閱讀指南。",
-				"是的，建議參與者定期檢查活動網站以獲取更新，並遵守截止日期。"
-			]
+			"answer": "預計技術將以更快的速度發展。我們預期在量子計算、增強現實和可持續技術方面將取得重大突破。\n報名過程包括填寫在線表格、提交必要的文件和支付報名費。建議在申請前仔細閱讀指南。\n是的，建議參與者定期檢查活動網站以獲取更新，並遵守截止日期。"
 		},
 		{
+			"id": 9,
 			"question": "2022年市場的主要趨勢是什麼？",
 			"tags": ["2022", "競賽內容", "其他"],
-			"answers": [
-				"預計技術將以更快的速度發展。我們預期在量子計算、增強現實和可持續技術方面將取得重大突破。",
-				"2022年的主要趨勢圍繞著可持續性、數字化轉型和專注於以客戶為中心的方法。隨著人工智慧和機器學習的興起，公司正在尋求利用這些技術提供更好的客戶體驗。",
-				"報名過程包括填寫在線表格、提交必要的文件和支付報名費。建議在申請前仔細閱讀指南。"
-			]
+			"answer": "預計技術將以更快的速度發展。我們預期在量子計算、增強現實和可持續技術方面將取得重大突破。\n2022年的主要趨勢圍繞著可持續性、數字化轉型和專注於以客戶為中心的方法。隨著人工智慧和機器學習的興起，公司正在尋求利用這些技術提供更好的客戶體驗。\n報名過程包括填寫在線表格、提交必要的文件和支付報名費。建議在申請前仔細閱讀指南。"
 		},
 		{
+			"id": 10,
 			"question": "What challenges do teams usually face during competitions?",
 			"tags": ["其他"],
-			"answers": [
-				"Technology is expected to evolve at an even faster pace. We're anticipating major breakthroughs in quantum computing, augmented reality, and sustainable technologies."
-			]
+			"answer": "Technology is expected to evolve at an even faster pace. We're anticipating major breakthroughs in quantum computing, augmented reality, and sustainable technologies."
 		},
 		{
+			"id": 11,
 			"question": "What are the key trends you see in the market for 2022?",
 			"tags": ["創客組"],
-			"answers": [
-				"The registration process involves filling out an online form, submitting necessary documents, and paying the registration fee. It's recommended to read the guidelines thoroughly before applying.",
-				"Technology is expected to evolve at an even faster pace. We're anticipating major breakthroughs in quantum computing, augmented reality, and sustainable technologies."
-			]
+			"answer": "The registration process involves filling out an online form, submitting necessary documents, and paying the registration fee. It's recommended to read the guidelines thoroughly before applying.\nTechnology is expected to evolve at an even faster pace. We're anticipating major breakthroughs in quantum computing, augmented reality, and sustainable technologies."
 		},
 		{
+			"id": 12,
 			"question": "您如何看待未來幾年的技術發展趨勢？",
 			"tags": ["其他"],
-			"answers": [
-				"2022年的主要趨勢圍繞著可持續性、數字化轉型和專注於以客戶為中心的方法。隨著人工智慧和機器學習的興起，公司正在尋求利用這些技術提供更好的客戶體驗。",
-				"是的，建議參與者定期檢查活動網站以獲取更新，並遵守截止日期。"
-			]
+			"answer": "2022年的主要趨勢圍繞著可持續性、數字化轉型和專注於以客戶為中心的方法。隨著人工智慧和機器學習的興起，公司正在尋求利用這些技術提供更好的客戶體驗。\n是的，建議參與者定期檢查活動網站以獲取更新，並遵守截止日期。"
 		},
 		{
+			"id": 13,
 			"question": "How do you envision the future of technology in the upcoming years?",
 			"tags": ["報名相關", "2022", "創客組"],
-			"answers": [
-				"Technology is expected to evolve at an even faster pace. We're anticipating major breakthroughs in quantum computing, augmented reality, and sustainable technologies."
-			]
+			"answer": "Technology is expected to evolve at an even faster pace. We're anticipating major breakthroughs in quantum computing, augmented reality, and sustainable technologies."
 		},
 		{
+			"id": 14,
 			"question": "團隊在比賽中通常面臨哪些挑戰？",
 			"tags": ["競賽內容", "報名相關"],
-			"answers": [
-				"報名過程包括填寫在線表格、提交必要的文件和支付報名費。建議在申請前仔細閱讀指南。",
-				"團隊經常面臨協調、技術困難和時間管理方面的挑戰。他們必須提前做好準備來應對這些挑戰。",
-				"是的，建議參與者定期檢查活動網站以獲取更新，並遵守截止日期。"
-			]
+			"answer": "報名過程包括填寫在線表格、提交必要的文件和支付報名費。建議在申請前仔細閱讀指南。\n團隊經常面臨協調、技術困難和時間管理方面的挑戰。他們必須提前做好準備來應對這些挑戰。\n是的，建議參與者定期檢查活動網站以獲取更新，並遵守截止日期。"
 		},
 		{
+			"id": 15,
 			"question": "2022年市場的主要趨勢是什麼？",
 			"tags": ["競賽內容", "其他"],
-			"answers": [
-				"報名過程包括填寫在線表格、提交必要的文件和支付報名費。建議在申請前仔細閱讀指南。",
-				"預計技術將以更快的速度發展。我們預期在量子計算、增強現實和可持續技術方面將取得重大突破。"
-			]
+			"answer": "報名過程包括填寫在線表格、提交必要的文件和支付報名費。建議在申請前仔細閱讀指南。\n預計技術將以更快的速度發展。我們預期在量子計算、增強現實和可持續技術方面將取得重大突破。"
 		},
 		{
+			"id": 16,
 			"question": "關於活動有其他要注意的地方嗎？",
 			"tags": ["其他"],
-			"answers": [
-				"報名過程包括填寫在線表格、提交必要的文件和支付報名費。建議在申請前仔細閱讀指南。",
-				"是的，建議參與者定期檢查活動網站以獲取更新，並遵守截止日期。",
-				"2022年的主要趨勢圍繞著可持續性、數字化轉型和專注於以客戶為中心的方法。隨著人工智慧和機器學習的興起，公司正在尋求利用這些技術提供更好的客戶體驗。"
-			]
+			"answer": "報名過程包括填寫在線表格、提交必要的文件和支付報名費。建議在申請前仔細閱讀指南。\n是的，建議參與者定期檢查活動網站以獲取更新，並遵守截止日期。\n2022年的主要趨勢圍繞著可持續性、數字化轉型和專注於以客戶為中心的方法。隨著人工智慧和機器學習的興起，公司正在尋求利用這些技術提供更好的客戶體驗。"
 		},
 		{
+			"id": 17,
 			"question": "團隊在比賽中通常面臨哪些挑戰？",
 			"tags": ["報名相關"],
-			"answers": [
-				"是的，建議參與者定期檢查活動網站以獲取更新，並遵守截止日期。",
-				"報名過程包括填寫在線表格、提交必要的文件和支付報名費。建議在申請前仔細閱讀指南。",
-				"團隊經常面臨協調、技術困難和時間管理方面的挑戰。他們必須提前做好準備來應對這些挑戰。"
-			]
+			"answer": "是的，建議參與者定期檢查活動網站以獲取更新，並遵守截止日期。\n報名過程包括填寫在線表格、提交必要的文件和支付報名費。建議在申請前仔細閱讀指南。\n團隊經常面臨協調、技術困難和時間管理方面的挑戰。他們必須提前做好準備來應對這些挑戰。"
 		},
 		{
+			"id": 18,
 			"question": "您能提供有關報名過程的詳細信息嗎？",
 			"tags": ["報名相關", "2022"],
-			"answers": [
-				"是的，建議參與者定期檢查活動網站以獲取更新，並遵守截止日期。"
-			]
+			"answer": "是的，建議參與者定期檢查活動網站以獲取更新，並遵守截止日期。"
 		},
 		{
+			"id": 19,
 			"question": "您如何看待未來幾年的技術發展趨勢？",
 			"tags": ["報名相關", "創客組", "2022"],
-			"answers": [
-				"2022年的主要趨勢圍繞著可持續性、數字化轉型和專注於以客戶為中心的方法。隨著人工智慧和機器學習的興起，公司正在尋求利用這些技術提供更好的客戶體驗。"
-			]
+			"answer": "2022年的主要趨勢圍繞著可持續性、數字化轉型和專注於以客戶為中心的方法。隨著人工智慧和機器學習的興起，公司正在尋求利用這些技術提供更好的客戶體驗。"
 		},
 		{
+			"id": 20,
 			"question": "團隊在比賽中通常面臨哪些挑戰？",
 			"tags": ["創客組", "其他", "2022"],
-			"answers": [
-				"報名過程包括填寫在線表格、提交必要的文件和支付報名費。建議在申請前仔細閱讀指南。",
-				"團隊經常面臨協調、技術困難和時間管理方面的挑戰。他們必須提前做好準備來應對這些挑戰。"
-			]
+			"answer": "報名過程包括填寫在線表格、提交必要的文件和支付報名費。建議在申請前仔細閱讀指南。\n團隊經常面臨協調、技術困難和時間管理方面的挑戰。他們必須提前做好準備來應對這些挑戰。"
 		},
 		{
+			"id": 21,
 			"question": "Are there any miscellaneous points to note about the event?",
 			"tags": ["其他", "2022"],
-			"answers": [
-				"The key trends for 2022 revolve around sustainability, digital transformation, and a focus on customer-centric approaches. With the rise of artificial intelligence and machine learning, companies are looking to leverage these technologies for better customer experiences."
-			]
+			"answer": "The key trends for 2022 revolve around sustainability, digital transformation, and a focus on customer-centric approaches. With the rise of artificial intelligence and machine learning, companies are looking to leverage these technologies for better customer experiences."
 		}
 	]
 }

@@ -1,5 +1,6 @@
 //slides
 import { useState, useEffect } from "react";
+import { setBodyUnscrollable, setBodyScrollable } from "@/app/utils/helper";
 import Image from "next/image";
 import teamphoto1 from "../../../../../public/img/Team/teamphoto1.jpg";
 import teamphoto2 from "../../../../../public/img/Team/teamphoto2.webp";
@@ -16,12 +17,12 @@ export function ImageSlider() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     function openPopup() {
-        document.documentElement.classList.add("overflow-y-hidden");
+        setBodyUnscrollable();
         setOpenImg(true);
     };
 
     function closePopup() {
-        document.documentElement.classList.remove("overflow-y-hidden");
+        setBodyScrollable();
         setOpenImg(false);
     };
 

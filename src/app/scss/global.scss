@@ -47,12 +47,10 @@ body {
     display: grid;
     grid-template-rows: 1fr auto;
     overflow-x: hidden;
-    overflow-y: overlay !important;
+    overflow-y: auto;
     scrollbar-gutter: stable both-edges;
 
-    // TODO: Test after pull #51890 merge into stable
-    font-family: var(--font-space-grotesk), "Noto Sans TC", sans-serif;
-    // font-family: var(--font-space-grotesk), var(--font-noto-sans-tc);
+    font-family: var(--font-space-grotesk), var(--font-noto-sans-tc), sans-serif;
 
     @media screen and (min-width: 768px) and (min-height: 768px) {
         grid-template-rows: auto 1fr auto;
@@ -89,6 +87,11 @@ body {
 .wrapper-flex-sm {
     @include wrapper-props(2rem, 4rem, 1000px);
     display: flex;
+}
+
+.h-svh {
+    height: 100vh;
+    height: 100svh;
 }
 
 .min-h-svh {
@@ -162,10 +165,6 @@ h1 {
     font-weight: bold;
     letter-spacing: 0.05em;
     line-height: 1.5;
-
-    @media screen and (min-width: 576px) {
-        font-size: 3.5em;
-    }
 }
 
 h2 {
@@ -194,12 +193,13 @@ span {
 
 .text-primary-gradient {
     background: $clr-gradient-primary;
-    background-clip: text;
-    -moz-background-clip: text;
     -webkit-background-clip: text;
-    text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
+    -moz-background-clip: text;
+    background-clip: text;
+    
     -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    text-fill-color: transparent;
 }
 
 @mixin bracket($fontSize: 175%, $fontWeight: normal) {
@@ -233,10 +233,10 @@ span {
 
 /* ---------------------------- STYLE ---------------------------- */
 @mixin frost($amount) {
-    backdrop-filter: blur($amount);
-    -ms-backdrop-filter: blur($amount);
-    -moz-backdrop-filter: blur($amount);
     -webkit-backdrop-filter: blur($amount);
+    -moz-backdrop-filter: blur($amount);
+    -ms-backdrop-filter: blur($amount);
+    backdrop-filter: blur($amount);
 }
 .frost-25 {
     @include frost(0.25em);
@@ -392,6 +392,14 @@ input:not(#team-search), textarea {
     }
 }
 
+.btn-icon {
+    display: inline-flex;
+    padding: 0.5rem;
+    place-items: center;
+    place-content: center;
+    aspect-ratio: 1 / 1;
+}
+
 .nue-card-md {
     @include nue-concave(0.75em);
     @include frost(0.25em);
@@ -419,9 +427,9 @@ input:not(#team-search), textarea {
 /* -------------------------- SELECTION -------------------------- */
 ::selection, ::-webkit-selection {
     color: $clr-bg-primary;
-    text-fill-color: $clr-bg-primary;
-    -moz-text-fill-color: $clr-bg-primary;
     -webkit-text-fill-color: $clr-bg-primary;
+    -moz-text-fill-color: $clr-bg-primary;
+    text-fill-color: $clr-bg-primary;
     background: $clr-text-primary;
 }
 

@@ -20,13 +20,14 @@ export default function Homepage() {
 
 	return (
         <div>
-            <header className="grid overflow-hidden h-[100vh] h-[100lvh]">
+            <header className="grid overflow-hidden h-svh">
                 <div className="grid max-w-min h-fit self-center justify-items-center gap-y-[1em] px-6
                                 justify-self-center md:justify-self-start
                                 -translate-y-16 sm:translate-y-0 md:-translate-y-32
                                 md:ml-20 lg:ml-32 xl:ml-40">
                     <h1 className="bracket-lg w-max whitespace-nowrap">
-                        <span className="">
+                        {/* // ? Shrink font size further, which base is h1 (because of "em" unit) */}
+                        <span className="text-[0.875em] sm:text-[1em]">
                             梅竹黑客松<br />
                             <span className="text-primary-gradient">成果存放</span>
                             平台

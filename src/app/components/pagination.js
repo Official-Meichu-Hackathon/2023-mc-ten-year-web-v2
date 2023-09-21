@@ -19,7 +19,7 @@ export default function Pagination({ totalPages, currentPage, setCurrentPage, cl
 
 	return (
 		<div className={`${className} flex gap-3 justify-center font-light`}>
-			<button className="px-2 disabled:text-gray-300" disabled={currentPage === 1}
+			<button title="Last page" className="px-2 disabled:text-gray-300" disabled={currentPage === 1}
 				    onClick={() => handlePageChange(currentPage - 1)}>
 				<FontAwesomeIcon icon={faCaretLeft} />
 			</button>
@@ -27,7 +27,7 @@ export default function Pagination({ totalPages, currentPage, setCurrentPage, cl
 			<div className="flex items-center gap-2 [&_>_*]:px-2">
                 {[currentPage - 1, currentPage, currentPage + 1].map((num) =>
                     (1 <= num && num <= totalPages) ? (
-                        <button key={num} className={`${currentPage === num ? "font-bold" : ""}`}
+                        <button title={"Page " + num} key={num} className={`${currentPage === num ? "font-bold" : ""}`}
                               onClick={() => handlePageChange(num)}>
                             {num}
                         </button>
@@ -35,7 +35,7 @@ export default function Pagination({ totalPages, currentPage, setCurrentPage, cl
                 )}  
             </div>
 
-			<button className="px-2 disabled:text-gray-300" disabled={currentPage === totalPages || !totalPages}
+			<button title="Next page" className="px-2 disabled:text-gray-300" disabled={currentPage === totalPages || !totalPages}
 				    onClick={() => handlePageChange(currentPage + 1)}>
 				<FontAwesomeIcon icon={faCaretRight} />
 			</button>

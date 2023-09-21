@@ -49,7 +49,7 @@ export default function Filter({ id, checkboxes, hasSearch, hasSubmit, checkboxS
 	return (
 		<div id={id} className="filter">
 			<div className="flex items-center justify-between gap-2">
-                <button onClick={() => setExpanded(!expanded)} aria-controls={id + "-checkboxes"} aria-expanded={expanded}
+                <button title="Toggle filter" onClick={() => setExpanded(!expanded)} aria-controls={id + "-checkboxes"} aria-expanded={expanded}
                         className="flex items-center justify-center gap-2 font-bold mt-3 mb-3 px-1">
                     <FontAwesomeIcon icon={faFilter} />
                     <span className="whitespace-nowrap">篩選</span>
@@ -77,20 +77,21 @@ export default function Filter({ id, checkboxes, hasSearch, hasSubmit, checkboxS
                                         category={group.category} 
                                         name={name}
                                         checkboxState={checkboxStates[group.category][name]}
-                                        setCheckboxState={handleCheckboxChange} />
+                                        setCheckboxState={handleCheckboxChange}
+                                        expanded={expanded} />
                                 ))}
                             </div>
                         ))}
                     </div>
 
-                    <button className="font-bold py-2 text-accent" onClick={handleReset}>重設</button>
+                    <button title="Reset filter" className="font-bold py-2 text-accent" onClick={handleReset} tabIndex={expanded ? 0 : -1}>重設</button>
                 </div>
             )}
 		</div>
 	);
 }
 
-export function CheckBox({ category, name, checkboxState, setCheckboxState }) {
+export function CheckBox({ category, name, checkboxState, setCheckboxState, expanded }) {
     function handleChange(e) {
         setCheckboxState(category, name, e.target.checked);
     }
@@ -98,7 +99,7 @@ export function CheckBox({ category, name, checkboxState, setCheckboxState }) {
 	return (
 		<div className="flex items-center md:w-[7rem] h-[3rem]">
             <label className="form-control w-fit">
-                <input type="checkbox" name={category} className="checkbox" checked={checkboxState} onChange={handleChange} />
+                <input type="checkbox" name={category} className="checkbox" checked={checkboxState} onChange={handleChange} tabIndex={expanded ? 0 : -1} />
                 <span>{name}</span>
             </label>
         </div>

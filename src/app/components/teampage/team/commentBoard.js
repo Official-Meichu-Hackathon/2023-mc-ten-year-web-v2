@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { setBodyUnscrollable, setBodyScrollable } from "@/app/utils/helper";
 import Image from "next/image";
 import AddComment from "./addComment";
 import Pagination from "@/app/components/pagination";
@@ -24,11 +25,11 @@ export function CommentBoard({ comments }) {
 
     const [openCard, setOpenCard] = useState(false);
 	function openPopup() {
-        document.documentElement.classList.add("overflow-y-hidden");
+        setBodyUnscrollable();
 		setOpenCard(true);
 	};
 	function closePopup() {
-        document.documentElement.classList.remove("overflow-y-hidden");
+        setBodyScrollable();
 		setOpenCard(false);
 	};
 
