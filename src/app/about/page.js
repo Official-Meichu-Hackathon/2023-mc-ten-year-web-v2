@@ -1,6 +1,6 @@
 export default function AboutUs() {
     return (
-        <div>
+        <div className="wrapper my-16 petite:my-16 md:my-10">
             <header className="grid mb-16">
                 <h1 className="bracket-md mb-4">關於我們</h1>
                 <iframe width="640" height="360"

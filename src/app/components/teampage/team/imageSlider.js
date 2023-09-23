@@ -85,7 +85,7 @@ export function ImageSlider() {
 
 	return (
 		<>
-            <div className="relative h-full w-full ">
+            <div className="relative h-full w-full">
                 <Image
                     src={slides[currentIndex].path}
                     alt="msg Icon"
