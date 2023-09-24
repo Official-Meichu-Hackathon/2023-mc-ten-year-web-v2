@@ -74,7 +74,7 @@ export default function Navbar() {
     return (
         <nav id="primary-navbar" data-visible={expanded}
              className={`${(active || (expanded && (isHeightMd() || !isScreenMd()))) ? "nue-concave-50 frost-50" : ""}
-                         md:top-0 md:mt-[min(10vh,_6rem)] petite:mt-0 z-10`}>
+                         md:top-0 md:mt-[min(7vh,_4rem)] petite:mt-0 z-10`}>
             <button onClick={toggleNav} aria-controls="primary-navbar" aria-expanded={expanded}
                     className="self-end text-lg">
                 <span className="sr-only">MENU</span>
