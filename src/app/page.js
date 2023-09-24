@@ -1,7 +1,7 @@
 "use client";
-import { useRef, forwardRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useInView } from "framer-motion";
-import { Card, CardContent, CardH, CardImg, CardV, viewMore } from "./components/card"
+import { Card, CardContent, CardImg, viewMore } from "./components/card"
 import { Load, LoadFailed } from "./components/gadgets"
 import Image from "next/image";
 import homepageImg from "../../public/img/home/bg.svg";
