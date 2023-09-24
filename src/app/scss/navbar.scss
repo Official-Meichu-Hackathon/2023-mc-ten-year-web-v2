@@ -1,12 +1,12 @@
 @import "./global.scss";
 
 #primary-navbar {
-    --padding: 1.5rem;
-    --height: 1.5rem;
+    --padding: 0.75rem;
+    --height: 0.75rem;
     position: fixed;
     display: flex;
     width: 100%;
-    padding: 1.5rem;
+    padding: 0.75rem;
     row-gap: 0rem;
     max-height: calc(2 * var(--padding) + var(--height));
     flex-direction: column;
