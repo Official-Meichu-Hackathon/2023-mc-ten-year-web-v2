@@ -1,10 +1,10 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
+import { useRef, forwardRef, useEffect, useState } from "react";
 import { useInView } from "framer-motion";
-import { CardH, CardV, viewMore } from "./components/card"
+import { Card, CardContent, CardH, CardImg, CardV, viewMore } from "./components/card"
 import { Load, LoadFailed } from "./components/gadgets"
 import Image from "next/image";
-import homepageImg from "../../public/img/decoration/bg-home.svg";
+import homepageImg from "../../public/img/home/bg.svg";
 import refImg from "../../public/img/Ref.png";
 
 // useSWR
@@ -21,9 +21,9 @@ export default function Homepage() {
 	return (
         <div>
             <header className="grid overflow-hidden h-svh">
-                <div className="grid max-w-min h-fit self-center justify-items-center gap-y-[1em] px-6
+                <div className="grid max-w-min self-center justify-items-center gap-y-[1em] px-6
                                 justify-self-center md:justify-self-start
-                                -translate-y-16 sm:translate-y-0 md:-translate-y-32
+                                md:-translate-y-32 petite:translate-y-0
                                 md:ml-20 lg:ml-32 xl:ml-40">
                     <h1 className="bracket-lg w-max whitespace-nowrap">
                         {/* // ? Shrink font size further, which base is h1 (because of "em" unit) */}
@@ -85,72 +85,78 @@ function BannerImg({ aboutUsInView, teamInView, qnaInView }) {
 
 
 
-function AboutUsSec({ setInView }) {
+function InViewSec({ className, setInView, children }) {
     const ref = useRef(null);
     const isInView = useInView(ref, {
         amount: 0.5
     });
+
     useEffect(() => {
         setInView(isInView);
     }, [isInView, setInView]);
 
+    return (
+        <section ref={ref} className={`${className}`}>
+            {children}
+        </section>
+    );
+}
+
+
+
+function AboutUsSec({ setInView }) {
     const title = "關於我們";
-    const contents = ["透過回顧與紀念歷史，我們才能帶著更多經驗與力量走向未來。在這個頁面中，我們會介紹梅竹黑客松的競賽精神與意義，簡單總結過去各年度的活動內容、賽制與工作人員，並以時間軸的方式呈現每年的特點或制度創新。藉由紀錄歷屆活動的內容，檢視相異年度的變革，我們能夠吸取並傳承過去的精髓，同時思索與探尋未來的無限可能。"];
+    const content = "透過回顧與紀念歷史，我們才能帶著更多經驗與力量走向未來。在這個頁面中，我們會介紹梅竹黑客松的競賽精神與意義，簡單總結過去各年度的活動內容、賽制與工作人員，並以時間軸的方式呈現每年的特點或制度創新。藉由紀錄歷屆活動的內容，檢視相異年度的變革，我們能夠吸取並傳承過去的精髓，同時思索與探尋未來的無限可能。";
 
     return (
-        <section ref={ref} className="wrapper min-h-screen items-center">
-            <CardH img={refImg} title={title} contents={contents} moreInfo={viewMore} link="/about" />
-        </section>
+        <InViewSec className="wrapper min-h-screen place-items-center" setInView={setInView}>
+            <Card className="w-min place-items-center max-w-4xl
+                             md:w-auto md:grid-flow-col md:grid-cols-[auto_1fr]">
+                <CardImg className="w-[18rem] md:h-full md:max-w-sm aspect-square" img={refImg} />
+                <CardContent title={title} content={content} moreInfo={viewMore} link="/about" titleAlign="center" />
+            </Card>
+        </InViewSec>
     );
 }
 
 
 
 function TeamSec({ setInView }) {
-    const ref = useRef(null);
-    const isInView = useInView(ref, {
-        amount: 0.5
-    });
-    useEffect(() => {
-        setInView(isInView);
-    }, [isInView, setInView]);
-
     const { data, error, isLoading } = useSWR("/api/about", fetcher);
     if(error) return <LoadFailed />;
     if(isLoading) return <Load />;
     
     // TODO: Fix layout; Center in-view
     return (
-        <section ref={ref} className="grid min-h-screen items-center">
+        <InViewSec className="grid min-h-screen items-center" setInView={setInView}>
             <div className="swiper snap-inline
                             w-screen place-self-center
                             lg:w-[60vw] lg:place-self-end">
                 {data.map((year) => (
-                    <CardV key={year.year} img={refImg} title={year.year} contents={year.description} moreInfo={viewMore} link={`/about/${year.year}`} />
+                    <Card key={year.year} className="w-min place-items-center max-w-4xl">
+                        <CardImg className="w-[18rem] md:h-full md:max-w-sm aspect-square" img={refImg} />
+                        <CardContent title={year.year} content={year.description} moreInfo={viewMore} link={`/about/${year.year}`} titleAlign="center" />
+                    </Card>
                 ))}
             </div>
-        </section>
+        </InViewSec>
     );
 }
 
 
 
 function QnaSec({ setInView }) {
-    const ref = useRef(null);
-    const isInView = useInView(ref, {
-        amount: 0.5
-    });
-    useEffect(() => {
-        setInView(isInView);
-    }, [isInView, setInView]);
-
     const img = refImg;
     const title = "Q & A";
-    const contents = ["在這個頁面之中，我們會將大家的問題一併答覆，你可以根據熱門標籤或是直接搜尋問題關鍵字，解決自己的疑惑。"];
+    const content = "在這個頁面之中，我們會將大家的問題一併答覆，你可以根據熱門標籤或是直接搜尋問題關鍵字，解決自己的疑惑。";
 
     return (
-        <section ref={ref} className="wrapper min-h-screen items-center">
-            <CardH img={img} title={title} contents={contents} moreInfo={viewMore} link="/qna" />
-        </section>
+        <InViewSec className="wrapper min-h-screen place-items-center" setInView={setInView}>
+            <Card className="w-min place-items-center max-w-4xl
+                             md:w-auto md:grid-flow-col md:grid-cols-[auto_1fr]">
+                <CardImg className="w-[18rem] md:h-full md:max-w-sm aspect-square" img={img} />
+                <CardContent title={title} content={content} moreInfo={viewMore} link="/qna" titleAlign="center" />
+            </Card>
+        </InViewSec>
     );
 }

@@ -13,22 +13,19 @@ export async function generateMetadata({ params }) {
         title,
         description,
         openGraph: {
-            title,
+            title: "關於 " + title + " 梅竹黑客松",
             description,
             url,
+            images: [`/public/img/banner/${params.year}.webp`],
         },
         twitter: {
             card: "summary_large_image",
-            title,
+            title: "關於 " + title + " 梅竹黑客松",
             description,
         },
     }
 }
 
 export default function AboutUsLayout({ children }) {
-    return (
-        <div>
-            {children}
-        </div>
-    );
+    return children;
 }

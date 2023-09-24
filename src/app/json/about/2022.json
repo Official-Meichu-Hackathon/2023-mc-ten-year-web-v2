@@ -1,0 +1,114 @@
+{
+	"description": "2022 的還沒有寫",
+	"competition": {
+		"systems": [
+			{
+				"type": "hacker",
+				"title": "黑客組",
+				"description": "2022 的還沒有寫"
+			},
+			{
+				"type": "idea",
+				"title": "交流組",
+				"description": "2022 的還沒有寫"
+			}
+		]
+	},
+	"scenes": {
+    	"description": "好棒！動畫超讚！2022 的還沒有寫",
+		"img": []
+	},
+	"topics": [
+		{
+			"company": "台灣積體電路製造股份有限公司",
+			"title": "Safety Helmet Wearing Detection",
+			"description": "這次題目期望能建立準確偵測員工是否有配戴工地帽的 AI 模型，同時，串接雲端應用程式，確保工地安全，當 AI 模型判別出員工在危險區域並未配戴安全帽時，系統自動做出及時的 action 或 alert。此外，參賽者也可以結合軟硬體，做出額外的延伸應用。\n\n感謝 Google Cloud 贊助本組運算資源",
+            "pdf": "https://youtu.be/qZhBoE1POpM"
+		},
+        {
+			"company": "意法半導體",
+			"title": "開發出創新的任何與永續 / 綠能科技之相關應用",
+			"description": "溫室效應造成嚴峻氣候變遷問題，各國紛紛注重起永續科技的發展，跨國企業更是以使用潔淨能源和節能減碳為目標。意法半導體秉持著科技始之於你，並致力透過創新和尖端科技幫助人類改善生活為己任，持續與所有的利益關係人，共同探索和開創新應用，並建立起更好的永續居住環境。參賽隊伍必須使用意法半導體之產品開發出創新的任何與永續 / 綠能科技之相關應用 (STM32 開發板，不限型號或 MEMS 擴充板)。",
+            "pdf": "https://youtu.be/qZhBoE1POpM"
+		},
+        {
+			"company": "ASML",
+			"title": "如何幫助使用者完成批量影像的演算法設計 ?",
+			"description": "ASML 艾司摩爾是半導體微影技術的提供者，由於產品可能由不同的系統架構，不同的語言撰寫。唯一不變的是，在微影技術中，各產品都有使用影像處理的部分。在產品開發過程中，時常會需要調整、設計影像處理演算法流程，來針對問題做處理，所以讓我們試著設計解決方案，來幫助加速演算法測試驗證過程。",
+            "pdf": "https://youtu.be/qZhBoE1POpM"
+		},
+        {
+			"company": "恩智浦半導體",
+			"title": "永續發展 X 智慧城市與智慧家庭聯網",
+			"description": "隨著科技的演進，自動成為一種人們對高科技社會的想像，從工業革命至今，日新月異的科技使人們的生活從仰賴人力，到後來可以讓機器聽命行事，一直到 IoT 的興起，使機器有了自己判斷的標準。本次命題即以此為出發點，希望參賽者能利用我方提供的相關開發資源，以永續發展為主題，實作出智慧家電或智慧城市的應用。",
+            "pdf": "https://youtu.be/qZhBoE1POpM"
+		},
+        {
+			"company": "原相科技",
+			"title": "Visual fiducial localization system for intelligent sensing applications",
+			"description": "Fiducials are artificial visual features designed for automatic detection, and often carry a unique payload to make them distinguishable from each other. Visual fiducial system has many applications in computer vision, augmented reality, and robotics since they greatly simplify the perception problem. By leveraging PixArt’s ultra-low-power image sensor with visual fiducial localization system, we can achieve smarter sensing and interaction for different applications.",
+            "pdf": "https://youtu.be/qZhBoE1POpM"
+		},
+        {
+			"company": "中國信託",
+			"title": "運用科技，打造疫情衝擊下之金融創新服務",
+			"description": "近年來，行動支付、數位銀行與區塊鏈等金融科技 (FinTech) 已逐漸改變傳統的金融服務模式。 而突如其來的疫情更驅動著金融機構大量採用 AI 與相關科技快速發展與推動 FinTech 應用，朝向「零接觸金融服務」演進。 本次將藉由各位同學的創意，應用數位科技或 AI 技術，針對下列任一或多項金融相關議題，設計創新之金融應用。",
+            "pdf": "https://youtu.be/qZhBoE1POpM"
+		},
+        {
+			"company": "Kronos Research 麒點科技",
+			"title": "做出自己的量化交易策略",
+			"description": "量化交易，指的是使用電腦技術進行交易的投資方式。依據統計，美國股票市場其中 60% ~ 75% 的交易量來自量化交易。 本次參賽者將透過加密貨幣歷史交易資料，來開發屬於自己的量化交易策略。",
+            "pdf": "https://youtu.be/qZhBoE1POpM"
+		}
+	],
+	"sponsors": [
+		{
+			"group": "創客交流組合作單位",
+			"companies": ["新竹市政府", "新竹市政府創新產業加速中心"]
+		},
+		{
+			"group": "黑客組合作企業",
+			"companies": [
+				"台灣積體電路製造股份有限公司",
+				"意法半導體",
+				"ASML",
+				"NXP",
+				"原相科技",
+				"中國信託",
+				"Kronos Research"
+			]
+		}
+	],
+	"staffs": [
+		{
+			"dept": "行政部",
+			"members": ["陳存佩", "賴睿麒"]
+		},
+		{
+			"dept": "行銷部",
+			"members": ["郭昀", "宋少瑜", "黃姿淯", "趙于瑄", "賴語彤", "曾玉莉", "蔡沁寧"]
+		},
+		{
+			"dept": "公關部",
+			"members": ["黃琦婷", "莊婕妤", "楊叔晴", "高盛梅", "解心妤", "林庭伃", "李博安", "張宛婷", "劉芮安", "楊晨鍾"]
+		},
+		{
+			"dept": "活動部",
+			"members": ["陳宥安", "邱弘竣", "許靜怡", "蔡欣儒", "莊佳欣", "陳宣榕", "羅以淇", "宋喬茵", "范禎宸", "朱祐辰"]
+		},
+		{
+			"dept": "財務部",
+			"members": ["林言臻", "孫瑜雅", "曹瀚文", "楊則勛", "陳郁安", "鄭伊茹"]
+		},
+		{
+			"dept": "設計部",
+			"members": ["葉聿昕", "吳承祐", "莊涵韻", "梁詠晴", "陳樂穎", "詹詠甯", "周家安", "洪顥耘"
+			]
+		},
+		{
+			"dept": "開發部",
+			"members": ["邵筱庭", "王柏涵", "邱奕庭", "林柏宇", "侯博軒", "王皓平", "曾家祐", "徐瑞澤"]
+		}
+	]
+}

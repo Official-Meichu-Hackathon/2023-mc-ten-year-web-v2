@@ -105,7 +105,7 @@ body {
     padding: 4rem;
     gap: 6rem;
     grid-auto-flow: column;
-    grid-auto-columns: max(40%, 300px);
+    // grid-auto-columns: max(40%, 300px);
 
     overflow-x: auto;
     overflow-y: hidden;
@@ -168,7 +168,13 @@ h1 {
 }
 
 h2 {
-    font-size: 2.5em;
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: 1.25em;
     font-weight: bold;
     line-height: 1.2;
 }
@@ -181,7 +187,7 @@ p {
 
 span {
     font-size: 1em;
-    line-height: 1.8;
+    line-height: 1.75;
 }
 
 .text-fineprint {
