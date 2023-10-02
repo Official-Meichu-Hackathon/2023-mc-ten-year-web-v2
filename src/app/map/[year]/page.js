@@ -13,8 +13,22 @@ export default function Map({ params }) {
 function Map2023() {
     return (
         <>
-            <span>主控台</span>
-            <div className="grid grid-flow-col grid-cols-auto w-max">
+            <div id="map-stage" className="grid grid-cols-[1fr_2fr_1fr] w-full gap-8 aspect-3/1">
+                <Screen />
+                <div className="grid grid-rows-[2fr_1fr] gap-8">
+                    <div className="grid grid-cols-[1fr_4fr_1fr] gap-8">
+                        <div className="self-end grid content-center justify-items-center aspect-2/3"></div>
+                        <div className="grid grid-rows-[auto_1fr] content-center justify-items-center gap-2">
+                            <span className="font-bold">背板</span>
+                            <Area className="w-full" label="主舞台" />
+                        </div>
+                        <Area className="self-end aspect-2/3" label="控台" size="sm" />
+                    </div>
+                    <Area label="貴賓席" />
+                </div>
+                <Screen mirror />
+            </div>
+            <div id="map-seats" className="grid grid-flow-col grid-cols-auto w-max">
                 <div className="grid gap-row me-8">
                     <TableRow className="bg-nxp" amount={5} />
                     <TableRow className="bg-kk" amount={5} />
@@ -35,25 +49,60 @@ function Map2023() {
                     <TableCol className="bg-maker" amount={5} mirror />
                 </div>
             </div>
-            <div className="flex gap-aisle">
+            <div id="map-seats-extra" className="flex gap-aisle">
                 <TableRow className="bg-line" amount={4} />
                 <TableRow className="bg-line" amount={4} mirror />
             </div>
-            <div className="grid grid-cols-2 w-full mt-8 gap-aisle">
-                <div className="grid inset-0 place-content-center aspect-square border-[0.1rem] border-map rounded-2xl">
-                    <span className="text-4xl font-bold">休憩區</span>
-                </div>
-                <div className="grid grid-cols-5 aspect-square">
-                    <div className="grid grid-rows-5 gap-2 h-fit">
-                        <div className="aspect-square border-[0.1rem] border-map rounded-xl"></div>
-                        <div className="aspect-square border-[0.1rem] border-map rounded-xl"></div>
-                        <div className="aspect-square border-[0.1rem] border-map rounded-xl"></div>
-                        <div className="aspect-square border-[0.1rem] border-map rounded-xl"></div>
-                        <div className="aspect-square border-[0.1rem] border-map rounded-xl"></div>
-                    </div>
+            <div id="map-bottom" className="grid grid-cols-[1.25fr_1fr] w-full mt-8 gap-aisle">
+                <Area label="休憩區" size="lg" />
+                <div className="grid grid-cols-4 aspect-square gap-2">
+                    <Area label={`ETtoday\n新聞雲`} size="sm" square />
+                    <Area label="台灣水泥" size="sm" square />
+                    <div></div>
+                    <Area label="服務台" size="sm" square />
+
+                    <Area label="曉數碼" size="sm" square />
+                    <Area label="Google" size="sm" square />
+                    <div></div>
+                    <Area label="NXP" size="sm" square />
+
+                    <Area label="tsmc" size="sm" square />
+                    <Area label="國泰金控" size="sm" square />
+                    <div></div>
+                    <Area label="ITSA" size="sm" square />
+
+                    <Area label="美光" size="sm" square />
+                    <Area label="KKCompany" size="sm" textsize="sm" square />
+                    <div></div>
+                    <Area label="ITSA" size="sm" square />
+
+                    <Area label="LINE" size="sm" square />
+                    <Area label="抽獎區" size="sm" square />
+                    <div></div>
+                    <div></div>
                 </div>
             </div>
         </>
+    );
+}
+
+
+
+function Screen({ className, mirror = false }) {
+    return (
+        <div className={`${className} grid auto-rows-min content-center gap-4 p-4`}>
+            <span className={`${mirror ? "justify-self-end" : "justify-self-start"} px-4`}>250 吋投影布幕</span>
+            <div className={`h-4 border-[0.1rem] border-map rounded-md ${mirror ? "rotate-[15deg]" : "-rotate-[15deg]"}`}></div>
+        </div>
+    );
+}
+
+function Area({ className, label, size = "md", textsize = "", square = false }) {
+    return (
+        <div className={`${className} grid content-center justify-items-center p-2 border-[0.1rem] border-map ${square ? "aspect-square" : ""}
+                         ${size === "sm" ? "rounded-md" : "rounded-2xl"} ${size === "lg" && "text-4xl"} ${size === "md" && "text-2xl"}`}>
+            <span className={`${textsize && textsize === "sm" ? "text-microprint" : ""} font-bold text-center whitespace-pre-line`}>{label}</span>
+        </div>
     );
 }
 

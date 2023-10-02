@@ -197,6 +197,13 @@ span {
     text-align: center;
 }
 
+.text-microprint {
+    font-size: 0.75em;
+    // font-weight: 300;
+    line-height: 2;
+    text-align: center;
+}
+
 .text-primary-gradient {
     background: $clr-gradient-primary;
     -webkit-background-clip: text;
