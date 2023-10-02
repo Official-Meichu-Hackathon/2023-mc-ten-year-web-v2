@@ -1,0 +1,83 @@
+$clr-text-map: #6A747B;
+$clr-bg-map:  #F5F5F6;
+
+$clr-red: #F88F85;
+$clr-orange: #F3B971;
+$clr-yellow: #F3CD71;
+$clr-green: #A8D5CC;
+$clr-blue: #A8D5CC;
+$clr-violet: #A8ABD5;
+$clr-purple: #BAA8D5;
+
+
+
+.gap-row {
+    row-gap: 1.4rem;
+}
+.gap-aisle {
+    column-gap: 2rem;
+}
+.gap-table {
+    gap: 0.5rem; 
+}
+
+
+
+#map {
+    font-family: var(--font-source-hans-serif-tw), serif;
+}
+
+.map-table-row {
+    display: flex;
+    @extend .gap-table;
+}
+
+.map-table-col {
+    display: grid;
+    grid-auto-rows: min-content;
+    @extend .gap-row;
+}
+
+
+
+.text-map {
+    color: $clr-text-map;
+}
+
+.border-map {
+    border-color: $clr-text-map;
+}
+
+.bg-map {
+    background: $clr-bg-map;
+}
+
+
+
+.bg-nxp {
+    background-color: rgba($clr-red, 0.4);
+}
+
+.bg-kk {
+    background-color: rgba($clr-orange, 0.4);
+}
+
+.bg-google {
+    background-color: rgba($clr-yellow, 0.4);
+}
+
+.bg-tsmc {
+    background-color: rgba($clr-green, 0.4);
+}
+
+.bg-ettoday {
+    background-color: rgba($clr-blue, 0.4);
+}
+
+.bg-line {
+    background-color: rgba($clr-violet, 0.4);
+}
+
+.bg-maker {
+    background-color: rgba($clr-purple, 0.4);
+}
