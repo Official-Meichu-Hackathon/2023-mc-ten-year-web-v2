@@ -16,14 +16,44 @@
 	},
 	"scenes": {
     	"description": "2021 梅竹黑客松使用 Gather 當作我們的線上比賽場地，開閉幕時大家都整齊的坐在位置上，看起來看起來是不是非常療癒呢？\n\n梅竹黑客松活動當天同時舉辦企業博覽會，即使是非參賽者也能入場逛企業博覽會、參與抽獎，甚至還有許多娛樂活動供參賽者參加！\n\n上台頒獎時是由替身小人上台領獎，畫面看起來非常可愛對吧！",
-		"img": []
+		"img": [
+			"2021-1.JPG",
+			"2021-2.PNG",
+			"2021-3.JPG",
+			"2021-4.PNG",
+			"2021-5.PNG"
+		]
 	},
 	"topics": [
 		{
-			"company": "梅竹黑客松",
-			"title": "早餐要吃什麼 ?",
-			"description": "深入的探討早餐，是釐清一切的關鍵。早餐對我來說，已經成為了我生活的一部分。馬克思曾經說過，一切節省，歸根到底都歸結為時間的節省。這段話看似複雜，其中的邏輯思路卻清晰可見。\n就我個人來說，早餐對我的意義，不能不說非常重大。拿破崙講過一句值得人反覆尋思的話，強將手下無弱兵。這把視野帶到了全新的高度。帶著這些問題，我們一起來審視早餐。由於，早餐勢必能夠左右未來。在人生的歷程中，早餐的出現是必然的。那麼，若發現問題比我們想像的還要深奧，那肯定不簡單。面對如此難題，我們必須設想周全。對於一般人來說，早餐究竟象徵著什麼呢？毛佛魯說過，才能自然形成，性格則涉人世之風。希望大家實際感受一下這段話。若沒有早餐的存在，那麼後果可想而知。蘇軾在過去曾經講過，水枕能令山俯仰，風船解與月徘徊。這影響了我的價值觀。",
-            "pdf": "https://youtu.be/qZhBoE1POpM"
+			"company": "美光",
+			"title": "Design an effective solution to load huge amount of data into Cloud platform and visualize the result",
+			"description": "Cloud platform becomes widely adopted with its better flexibility, reliability, and performance in\nMachine Learning and Artificial Intelligence analytics compared with the On-prem platform. So, we see\nthe trend for corporates to migrate their corporate Data Warehouse from the On-prem platform to\nCloud platform. However, considering the huge amount of data with different patterns stored in the\ncurrent On-prem platform, how to move these data to Cloud platform effectively becomes the key to a\nsuccessful migration that will minimize the impacts to business during the migration.\n\nWe would like to invite the participants who are interested in this topic to use the Data Warehouse\ntechniques you have learned to design the solutions to load the huge amount of sample data from\npublic data sources (Google Public Dataset, UCI, OpenData or Kaggle) into Google Cloud Platform (GCP)\nin the appropriate formats (Cloud SQL, BigQuery, BigTable, or Cloud Spanner), then use the data\nvisualization tools in GCP (Data Studio or other BI tools) to present the results. The related platform\nenvironment and resources in GCP will be provided to the participants.\n\nThe measurements of the success will include accomplishment, innovation, presentation, and\ncomplexity of the project. Look forward to your participation and have fun in the Hackathon.",
+            "pdf": "https://2021.meichuhackathon.org/questions/Micron.pdf"
+		},
+		{
+			"company": "原相",
+			"title": "Intelligent sensing solutions for smart home applications",
+			"description": "The Internet of Things (IoT), smart homes, smart phones, wearables - consumer\nelectronics have permeated every aspect of human life. By leveraging PixArt’s sensor\nsolutions, we can make more devices smarter and create new ones that add significant\nvalue to the end user. Our mission is provide a more comfortable life at home.",
+			"pdf": "https://2021.meichuhackathon.org/questions/PixArt.pdf"
+		},
+		{
+			"company": "Supermicro",
+			"title": "貨櫃堆疊空間利用之最佳化方案",
+			"description": "隨著全球航運需求的增加，貨櫃運送價格等運輸成本在今年上半年即呈現⾶快上漲的趨\n勢。如此快速的成本提升也牽動著全世界科技業與製造業的營運。在環境的變化與疫情衝\n擊下，我們需要善⽤資源以減少不必要的浪費。⼀個能讓貨櫃空間利⽤最佳化的解決⽅案\n不僅可以讓全球眾多產業節省資源，更能減少不必要的污染以達到永續發展的⽬的。\n我們的⽬標是開發⼀個有效規劃貨櫃空間利⽤的軟體，由此軟體運算出的裝配⽅式能讓貨\n櫃內物件合理堆疊，不僅節省空間的利⽤，也考量到堆疊的結果是否穩固與重量分配。此\n軟體需能夠⾼效運算並以 3D 視覺化⽅式呈現規劃結果。",
+			"pdf": "https://2021.meichuhackathon.org/questions/Supermicro.pdf"
+		},
+		{
+			"company": "104",
+			"title": "探索資料價值，進化職場環境",
+			"description": "利⽤104提供之職缺資料可串接第三⽅公開資料，提供具有創意的web、mobile\napp或api服務，利⽤資料價值，打造更好的職場環境。\n可利⽤的第三⽅公開資料：房價實價登錄、台灣地區物價統計、家戶所得、交通\n資料、台灣疫情統計資料…等等。\n",
+			"pdf": "https://2021.meichuhackathon.org/questions/104.pdf"
+		},
+		{
+			"company": "LINE",
+			"title": "藉由 LINE API 打造數位新生活",
+			"description": "作為⼤家每天使⽤的 LINE，為了讓每位⽤戶的⽇常使⽤習慣⼀致，⽣活周遭有許\n多 場所 / 店家 / 群組 希望擁有屬於⾃⼰品牌的服務與⽤戶互動，尤其在疫情下的\n新常態⽣活更需要透過科技解決以上問題。\n本次將藉由每位同學的創意並透過 LINE 平台的技術打造應⽤服務，讓受到疫情\n衝擊的我們也能透過科技來拉近彼此間的距離。",
+			"pdf": "https://2021.meichuhackathon.org/questions/LINE.pdf"
 		}
 	],
 	"sponsors": [

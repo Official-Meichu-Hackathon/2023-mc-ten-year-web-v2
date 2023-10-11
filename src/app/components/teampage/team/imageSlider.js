@@ -12,7 +12,7 @@ import { faExpand, faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg
 
 
 // TODO: Pass in real sliders
-export function ImageSlider() {
+export function ImageSlider( {slides} ) {
     const [openImg, setOpenImg] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -46,7 +46,7 @@ export function ImageSlider() {
             window.removeEventListener("keydown", handleKeyDown);
         };
     })
-	
+
 	function prevSlide() {
 		const isFirstSlide = currentIndex === 0;
 		const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
@@ -65,30 +65,32 @@ export function ImageSlider() {
 
 
 
-    const slides = [
-		{
-			path: teamphoto1,
-		},
-		{
-			path: teamphoto2,
-		},
-		{
-			path: teamphoto1,
-		},
-		{
-			path: teamphoto2,
-		},
-		{
-			path: teamphoto1,
-		},
-	];
+    // const slides = [
+	// 	{
+	// 		path: teamphoto1,
+	// 	},
+	// 	{
+	// 		path: teamphoto2,
+	// 	},
+	// 	{
+	// 		path: teamphoto1,
+	// 	},
+	// 	{
+	// 		path: teamphoto2,
+	// 	},
+	// 	{
+	// 		path: teamphoto1,
+	// 	},
+	// ];
 
 	return (
 		<>
             <div className="relative h-full w-full">
                 <Image
-                    src={slides[currentIndex].path}
+                    src={`/img/about/scenes/${slides[currentIndex]}`}
                     alt="msg Icon"
+                    width= {teamphoto1.width}
+                    height={teamphoto1.height}
                     className="h-full w-full object-cover"
                     quality={100}
                     priority
@@ -120,8 +122,10 @@ export function ImageSlider() {
             {openImg && (
                 <div className="fixed grid inset-0 place-content-center bg-black bg-opacity-75 z-20" onClick={handleOutsideClick}>
                     <Image
-                        src={teamphoto2}
-                        alt="close"
+                        src={`/img/about/scenes/${slides[currentIndex]}`}
+                        alt="Image"
+                        width= {teamphoto1.width}
+                        height={teamphoto1.height}
                         className="object-contain md:scale-[80%]"
                         quality={100}
                         priority

@@ -47,7 +47,7 @@ export default function YearPage({ params }) {
             const parsedYear = parseInt(year, 10);
             if (Number.isInteger(parsedYear)) {
                 try {
-                    let imgModule; 
+                    let imgModule;
                     if (parsedYear < 2021) {
                         imgModule = await import(`/public/img/about/logo/${parsedYear}.webp`);
                     } else {
@@ -151,11 +151,11 @@ function Scenes({ scenes }) {
                 <h2 className="whitespace-nowrap">活動實況</h2>
             </div>
             <div className="grid md:flex md:justify-between py-12 bg-primary-invert">
-                <div className="wrapper md:grid-flow-col auto-cols-fr gap-16">  
+                <div className="wrapper md:grid-flow-col auto-cols-fr gap-16">
                     <p className="text-primary-invert whitespace-pre-line">
                         {scenes.description}
                     </p>
-                    <div className="translate-y-240"><ImageSlider /></div>
+                    <div className="translate-y-240"><ImageSlider slides={scenes.img}/></div>
                 </div>
             </div>
         </section>
@@ -193,7 +193,7 @@ function Sponsors({ sponsors }) {
             <div className="grid lg:grid-cols-2 gap-8">
                 {sponsors.map((sponsor, index) => (
                     <ul key={index} className="grid auto-rows-min gap-2">
-                        <h3>{sponsor.group}</h3>  
+                        <h3>{sponsor.group}</h3>
                         <li className="flex flex-wrap">
                             {sponsor.companies.map((company, index) => (
                                 <span key={index} className="whitespace-nowrap">
