@@ -7,7 +7,7 @@ import refImg from "../../../../public/img/Ref.jpg";
 
 
 
-// TODO: Pass in real img
+// TODO: Pass in actual imgs
 export default function Tcard({ data }) {
 	return (
         <Link href={"/teams/" + data.id} className="nue-card-sm relative max-w-md rounded-[2em]">

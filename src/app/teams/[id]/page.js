@@ -1,8 +1,9 @@
 "use client";
-import { Fragment } from "react";
 import { TeamTitle } from "@/app/components/teampage/team/teamTitle";
 import { ImageSlider } from "@/app/components/teampage/team/imageSlider";
 import { CommentBoard } from "@/app/components/teampage/team/commentBoard";
+
+import NeneImg from "../../../../public/img/Ref.jpg"
 
 // useSWR
 import useSWR from "swr";
@@ -12,6 +13,9 @@ import { Load, LoadFailed, LoadCustom } from "../../components/gadgets"
 
 
 export default function Teampage({ params }) {
+    // TODO: Pass in actual imgs
+    const slides = [{img: NeneImg}, {img: NeneImg}];
+
     const { data, error, isLoading } = useSWR(params.id ? `/api/teams/${params.id}` : null, fetcher);
 	if(error) return <LoadFailed />;
 	if(isLoading) return <Load />;
@@ -21,7 +25,7 @@ export default function Teampage({ params }) {
         <div className="mt-16 md:mt-0 bg-primary">
 			<header>
 				<div className="md:hidden w-full h-fit bg-secondary">
-                    <ImageSlider />
+                    <ImageSlider slides={slides} />
 				</div>
 				
 				<TeamTitle title={data.title} year={data.year} group={data.group}
@@ -35,10 +39,7 @@ export default function Teampage({ params }) {
                             <h2 className="whitespace-nowrap">隊伍敘述</h2>
                             <div>
                                 {data.descriptions.map((descrip, index) => (
-                                    <Fragment key={index}>
-                                        <p>{descrip}</p>
-                                        {index !== data.descriptions.length - 1 && <br />}
-                                    </Fragment>
+                                    <p key={index} className="whitespace-pre-line">{descrip}</p>
                                 ))}
                             </div>
                         </section>
@@ -46,7 +47,7 @@ export default function Teampage({ params }) {
                         <section className="hidden md:block w-full h-fit">
                             <div className="wrapper-section">
                                 <h2 className="whitespace-nowrap">隊伍簡報</h2>
-                                <ImageSlider />
+                                <ImageSlider slides={slides} />
                             </div>
                         </section>
                     </article>

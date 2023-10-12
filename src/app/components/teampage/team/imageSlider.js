@@ -2,8 +2,6 @@
 import { useState, useEffect } from "react";
 import { setBodyUnscrollable, setBodyScrollable } from "@/app/utils/helper";
 import Image from "next/image";
-import teamphoto1 from "../../../../../public/img/Team/teamphoto1.jpg";
-import teamphoto2 from "../../../../../public/img/Team/teamphoto2.webp";
 
 // Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,8 +9,7 @@ import { faExpand, faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg
 
 
 
-// TODO: Pass in real sliders
-export function ImageSlider() {
+export function ImageSlider({ className, slides, contain = false }) {
     const [openImg, setOpenImg] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -26,28 +23,7 @@ export function ImageSlider() {
         setOpenImg(false);
     };
 
-    function handleOutsideClick(e) {
-        if (e.target === e.currentTarget) {
-            console.log(" BG clicked, close image popup");
-            closePopup();
-        }
-    };
-
-    function handleKeyDown(e) {
-        if (e.key === "Escape" && openImg) {
-            console.log(e.key, ": close image popup");
-            closePopup();
-        }
-    }
-
-    useEffect(() => {
-        window.addEventListener("keydown", handleKeyDown);
-        return () => {
-            window.removeEventListener("keydown", handleKeyDown);
-        };
-    })
-	
-	function prevSlide() {
+    function prevSlide() {
 		const isFirstSlide = currentIndex === 0;
 		const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
 		setCurrentIndex(newIndex);
@@ -59,37 +35,44 @@ export function ImageSlider() {
 		setCurrentIndex(newIndex);
 	};
 
-	function goToSlide(slideIndex) {
-		setCurrentIndex(slideIndex);
-	};
+    function handleOutsideClick(e) {
+        if (e.target === e.currentTarget) {
+            closePopup();
+        }
+    };
 
+    function handleKeyDown(e) {
+        if (openImg) {
+            switch (e.key) {
+                case "Escape":
+                    closePopup();
+                    break;
+                case "ArrowLeft":
+                    prevSlide();
+                    break;
+                case "ArrowRight":
+                    nextSlide();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
 
-
-    const slides = [
-		{
-			path: teamphoto1,
-		},
-		{
-			path: teamphoto2,
-		},
-		{
-			path: teamphoto1,
-		},
-		{
-			path: teamphoto2,
-		},
-		{
-			path: teamphoto1,
-		},
-	];
+    useEffect(() => {
+        window.addEventListener("keydown", handleKeyDown);
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    })
 
 	return (
 		<>
-            <div className="relative h-full w-full">
+            <div className={`${className} relative h-full w-full bg-primary aspect-video`}>
                 <Image
-                    src={slides[currentIndex].path}
-                    alt="msg Icon"
-                    className="h-full w-full object-cover"
+                    src={slides[currentIndex].img}
+                    alt={"img" + currentIndex}
+                    className={`h-full w-full object-cover ${contain && "xl:object-contain"}`}
                     quality={100}
                     priority
                 />
@@ -106,7 +89,7 @@ export function ImageSlider() {
                         </button>
 
                         {/* Current Slide Index */}
-                        <span className="text-lg font-bold flex-shrink-0 w-[1rem] text-center">
+                        <span className="text-lg font-bold flex-shrink-0 w-[1rem] text-center select-none">
                             {currentIndex + 1}
                         </span>
 
@@ -120,8 +103,8 @@ export function ImageSlider() {
             {openImg && (
                 <div className="fixed grid inset-0 place-content-center bg-black bg-opacity-75 z-20" onClick={handleOutsideClick}>
                     <Image
-                        src={teamphoto2}
-                        alt="close"
+                        src={slides[currentIndex].img}
+                        alt={"img" + currentIndex + "_full"}
                         className="object-contain md:scale-[80%]"
                         quality={100}
                         priority

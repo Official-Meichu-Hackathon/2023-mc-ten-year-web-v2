@@ -15,15 +15,51 @@
 		]
 	},
 	"scenes": {
-    	"description": "2019 梅竹黑客松於清大體育館盛大開幕，來自四面八方的參賽者齊聚一堂，可以看到各個參賽組別都在努力發想各種創新產品呢！\n\n梅竹黑客松是一個兩天一夜的大型活動，自然是少不了餐食的供應啦！豐盛的餐食讓參賽者可以填飽肚子繼續奮鬥！！\n\n今年的梅竹大獎由「我們的鍵盤會發光」奪下，而創客組則是由「菜雞大隊」拔得頭籌！",
-		"img": []
+    	"description": "2019 梅竹黑客松於清大體育館盛大開幕，來自四面八方的參賽者齊聚一堂，可以看到各個參賽組別都在努力發想各種創新產品呢！\n\n梅竹黑客松是一個兩天一夜的大型活動，自然是少不了餐食的供應啦！豐盛的餐食讓參賽者可以填飽肚子繼續奮鬥！！\n今年的梅竹大獎由「我們的鍵盤會發光」奪下，而創客組則是由「菜雞大隊」拔得頭籌！",
+		"imgs": ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp"]
 	},
 	"topics": [
 		{
-			"company": "梅竹黑客松",
-			"title": "早餐要吃什麼 ?",
-			"description": "深入的探討早餐，是釐清一切的關鍵。早餐對我來說，已經成為了我生活的一部分。馬克思曾經說過，一切節省，歸根到底都歸結為時間的節省。這段話看似複雜，其中的邏輯思路卻清晰可見。\n就我個人來說，早餐對我的意義，不能不說非常重大。拿破崙講過一句值得人反覆尋思的話，強將手下無弱兵。這把視野帶到了全新的高度。帶著這些問題，我們一起來審視早餐。由於，早餐勢必能夠左右未來。在人生的歷程中，早餐的出現是必然的。那麼，若發現問題比我們想像的還要深奧，那肯定不簡單。面對如此難題，我們必須設想周全。對於一般人來說，早餐究竟象徵著什麼呢？毛佛魯說過，才能自然形成，性格則涉人世之風。希望大家實際感受一下這段話。若沒有早餐的存在，那麼後果可想而知。蘇軾在過去曾經講過，水枕能令山俯仰，風船解與月徘徊。這影響了我的價值觀。",
-            "pdf": "https://youtu.be/qZhBoE1POpM"
+			"company": "KKBOX",
+			"title": "KKBOX Open API - 讓人人都能成為音樂專家",
+			"description": "KKBOX Open API 擁有超過 4,500 萬首歌曲的豐富音樂資料庫，你可以利用各種程式語言透過 HTTP API 取得歌手、專輯、歌曲、排行榜等資訊，方便實作音樂應用於網頁、Mobile App 及 IoT 設備之中，是提供你取得音樂原料的入口！\n[開發者網站](https://rebrand.ly/l2mj9s)　[開始使用說明](https://docs-zhtw.kkbox.codes)\n＊此場活動獨家揭露 OAuth 2 使用者授權 API，請參賽者務必從以上「開始使用說明」連結進入相關文件",
+            "pdf": ""
+		},
+		{
+			"company": "KKBOX",
+			"title": "KKLINX - 讓你的音樂應用活靈活現、沒有界限！",
+			"description": "KKLINX 是 KKBOX 的音樂播放函式庫，提供簡單的整合介面，並讓 KKBOX用戶透過 KKBOX App 即能操控整合 KKLINX 的裝置或是裝置自行驅動播放選定之音樂曲目。我們提供易於給多種語言整合的 MQTT 介面，讓你可以在 Raspberry 等多種開發板上完全揮灑充滿音符躍動的無限創意！",
+			"pdf": ""
+		},
+		{
+			"company": "羅技電子",
+			"title": "",
+			"description": "\n1. How can we leverage the recent developments, in software, AI and machine learning, to boost the productivity of our users?\n 2. Play a game through remote server to replace a local machine equipped with expensive CPU/graphic card. User could use keyboard, mouse, and controller to execute actions and sent over the network to the cloud gaming server.\n3. Base on work from home. How might we create an environment like an office for virtual teams? How might we improve creativity and productivity for virtual teams?\n4. There are more and more YouTuber online. How might we integrate keyboard, mouse, webcam, microphone and software to create a more friendly YouTuber environment?\n5. While people spend a lot of time at their desks every day. How might we link a healthier lifestyle, gamification, muscle memory, Logitech software and product to help users stay healthy at work?",
+			"pdf": "https://sites.google.com/logitech.com/logi-meichu-hackathon/home"
+		},
+		{
+			"company": "中華電信",
+			"title": "智慧生活感測資訊收集與創意應用",
+			"description": "以可商轉創意為核心，運用資通訊技術並結合智慧終端裝置，發展整合性物聯網應用服務及解決方案。\nIoT 大平台服務關聯性：透過前端設備感測器與後端控制應用系統整合，可創造多樣化的服務價值，在設計思考上應考量運用 IoT 大平台功能，以人本出發，提升使用者體驗之服務。\n人機介面：IoT 大平台上提供多項程式工具，在介面的設計上應考量使用者操作的便利性與畫面視覺體驗。",
+			"pdf": ""
+		},
+		{
+			"company": "威盛電子",
+			"title": "AI 影像辨識及自然語言應用",
+			"description": "參賽隊伍運用影像辨識及自然語言相關之 AI 技術能力，將好點子，施作於具備 AI 算力之系統上， 提出創意應用程式，不設限應用場域，參賽隊伍可影像辨識及自然語言技術擇一施作，或兩者技術皆運用之。",
+			"pdf": ""
+		},
+		{
+			"company": "富比庫",
+			"title": "",
+			"description": "在使用 EDA tools 做設計時，若遇到非內建的元件，工程師需要從該零件的 PDF 說明文件中，找到腳位圖中腳位編號或其座標所對應的敘述，並自己手動加入該元件。參賽隊伍運用圖像辨識和文字搜尋，利用題目提供的文件和圖案，幫助工程師能更方便的對應各個座標、編號及功能。\n目標 1：利用題目提供的腳位圖，從圖中辨別各個座標內的文字，並在 PDF 文件中搜尋相關的敘述和說明。\n目標 2：設計使用者介面和視覺化，可以假設已知目標 1 所找到的各資訊。當使用者選取圖中的某個腳位時，將該座標在文件中的相關資訊顯現出來，選取方式和資訊呈現方式不限，提供參加者發想，以能讓工程師在最短的時間內獲得最多有用的資訊為主要目標。\n參賽者可擇一目標實作，或兩個方向皆實作。如兩個目標皆已完成，則可以推廣到一般文件，或是發想其他日常生活應用。",
+			"pdf": ""
+		},
+		{
+			"company": "新竹市政府",
+			"title": "青年 X 政府，參與、溝通對話及創新發展",
+			"description": "例如以下幾個面向，但不侷限這些範圍：青年的需求，議題想法或倡議行動等，可以透過何種機制與平台交流溝通對話，讓公部門或政府正確地有效率的回應或推動政策。\n例如：將新竹市政府勞工處網頁利用各種科技工具新增或調整為青年 X 政府雙向溝通平台。\n公部門可以建置什麼管道，讓青年對社會參與更為主動積極。\n青年可以如何與政府攜手共同創新發展，取社會流動的機會，共同營造新世代的社會。",
+			"pdf": ""
 		}
 	],
 	"sponsors": [

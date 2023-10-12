@@ -21,14 +21,44 @@
 	},
 	"scenes": {
     	"description": "2020 新竹Ｘ梅竹黑客松在清大體育館盛大開幕，來自四面八方的參賽者齊聚一堂發想各種創新產品！\n\n參賽者在比賽會場除了打程式外，還可以參加企業博覽會，現場甚至還有許多娛樂設施讓參賽者在比賽之餘保持放鬆！\n\n而歷經了重重考驗，梅竹大獎最終由「726 戰隊」拿下！",
-		"img": []
+		"imgs": ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp"]
 	},
 	"topics": [
 		{
-			"company": "梅竹黑客松",
-			"title": "早餐要吃什麼 ?",
-			"description": "深入的探討早餐，是釐清一切的關鍵。早餐對我來說，已經成為了我生活的一部分。馬克思曾經說過，一切節省，歸根到底都歸結為時間的節省。這段話看似複雜，其中的邏輯思路卻清晰可見。\n就我個人來說，早餐對我的意義，不能不說非常重大。拿破崙講過一句值得人反覆尋思的話，強將手下無弱兵。這把視野帶到了全新的高度。帶著這些問題，我們一起來審視早餐。由於，早餐勢必能夠左右未來。在人生的歷程中，早餐的出現是必然的。那麼，若發現問題比我們想像的還要深奧，那肯定不簡單。面對如此難題，我們必須設想周全。對於一般人來說，早餐究竟象徵著什麼呢？毛佛魯說過，才能自然形成，性格則涉人世之風。希望大家實際感受一下這段話。若沒有早餐的存在，那麼後果可想而知。蘇軾在過去曾經講過，水枕能令山俯仰，風船解與月徘徊。這影響了我的價值觀。",
-            "pdf": "https://youtu.be/qZhBoE1POpM"
+			"company": "台灣美光",
+			"title": "",
+			"description": "The COVID-19 pandemic changes how we work today in the factory. For mitigating the pandemic, many companies are forced to let employees work from home (WFH). The WFH may become a normal working model in the factory.\nPlease provide \"a minimum viable product\" to support WFH in order to keep productivity, efficiency, collaboration, team work, and the security as well.\n",
+			"pdf": "https://drive.google.com/file/d/19s58eMRMARBVjHhzNDzGsxWh4tFIACAU/view?usp=sharing"
+		},
+		{
+			"company": "羅技電子",
+			"title": "",
+			"description": "We have several ideas for the challenge, teams can pick one or many.\n\nFor gaming (Logitech G SDK link is [here](https://www.logitechg.com/en-sg/innovation/developer-lab.html))",
+			"pdf": "https://drive.google.com/file/d/1s-n47HC_dllFEGCymnrvgVYfeZlSYThZ/view?usp=sharing"
+		},
+		{
+			"company": "LINE",
+			"title": "透過 LIFF (LINE Frontend Framework) 分享出你的創意",
+			"description": "LIFF (LINE Frontend Framework) 是 LINE 為網頁應用 (Web Application) 所開發應用套件。 透過 LIFF 除了可以快速做相關的 LINE Login 取得使用者資訊， 更可以將有趣的資訊直接在網頁上分享給你 LINE 的好友。\n本次的主題希望同學們能發揮想像力， 透過 LIFF 來開發出一個令人為之讚嘆 (WoW) 的應用服務。\n更多 LIFF 的相關開發文件請参考[這裡](https://developers.line.biz/en/docs/liff/)",
+			"pdf": "https://drive.google.com/file/d/1ITAqPYNZolvQcLFNNEjp47VncfqNAM7R/view?usp=sharing"
+		},
+		{
+			"company": "意法半導體",
+			"title": "智慧物件新應用",
+			"description": "意法半導體（STMicroelectronics，簡稱 ST）長期致力與客戶和夥伴一起研發產品和解決方案，共同打造生態系統，一同攜手應對各種挑戰和機會，滿足世界對於永續發展之更高的需求。STM32 生態系統提供一個輕鬆入門、充足資源的開發平台，可搭配各種不同通訊模組、感測器，以協助工程師建構各式各類不同應用。而 ST 的開發板則包含了動作及環境感測器，可偵測物理世界的各種狀態（加速度、角速度、磁力計、氣壓、溫度和濕度）。\n\n我們的目標是打造出一個讓人們出行更智慧、電力和能源管理更高效、物聯網和 5G 技術應用更廣泛的環境。所以，我們希望參賽的同學能夠發想出改善人類生活品質，實現創新應用的智慧物件，符合 ST 願景和目標的作品。",
+			"pdf": "https://drive.google.com/file/d/1GT78EsQLJ3hlhIBUrwYY2w8rHF-H0qXl/view?usp=sharing"
+		},
+		{
+			"company": "新竹市政府",
+			"title": "",
+			"description": "2020 年受到新冠肺炎疫情影響，民眾在生活各層面均受到影響，催生了遠距 / 零接觸科技及經濟模式的興起，為有效因應後疫情時代，期望透過政府提案創客解題的方式，讓熱血青年提出衛生 / 就業 / 經濟 / 政府服務等領域可檢視 / 可複製 / 可公開的解決方案，廣利大眾。",
+			"pdf": "https://drive.google.com/file/d/1SVby-zMOy4H4R3_Tla4L-c9VtPUWbFb7/view?usp=sharing"
+		},
+		{
+			"company": "Girls in Tech",
+			"title": "極端化的社會 - 如何運用簡單科技工具協助立場不同的人對話 ?",
+			"description": "在 2016 年劍橋分析事件後，民眾對「Facebook 濫用資料、販賣數據」的事實開始有了掌握。2016 年劍橋分析事件顯然是一次運用數據進行的資訊戰。\n\n根據網路平台沃草報導，資訊戰的目的是「瓦解民主社會的互信機制」，讓原本對立的人更對立，讓原本不願意溝通的人變得更難溝通，更厭惡彼此。 而資訊戰的手段包含製造輿論、散佈假消息以及誇大散佈情緒化言論等。資訊戰在網路普及的現在已經成為新世代政治操作的常態，但我們要如何才能免於成為輕易被操弄的魁儡呢？\n\n我們想要邀請參與者一起思考，如何能夠運用簡單的科技工具協助在資訊戰中搖擺不 定的人們彼此溝通、相互理解。\n這項工具可以是流言終結者、可以是聊天機器人也可以是一個提供友善對話的平台。\n\n我們期待協助不同立場的人們再次建立友善溝通的管道。",
+			"pdf": "https://drive.google.com/file/d/1PtisKu07ze6RyTAFMiPbXdMygzSMeIAG/view?usp=sharing"
 		}
 	],
 	"sponsors": [

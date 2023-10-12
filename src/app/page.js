@@ -5,7 +5,8 @@ import { Card, CardContent, CardImg, viewMore } from "./components/card"
 import { Load, LoadFailed } from "./components/gadgets"
 import Image from "next/image";
 import homepageImg from "../../public/img/home/bg.svg";
-import refImg from "../../public/img/Ref.png";
+
+import NeneImg from "../../public/img/Ref.jpg"
 
 // useSWR
 import useSWR from "swr";
@@ -112,7 +113,7 @@ function AboutUsSec({ setInView }) {
         <InViewSec className="wrapper min-h-screen place-items-center" setInView={setInView}>
             <Card className="w-min place-items-center max-w-4xl
                              md:w-auto md:grid-flow-col md:grid-cols-[auto_1fr]">
-                <CardImg className="w-[18rem] md:h-full md:max-w-sm aspect-square" img={refImg} />
+                <CardImg className="w-[18rem] md:h-full md:max-w-sm aspect-square" img={NeneImg} />
                 <CardContent title={title} content={content} moreInfo={viewMore} link="/about" titleAlign="center" />
             </Card>
         </InViewSec>
@@ -134,7 +135,7 @@ function TeamSec({ setInView }) {
                             lg:w-[60vw] lg:place-self-end">
                 {data.map((year) => (
                     <Card key={year.year} className="w-min place-items-center max-w-4xl">
-                        <CardImg className="w-[18rem] md:h-full md:max-w-sm aspect-square" img={refImg} />
+                        <CardImg className="w-[18rem] md:h-full md:max-w-sm aspect-square" img={NeneImg} />
                         <CardContent title={year.year} content={year.description} moreInfo={viewMore} link={`/about/${year.year}`} titleAlign="center" />
                     </Card>
                 ))}
@@ -146,7 +147,7 @@ function TeamSec({ setInView }) {
 
 
 function QnaSec({ setInView }) {
-    const img = refImg;
+    const img = NeneImg;
     const title = "Q & A";
     const content = "在這個頁面之中，我們會將大家的問題一併答覆，你可以根據熱門標籤或是直接搜尋問題關鍵字，解決自己的疑惑。";
 

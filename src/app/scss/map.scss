@@ -5,7 +5,7 @@ $clr-red: #F88F85;
 $clr-orange: #F3B971;
 $clr-yellow: #F3CD71;
 $clr-green: #A8D5CC;
-$clr-blue: #A8D5CC;
+$clr-blue: #a8c9d5;
 $clr-violet: #A8ABD5;
 $clr-purple: #BAA8D5;
 
@@ -24,6 +24,7 @@ $clr-purple: #BAA8D5;
 
 
 #map {
+    color: $clr-text-map;
     font-family: var(--font-source-hans-serif-tw), serif;
 }
 
@@ -40,9 +41,6 @@ $clr-purple: #BAA8D5;
 
 
 
-.text-map {
-    color: $clr-text-map;
-}
 
 .border-map {
     border-color: $clr-text-map;

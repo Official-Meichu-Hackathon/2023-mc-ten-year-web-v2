@@ -39,7 +39,8 @@ export function CardContent({ className, title, content, moreInfo, link, titleAl
     return (
         <div className={`${className} card-content`}>
             <span className={`content-title ${titleAlign === "center" ? "justify-self-center" : ""} text-[1.75em]`}>{title}</span>
-            <div>
+            {/* // TODO: \n problems */}
+            <div className="whitespace-pre-line">
                 <ReactMarkdown  remarkPlugins={[remarkGfm, {singleTilde: false}]}
                                 components={{ p: ({node, ...props}) => <p>{props.children}</p> }}>
                     {content}
